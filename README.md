@@ -7,12 +7,12 @@
 + Mario Mamani
 - Pablo Cuenca
 
-## Titulo de la Sitio Web
+## Titulo del  Sitio Web
 ## MPK GAMES
 
 ## Descripción de Nuestro Sitio Web
 
-Nuestro sitio ofrece ventas de Video Juegos para todo el publico.
+Nuestro sitio está dirigido para todo tipo de público, ofreciendo ventas de Videojuegos para diferentes consolas con una gran variedad de categorías que se pueden ajustar a su preferencia.
 
 
 
