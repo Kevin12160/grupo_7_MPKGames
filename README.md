@@ -3,9 +3,9 @@
 ## Alumnos 
 
 
-* Kevin Montaño (Programador Web Java Scritp, NodeJs )
-+ Mario Mamani (Programador Web Java Scritp, NodeJs )
-- Pablo Cuenca (Programador Web Java Scritp, NodeJs )
+* Kevin Montaño (Programador Web JavaScript, NodeJs )
++ Mario Mamani (Programador Web JavaScript, NodeJs )
+- Pablo Cuenca (Programador Web JavaScript, NodeJs )
 
 ## Titulo de la Sitio Web
 ## MPK GAMES
