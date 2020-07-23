@@ -12,7 +12,7 @@
 
 ## Descripción de Nuestro Sitio Web
 
-Nuestro sitio ofrece ventas de Video Juegos para todo el publico.
+Nuestro sitio ofrece ventas de Video Juegos para todo el publico Gamers. Canales en las plataformas de videos Twitch y/o Youtube mostrando trailers o trucos de nuevos atajos o funciones, desde las mismas plataformas se emiten campeonatos entre los usuarios registrados.    
 
 
 
