@@ -47,7 +47,7 @@ La función de sumar productos al carrito de compras y como se autocompleta el b
 
 ## Mockups del sitio web
 
-[Home](https://trello-attachments.s3.amazonaws.com/5f11f2ffb590ab80c1627d01/1019x1343/acdc7a29a0bbe4762235700bdbafaaca/Page_1.png)
+[Home](https://trello-attachments.s3.amazonaws.com/5f11f2ffb590ab80c1627d01/1019x1343/bb3e1d2d3f37e030d9f11e6782c20539/Page_1_Copy.png)
 
 [Detalle de producto](https://trello-attachments.s3.amazonaws.com/5f11f30f5d00695192e34ca5/544x613/f187d6ef70e58efc759e91c47d0531da/imagenDetalleDelProducto.png)
 
