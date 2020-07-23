@@ -9,6 +9,7 @@
 
 ## Titulo de la Sitio Web
 ## MPK GAMES
+[LogoTipo](https://trello-attachments.s3.amazonaws.com/5f16fa40615a1e5ed912946b/720x720/fd74057010b9e8956f24ff647488f41b/LogoMPK.jpeg.jpg)
 
 ## Descripción de Nuestro Sitio Web
 
@@ -60,7 +61,6 @@ La función de sumar productos al carrito de compras y como se autocompleta el b
 [Formulario de Carga-Producto Nuevo para el administrador](https://wireframe.cc/pro/pp/654f2f92d360793)
 
 [Formulario de Carga-Modificar Producto para el administrador](https://wireframe.cc/pro/pp/eb812f063360812)
-
 
 
 
