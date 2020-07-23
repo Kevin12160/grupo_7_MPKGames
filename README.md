@@ -13,7 +13,7 @@
 
 ## Descripción de Nuestro Sitio Web
 
-Nuestro sitio ofrece ventas de Video Juegos para todo el publico Gamers. Canales en las plataformas de videos Twitch y/o Youtube mostrando trailers o trucos de nuevos atajos o funciones, desde las mismas plataformas se emiten campeonatos entre los usuarios registrados.    
+Nuestro sitio ofrece ventas de Video Juegos para todo el publico Gamers. Canales en las plataformas de videos Twitch y/o Youtube mostrando trailers o trucos de nuevos atajos o funciones de los juegos, desde las mismas plataformas se emiten campeonatos entre los usuarios registrados y los mismo participan con calificaciones y comentarios de cada juego.    
 
 
 
@@ -30,7 +30,7 @@ Nos pareció muy interesante la función de cambiar de tema de claro a Oscuro en
 En el caso de esta pagina nos gusto los filtros que se usan para buscar los distintos títulos a la venta. La función de un contador de horas referente a las ofertas del día. La integración con las plataformas de videos como Twitch y YouTube,  poder cambiar de tema claro a oscuro muy fácilmente. 
 
 [electronicthings](https://www.electronicthings.com.ar/)
-La función de sumar productos al carrito de compras y como se autocompleta el buscador a medida que uno empieza a escribir.
+La función de sumar productos al carrito de compras y como se autocompleta el buscador a medida que uno empieza a escribir. Carrusel de imágenes del Banner
 
 
 
