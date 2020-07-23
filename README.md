@@ -7,7 +7,7 @@
 + Mario Mamani (Programador Web JavaScript, NodeJs, Subcampeón Argentino )
 - Pablo Cuenca (Programador Web JavaScript, NodeJs, )
 
-## Titulo de la Sitio Web
+## Titulo del  Sitio Web
 ## MPK GAMES
 [LogoTipo](https://trello-attachments.s3.amazonaws.com/5f16fa40615a1e5ed912946b/720x720/fd74057010b9e8956f24ff647488f41b/LogoMPK.jpeg.jpg)
 
@@ -51,9 +51,15 @@ La función de sumar productos al carrito de compras y como se autocompleta el b
 [Home](https://trello-attachments.s3.amazonaws.com/5f11f2ffb590ab80c1627d01/1019x1343/bb3e1d2d3f37e030d9f11e6782c20539/Page_1_Copy.png)
 
 [Detalle de producto](https://trello-attachments.s3.amazonaws.com/5f11f30f5d00695192e34ca5/544x613/f187d6ef70e58efc759e91c47d0531da/imagenDetalleDelProducto.png)
+## --
+[Carrito de compras-Inicio](https://trello-attachments.s3.amazonaws.com/5f11f31a8197633961d25e6c/1095x976/f8901b8fd591a381db364373f4ee257c/Carrito1.png)
 
-[Carrito de compras](https://trello-attachments.s3.amazonaws.com/5f11f31a8197633961d25e6c/1175x905/ac38663d5b8049ba3db8af4ac074c7f3/Carrito.png)
+[Carrito de compras-Entrega](https://trello-attachments.s3.amazonaws.com/5f11f31a8197633961d25e6c/1095x976/ec04fa3de700d07295ed8fb65bb40203/Carrito_2.png)
 
+[Carrito de compras-FormaDePago](https://trello-attachments.s3.amazonaws.com/5f11f31a8197633961d25e6c/1095x976/dd54dec72e350b1e17e0adb142e2f9d7/Carrito_3.png)
+
+[Carrito de compras-SeguimientoDeProducto](https://trello-attachments.s3.amazonaws.com/5f11f31a8197633961d25e6c/1095x976/1c53e0f8de1e58237d080230b58cd679/Carrito_4.png)
+## --
 [Formulario de registro](https://trello-attachments.s3.amazonaws.com/5f11f32a603d822dd6c76cbe/495x777/ce07506434000c6e61612283220d9592/Formulario_de_registro.png)
 
 [Formulario de Carga-Principal para el administrador](https://wireframe.cc/pro/pp/f6be4e17a360775)
@@ -61,6 +67,3 @@ La función de sumar productos al carrito de compras y como se autocompleta el b
 [Formulario de Carga-Producto Nuevo para el administrador](https://wireframe.cc/pro/pp/654f2f92d360793)
 
 [Formulario de Carga-Modificar Producto para el administrador](https://wireframe.cc/pro/pp/eb812f063360812)
-
-
-
