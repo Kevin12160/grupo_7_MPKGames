@@ -3,9 +3,9 @@
 ## Alumnos 
 
 
-* Kevin Montaño (Programador Web JavaScript, NodeJs )
-+ Mario Mamani (Programador Web JavaScript, NodeJs )
-- Pablo Cuenca (Programador Web JavaScript, NodeJs )
+* Kevin Montaño (Programador Web JavaScript, NodeJs, Campeón Argentino )
++ Mario Mamani (Programador Web JavaScript, NodeJs, Subcampeón Argentino )
+- Pablo Cuenca (Programador Web JavaScript, NodeJs, )
 
 ## Titulo de la Sitio Web
 ## MPK GAMES
@@ -44,6 +44,23 @@ La función de sumar productos al carrito de compras y como se autocompleta el b
 ## Paleta de Colores a Usar 
 
 [Colores](https://trello-attachments.s3.amazonaws.com/5f11d873338e65591a1421bb/5f11f35ff940ff5d406123f5/7937f848d675e7dc8df873db55ec8df8/PaletaDeColoresaUsar.png)
+
+## Mockups del sitio web
+
+[Home](https://trello-attachments.s3.amazonaws.com/5f11f2ffb590ab80c1627d01/1019x1343/acdc7a29a0bbe4762235700bdbafaaca/Page_1.png)
+
+[Detalle de producto](https://trello-attachments.s3.amazonaws.com/5f11f30f5d00695192e34ca5/544x613/f187d6ef70e58efc759e91c47d0531da/imagenDetalleDelProducto.png)
+
+[Carrito de compras](https://trello-attachments.s3.amazonaws.com/5f11f31a8197633961d25e6c/1175x905/ac38663d5b8049ba3db8af4ac074c7f3/Carrito.png)
+
+[Formulario de registro](https://trello-attachments.s3.amazonaws.com/5f11f32a603d822dd6c76cbe/495x777/ce07506434000c6e61612283220d9592/Formulario_de_registro.png)
+
+[Formulario de Carga-Principal para el administrador](https://wireframe.cc/pro/pp/f6be4e17a360775)
+
+[Formulario de Carga-Producto Nuevo para el administrador](https://wireframe.cc/pro/pp/654f2f92d360793)
+
+[Formulario de Carga-Modificar Producto para el administrador](https://wireframe.cc/pro/pp/eb812f063360812)
+
 
 
 
