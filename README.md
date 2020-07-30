@@ -9,7 +9,7 @@
 
 ## Titulo del  Sitio Web
 ## MPK GAMES
-[LogoTipo](https://trello-attachments.s3.amazonaws.com/5f16fa40615a1e5ed912946b/720x720/fd74057010b9e8956f24ff647488f41b/LogoMPK.jpeg.jpg)
+[LogoTipo](https://trello-attachments.s3.amazonaws.com/5f11d873338e65591a1421bb/5f16fa40615a1e5ed912946b/12d1e94cf99e94e8c10765d99dda7f4a/Logo.jpg)
 
 ## Descripción de Nuestro Sitio Web
 
