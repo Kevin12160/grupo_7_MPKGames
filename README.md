@@ -5,7 +5,7 @@
 
 * Kevin Montaño (Programador Web JavaScript, NodeJs, Campeón Argentino )
 + Mario Mamani (Programador Web JavaScript, NodeJs, Subcampeón Argentino )
-- Pablo Cuenca (Programador Web JavaScript, NodeJs, )
+- Pablo Cuenca (Programador Web JavaScript, NodeJs, Chofer)
 
 ## Titulo del  Sitio Web
 ## MPK GAMES
