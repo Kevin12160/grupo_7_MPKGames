@@ -57,10 +57,16 @@ header {
     padding: 20px
 }
 
-header .logo {
-    padding: 0px;
-    height: 34px;
+header .logo img{  
+      
+    height: 100px;
+    
 }
+header .logo{
+    padding: 0px;
+    height: 34px;    
+}
+
 
 header form {
     position: relative;
@@ -185,6 +191,7 @@ h2{
     margin: -10px  auto;
     width: 80%;
     height: 40%;
+    border-radius: 25px;
 }
 
 section .titulo h2 {
@@ -204,6 +211,7 @@ section .contenido {
 
 section .contenido figure img {
     width: 80%;
+    border-radius: 50%;
 }
 
 section article {
