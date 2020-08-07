@@ -59,8 +59,9 @@ header {
 
 header .logo img{  
       
-    height: 100px;
-    
+    height: 65px;
+    width: 65%;
+    margin-left: 10px;
 }
 header .logo{
     padding: 0px;
@@ -145,6 +146,18 @@ header nav button.burger {
     border-radius: 4px;
     padding: 3px 15px;
 }
+
+/* es una prueba sobre cada link del menu*/
+/* .BtnActivo :hover{    
+    border-bottom: 1px solid var(--color-AzulOceano);
+} */
+
+menu li a{
+        width: 20%;
+        height: 100%;
+}
+
+
 
 
 /* cambio el aspecto cuando el boton tiene el foco*/
@@ -234,7 +247,7 @@ section article p{
 font-family: 'Quicksand', sans-serif;
     font-size: 14px;
 }
-section article i {
+.Xbox {
     color: var(--color-AzulOceano);
     background-color: white;
     border: 1px solid var(--color-AzulOceano);
@@ -246,6 +259,16 @@ section article i {
     right: 20px;
 }
 
+.playStation{
+    color: var(--color-Turquesa);
+    background-color: white;
+    border: 1px solid var(--color-AzulOceano);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    position: absolute;
+    top:-22px;    
+}
 
 /*
 FOOTER
@@ -278,12 +301,19 @@ FOOTER
     margin: 20px 0;
 }
 
-.copyright {
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid var(--color-azul);
-    border-bottom: 1px solid var(--color-azul);
-    color: var(--color-grisOscuro);
+.redes i{
+    text-align: center;    
+    font-size: 28;
+    color: var(--color-Turquesa);        
+    flex-wrap: wrap;
+}
+
+.copyright {    
+    text-align: center;    
+    
+    color:var(--color-azul);
+    font-size: 22px;
+    
 }
 
 
