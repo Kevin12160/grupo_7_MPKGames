@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuarios</title>
+        <!-- ETIQUETAS LINK PARA VINCULAR CON ONTAWESOME Y BOOTSTRAP-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            
+        <link rel='stylesheet' href='/stylesheets/registroUsuarios.css' />
+
+</head>
+
+<body>
+       
+       
+
+     
+        <form Class="FormLogin" action="#" method="POST">
+        <div class="LogoFormRegistro">
+            <a href=""><img src="/images/logo.png" alt="Logo MPKGames "></a>
+            <h2>Registro de Usuario</h2>
+        </div>   
+
+            <button type="button" class="btn btn-primary btnLoginRedesFacebook">Login con Facebook</button>
+            <button type="button" class="btn btn-light btnLoginRedesGoogle">Login con Google</button>
+            
+
+            <h6>O registrese Manulamente</h6>
+
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" required>
+            </p>
+
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Ingrese su Email" required>
+            </p>
+            
+            <p>
+                <label form="usu_CodigoArea">Codigo de Area</label> 						
+                <input type="number_format" id="usu_CodigoArea"  name="usu_CodigoArea" placeholder="Ingrese su Codigo de Area ej: 011"/> 
+            </p>             
+            <p>
+                <label form="usu_Telefono">Telefono</label> 						
+                <input type="text" id="usu_Telefono"  name="usu_Telefono" placeholder="Ingrese su telefono"/> 
+            </p>
+            <p>
+                <label form="usu_email">email</label> 
+                <input type="email" id="usu_email" name="usu_email"  placeholder="Ingrese su email" required/> 
+            </p>    
+            <p>
+                <label form="usu_password">Ingrese una Contraseña</label> 
+                <input type="password" placeholder="Ingrese una Contraseña" name="usu_password" id="usu_password" required>
+            </p>
+            <p>
+                <label form="usu_passwordConf">Confirme su Contraseña</label> 
+                <input type="password" placeholder="Confirme su Contraseña"  name="usu_passwordConf" id="usu_passwordConf" required>
+            </p>  
+
+            <p>
+                <input type="submit" value="Registrarse" class="botonesRegistrarse"/>   
+            
+            </p>    
+    </form>
+
+        <!--scripts de bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+    
+</body>
+
+</html>

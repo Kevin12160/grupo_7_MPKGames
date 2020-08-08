@@ -294,11 +294,17 @@ FOOTER
     margin: 10px 0;
 }
 
-.footer article h4,
-.footer article p {
+.footer article h4{
     color: var(--color-grisClaro);
     display: flex;
     margin: 20px 0;
+}
+
+
+.footer article p {
+    color: var(--color-grisClaro);
+    display: flex;
+    margin: 10px 0;
 }
 
 .redes{
