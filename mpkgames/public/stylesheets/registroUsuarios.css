@@ -1,13 +1,29 @@
 @import url(style.css);
 
 
+.LogoFormRegistro{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+}
+.LogoFormRegistro a{
+    display: inline;
+}
+
 .LogoFormRegistro img{
     width: 20%;
-    margin: auto;
+    margin-left: 15px ;
+}
+
+h3{
+    text-align: center;
+    margin-left: 50px;
+    margin-top: 10px;
+    font-family: 'Uncial Antiqua', cursive;
 }
 
 body{
-    background: black;
+    background: #142850;
     /* display: flex; */
     min-height: 100vh;    
 }
@@ -39,13 +55,26 @@ h2{
     margin: 20px;
     color: rgba(0,0,0,0.5);
 }
-input{
-    /* display: block; */
-    padding: 4px;
-    width: 100%;
-    margin: 10px 0;
-    font-size: 12px;
+
+
+label{
+    /* padding-right: 30px; */
+    /* margin: 0px; */
+    /* padding-top: 15px; */
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    /* font-size: 20px; */
 }
+
+
+input{
+     /* display: block;  */
+    /* padding: 4px; */
+    /* width: 100%; */
+    /* margin: 8px 0;      */
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    /* font-size: 20px; */
+
+} 
 
 .botonesRegistrarse{
     width: 100%;

@@ -18,10 +18,10 @@
 
      
         <form Class="FormLogin" action="#" method="POST">
-        <div class="LogoFormRegistro">
-            <a href=""><img src="/images/logo.png" alt="Logo MPKGames "></a>
-            <h2>Registro de Usuario</h2>
-        </div>   
+            <div class="LogoFormRegistro">
+                <img src="/images/logo.png" alt="Logo MPKGames ">
+                <h3>Registro de Usuario</h3>
+            </div>   
 
             <button type="button" class="btn btn-primary btnLoginRedesFacebook">Login con Facebook</button>
             <button type="button" class="btn btn-light btnLoginRedesGoogle">Login con Google</button>
@@ -29,36 +29,53 @@
 
             <h6>O registrese Manulamente</h6>
 
-            <p>
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" required>
-            </p>
-
-            <p>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Ingrese su Email" required>
-            </p>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su Nombre" required>
+                </div>            
             
-            <p>
-                <label form="usu_CodigoArea">Codigo de Area</label> 						
-                <input type="number_format" id="usu_CodigoArea"  name="usu_CodigoArea" placeholder="Ingrese su Codigo de Area ej: 011"/> 
-            </p>             
-            <p>
-                <label form="usu_Telefono">Telefono</label> 						
-                <input type="text" id="usu_Telefono"  name="usu_Telefono" placeholder="Ingrese su telefono"/> 
-            </p>
-            <p>
-                <label form="usu_email">email</label> 
-                <input type="email" id="usu_email" name="usu_email"  placeholder="Ingrese su email" required/> 
-            </p>    
-            <p>
+                <div class="form-group col-md-6">
+                <label for="email">Apellido:</label>
+                <input type="email" name="Apellido" id="Apellido" class="form-control" placeholder="Ingrese su Apellido" required>
+                </div>    
+            </div>
+
+
+            <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label form="usu_CodigoArea">Codigo de Area</label> 						
+                    <input type="number_format" id="usu_CodigoArea" class="form-control" name="usu_CodigoArea" placeholder="Ingrese su Codigo de Area ej: 011"/> 
+                </div>   
+                <br>
+                <div class="form-group col-md-6">
+                    <label form="usu_Telefono">Telefono</label> 						
+                    <input type="text" id="usu_Telefono"  class="form-control" name="usu_Telefono" placeholder="Ingrese su telefono"/> 
+                </div>
+            </div>    
+
+            <div class="form-group">            
+                <label form="usu_email">email:</label> 
+                <input type="email" id="usu_email" name="usu_email" class="form-control" placeholder="Ingrese su email" required/>             
+            </div>
+            
+            <div class="form-group">    
                 <label form="usu_password">Ingrese una Contraseña</label> 
-                <input type="password" placeholder="Ingrese una Contraseña" name="usu_password" id="usu_password" required>
-            </p>
-            <p>
+                <input type="password" placeholder="Ingrese una Contraseña" class="form-control" name="usu_password" id="usu_password" required>
+            
                 <label form="usu_passwordConf">Confirme su Contraseña</label> 
-                <input type="password" placeholder="Confirme su Contraseña"  name="usu_passwordConf" id="usu_passwordConf" required>
-            </p>  
+                <input type="password" placeholder="Confirme su Contraseña" class="form-control"  name="usu_passwordConf" id="usu_passwordConf" required>
+            </div>
+
+
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Aceptar los terminos
+                  </label>
+                </div>
+              </div>
 
             <p>
                 <input type="submit" value="Registrarse" class="botonesRegistrarse"/>   
