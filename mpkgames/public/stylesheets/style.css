@@ -301,11 +301,18 @@ FOOTER
     margin: 20px 0;
 }
 
+.redes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .redes i{
     text-align: center;    
+    padding: 5px;
     font-size: 28;
     color: var(--color-Turquesa);        
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 .copyright {    
