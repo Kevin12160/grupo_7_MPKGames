@@ -36,11 +36,12 @@ La función de sumar productos al carrito de compras y como se autocompleta el b
 
 ## Fuentes Tipograficas
 
-[Trajan](https://fonts.google.com/?query=Trajan)
+[Quicksand](https://fonts.google.com/?query=Quicksand)
 
-[Gotham](https://fonts.google.com/?query=Gotham)
+[Tenali Ramakrishna](https://fonts.google.com/?query=Tenali+Ramakrishn)
 
-[Bank Gothic](https://fonts.google.com/?query=Bank+Gothic)
+[Uncial Antiqua](https://fonts.google.com/?query=Uncial+Antiqua)
+
 
 ## Paleta de Colores a Usar 
 
