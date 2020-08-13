@@ -45,10 +45,8 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     background-color: var(--color-grisClaro);
-    padding: 20px;
-    position: fixed;
-    z-index: 3;
-    top: 0px;
+    margin-top: 150px;
+    
 }
 
 
@@ -58,7 +56,10 @@ body {
 
 header {
     background-color: var(--color-Turquesa);
-    padding: 20px
+    padding: 20px;
+    position: fixed;
+    z-index: 4;
+    top: 0px;
 }
 
 header .logo img{  
@@ -189,6 +190,7 @@ header nav ul {
 .banner img {
     width: 100%;
     display: none;
+    
 }
 
 
@@ -373,4 +375,9 @@ FOOTER
     footer .copyright {
         font-size: 0.7rem;
     }
+    body{
+       margin-top: 150px;
+    }
+    
 }
+
