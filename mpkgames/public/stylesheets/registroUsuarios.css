@@ -42,12 +42,17 @@ body{
     border-radius: 5px;
     margin: 10px auto;
     margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
+    width: 100% ;
+    
 }
 
 .btnLoginRedesGoogle{
     border-radius: 5px;
     margin: 10px auto;
     margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
+    width: 100% ;
 }
 
 h2{
@@ -79,10 +84,10 @@ input{
 .botonesRegistrarse{
     width: 100%;
     height: 50px;
-    background-color: #007BFF;
+    background-color: var(--color-AzulOceano);
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 28px;
     color: white;
-    
+   
 
 }

@@ -15,17 +15,23 @@
 <body>
        
        
-
-     
-        <form Class="FormLogin" action="#" method="POST">
+<div class="container" >
+     <div class="row">
+        <form Class="FormLogin col-12 col-md-6" action="#" method="POST">
             <div class="LogoFormRegistro">
                 <img src="/images/logo.png" alt="Logo MPKGames ">
                 <h3>Registro de Usuario</h3>
             </div>   
 
-            <button type="button" class="btn btn-primary btnLoginRedesFacebook">Login con Facebook</button>
-            <button type="button" class="btn btn-light btnLoginRedesGoogle">Login con Google</button>
-            
+            <div class="row"> 
+                <div class="col-12 col-md-6">
+                    <button type="button" class="btn btn-primary btnLoginRedesFacebook" >Registrarse con Facebook <i class="fab fa-facebook-square"></i></button>
+                    
+                </div>  
+                <div class="col-12 col-md-6">                    
+                    <button type="button" class="btn btn-light btnLoginRedesGoogle">Registrarse con Google <i class="fab fa-google-plus-square"></i></button>
+                </div>  
+            </div>
 
             <h6>O registrese Manulamente</h6>
 
@@ -82,6 +88,8 @@
             
             </p>    
     </form>
+ </div> <!--cierra el row -->
+</div>
 
         <!--scripts de bootstrap-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
