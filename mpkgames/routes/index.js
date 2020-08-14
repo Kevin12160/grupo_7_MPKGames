@@ -23,11 +23,19 @@ router.get('/carritoCompras', function(req,res){
   { title: 'Carrito de Compras' });
 });
 
-router.get('/AgregarProductos', function(req,res){
-  res.render('productAdd',
-   { title: 'Agregar Productos' });
+router.get('/botones', function(req,res){
+  res.render('btnOpcModCar',
+   { title: 'botonesAgreMod' });
 });
 
+router.get('/botonAgregar', function(req,res){
+  res.render('productAdd',
+   { title: 'Agregar Producto' });
+});
 
+router.get('/ModificarJuego', function(req,res){
+  res.render('modificarJuego',
+   { title: 'Modificar Juego' });
+});
 
 module.exports = router;

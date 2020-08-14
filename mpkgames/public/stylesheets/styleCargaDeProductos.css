@@ -1,0 +1,39 @@
+
+
+/*stilo de botones agregar y modificar*/
+.contBotones{
+
+}
+
+.contBtnOpciones{
+    margin: 50px 0px 50px 0px;
+}
+.tituloOpcion{
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 24px;
+    text-align: center;
+}
+.titulo01{
+    
+}
+@media(min-width:768px){
+    /*stilo de botones agregar y modificar*/
+    .contBtnOpciones{
+    margin: 50px 0px 50px 0px;
+    }
+    .tituloOpcion{
+    text-align: center;
+    padding-top: 55px;
+    }
+
+
+
+}
+
+@media(min-width:992px){
+
+   .tituloOpcion{
+
+        font-size: 47px;
+    }
+}

@@ -81,72 +81,22 @@
     </div>
     <!--finaliza caja contenedora bootstrap-->
 </header>
-<!--
-<div class="formulario">
-   <form Class="FormAdd" action="#" method="POST">
-    <div class="col-12 titulo">
-        <h3>Agregar producto nuevo</h3>
-    </div>   
-
-    
-
-    <div class="form-row">
-        <div class="form-group col-12 col-md-12 col-lg-6">
-            <label for="nombreDelProducto">Nombre del producto:</label>
-            <input type="text" name="nombreDelProducto" id="nombreDelProducto" class="form-control" placeholder="Ingrese el Nombre del producto" required>
-        </div>            
-    
-        <div class="form-group col-12 col-md-12 col-lg-6">
-        <label for="codigo">Codigo del producto:</label>
-        <input type="number" name="codigo" id="codigo" class="form-control" placeholder="Ingrese el Codigo" required>
-        </div>    
-    </div>
-
-
-    <div class="form-row">
-            <div class="form-group col-12 col-md-12 col-lg-6">
-            <label form="stock">Numero de Stock</label> 						
-            <input type="number" id="stock" class="form-control" name="stock" placeholder="Ingrese la cantidad de Stock" required/> 
-        </div>   
-        <br>
-        <div class="form-group col-12 col-md-12 col-lg-6">
-            <label form="descuento">Descuento %</label> 						
-            <input type="number" id="descuento"  class="form-control" name="descuento" placeholder="Ingrese solo el numero del porcenteje"/> 
-        </div>
-    </div>   
-
-
-    <div class="form-row">
-      <div class="form-group col-12 col-md-12 col-lg-6">            
-        <label form="imagen">Imagen:</label> 
-        <input type="url" id="imagen" name="imagen" class="form-control" placeholder="Ingrese el url de la imagen" required/>             
-      </div>
-    
-      <div class="form-group col-12 col-md-12 col-lg-6">    
-        <label form="detalle">Detalle del producto</label> 
-        <input type="tex" placeholder="Ingrese el detalle del producto" class="form-control" name="detalle" id="detalle" required>
-    
-      </div>
-    </div>
-
-    <article class="row col-12 botones">
-        <div class="col-6 agregar">
-        <input type="submit" value="Agregar " class="botonAgregarProducto"/>  
-        </div> 
-        <div class="col-6 cancelar">
-        <input type="reset" value="Cancelar" class="botonCancelar"/> 
-        </div> 
-    </article>
-    
-     
-    </form>
-</div>
--->
-        <div class="formulario container">
+    <!--armado del formulario Modificacion del producto-->
+    <div class="formulario container">
         <div class=" col-12 titulo">
-            <h3>Agregar Juego</h3>
+            <h3>Modificar Juego</h3>
         </div>
         <form Class="FormAdd" action="#" method="POST">
+    
+            <div class="contBarra col-12 col-md-12">
+                <form class="fronBuscar form-inline" action="">
+                    <input class="inputBuscador form-control" type="text" placeholder="Ingrese el codigo del juego que desea modificar">
+                    <button class="btnBuscador " type="submit"><i class="fas fa-search"></i>
+                    </button>
+
+                </form>
+            </div>
+
     
             <div class="form-row">
                 <div class="form-group col-12 col-md-6 col-lg-6">
@@ -230,9 +180,7 @@
         </form>
     </div>
 
-        <!--caja con el contenido principal de footer-->
-         <!--FOOTER: PIE DE PAGINA-->
-    <footer class="container-fluid">
+         <footer class="container-fluid">
             <!--caja con el contenido principal de footer-->
             <div class="row footer">            
                 <div class="col-12 col-md-4 col-lg-4">
@@ -272,7 +220,13 @@
             <div class="col-12">                  <!--contiene copyright-->
                 <p class="copyright">Copyright © 2020 MPK Games S.R.L.</p>
             </div>
-    </footer>
+        </footer>
+
+    
+    
+  
+
+
 
 <!--scripts de bootstrap-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>

@@ -2,6 +2,8 @@
 - IMPORTS 
 */
 /* @import url(registroUsuarios.css); */
+@import url('productDetalle.css');
+@import url('styleCargaDeProductos.css');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Tenali+Ramakrishna&family=Uncial+Antiqua&display=swap" rel="stylesheet"');
 
 /*
@@ -240,7 +242,7 @@ section article {
     border-top: 1px solid var(--color-grisClaro);
     padding: 20px;
     position: relative;
-    height: 180px;
+    /*height: 180px;*/
 }
 
 section article span {

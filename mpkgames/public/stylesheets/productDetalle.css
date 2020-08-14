@@ -1,0 +1,228 @@
+
+/*********Detalle de Producto*********/
+
+.navDetalleProd{
+    padding-top: 20px;
+    margin-top:20px;
+}
+.orderListDetall{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.classRowModif{
+    margin: 0px;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+}
+.articuloDetalle{
+    padding:0px;
+    width: 100%;
+}
+
+.nomDelJuego{
+    font-family: Quicksand, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+.contImgArtDetalle{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+.imgArtDetalle{
+    width: 100%;
+}
+.cantDescuento{
+    display: contents;
+    font-size: 130%;
+}
+
+.contDetalle{
+    margin: 10px,0px,10px,0px;
+}
+.descripDescDetall{
+
+}
+.unorderList{
+    padding: 11px;
+    margin-top: 1rem;
+    border: 2px solid var(--color-AzulOceano);
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: white;
+}
+.listDetalle{
+    padding: 3px 0px 3px 0px;
+    color: var(--color-grisOscuro);
+    font-weight: bold;
+    font-size: 19px;
+}
+.descripDescDetall,.precioDetalle,.mensajDetalle{
+    margin: 0;
+}
+.botonDeComprar{
+    background-color: var(--color-AzulOceano);
+    border-color: var(--color-AzulOceano);
+    margin:16px 0px 16px 0px;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+.botonDeComprar:hover{
+    background-color: var(--color-Turquesa);
+
+    border:2px solid var(--color-AzulOceano);
+}
+
+/*detalles del producto*/
+.rowDetalleProd{
+    margin: 0px;
+    padding: 15px 0px 15px 0px;
+}
+.contBtnCollapse{
+    margin-bottom: 32px;
+}
+.btnDetalle{
+    background-color: var(--color-AzulOceano);
+    border-color: var(--color-AzulOceano);
+    width: 100%;
+    padding: 8px 16px 8px 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 21px;
+}
+.btnDetalle:hover{
+    background-color: var(--color-Turquesa);
+
+    border:2px solid var(--color-AzulOceano);
+}
+.btn-primary:focus{
+    box-shadow: 0 0 0 .2rem var(--color-AzulOceano);
+}
+
+.btn-primary:focus{
+    background-color: var(--color-AzulOceano);
+    border-color: var(--color-AzulOceano);
+}
+.btn-primary:not(:disabled):not(.disabled):active
+{
+    background-color: var(--color-Turquesa);
+    border-color: var(--color-AzulOceano);
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus{
+    box-shadow: 0 0 0 .2rem var(--color-AzulOceano);
+}
+
+.cardDetalle{
+    background-color: var(--color-Turquesa);
+}
+
+.liDetalle{
+    background-color: var(--color-grisClaro);
+}
+.carro{
+    display:none;
+}
+/*estilo de juegos relacionados*/
+
+.contenedor01{
+
+}
+.rowArtRelaciondos{
+    padding: 20px 0px 20px 0px;
+    margin: 0px;
+
+}
+.parrafo{
+    margin:0px;
+    
+    text-align: center;
+    border-top: 2px solid var(--color-grisOscuro);
+    padding-top: 15px;
+}
+.rowSecJuegoEnComun{
+    margin: 0px;
+    padding: 20px 0px 20px 0px;
+}
+.contCard{
+    padding: 10px;
+}
+.cardJuegosEnCom{
+    padding: 0px;
+}
+.imgJuegoRela{
+  transition:transfprm 3s;
+}
+.carJueEnComun00:hover{
+    transform: scale(1.1);
+}
+
+.listGrupJuegosEnCom{
+
+}
+.liJuegosEnCom{
+    padding: 5px;
+}
+
+/*meta viewport*/
+@media(min-width:768px)
+{
+    /*estilo del titulo del juego*/
+    .nomDelJuego{
+        text-decoration: underline;
+    }
+    .contImgArtDetalle{
+        display: none;
+    }
+
+    .carro{
+        display: initial;
+    }
+    /*estilo del boton de mas detalle*/
+    .contBtnCollapse{
+        margin: 20px 0px 20px 0px;
+    }
+    .contenedorDesc{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .botonDeComprar{
+        margin-bottom: 0px;
+        font-family: 'Quicksand', sans-serif;
+        
+    }
+
+}
+@media(min-width:992px){
+
+    /*stilo del titulo del juego*/
+    .nomDelJuego {
+        font-size: 35px;
+    }
+    /*estilo de la lista de detalle*/
+    .listDetalle {
+        padding: 30px 0px 8px 0px;
+       font-size: 23px;
+    }
+    .liDetalle{
+        font-size: 26px;
+    } 
+    /*estilo del boton de compra*/
+    .botonDeComprar {
+        font-size: 36px;
+    }
+    /*stilo del boton de masDEtalle*/
+    .btnDetalle{
+        font-size: 36px;
+    }
+    .liJuegosEnCom{
+        font-size: 26px;
+    }
+    .mensajDetalle,.orderListDetall{
+        font-size: 21px;
+    }
+    .unorderList{
+        padding: 11px 11px 30px 11px;
+    }
+
+}
+/*********fin de estilo*****************/

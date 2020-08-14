@@ -188,7 +188,9 @@ header nav ul {
 
 /*FORMULARIO*/
 .formulario{
-   padding: 0px 10px;
+    padding: 10px 10px;
+    background-color: #DAE1E7;
+    border-radius: .25rem;
 }
 
 .FormAdd{
@@ -200,7 +202,11 @@ header nav ul {
     border-radius: 10px;   
 }
 .titulo{
-    padding-bottom: 30px;
+    background-color: var(--color-grisClaro);
+    padding: 15px 0px 15px 0px;
+    border-radius: 10px;
+
+    /*padding-bottom: 30px;*/
 }
 .form-control{
     font-size: 20px;
@@ -211,7 +217,14 @@ header nav ul {
 label{
     
     font-family: 'Tenali Ramakrishna', sans-serif;
-    font-size: 25px;
+    
+    /*font-size: 25px;*/
+    font-size: 20px;
+    background-color: var(--color-grisClaro);
+    display: block;
+    border-radius: .25rem;
+    padding: 6px 12px 6px 12px;
+    border: 1px solid var(--color-AzulOceano);
 }
 
 
@@ -245,6 +258,32 @@ input{
 
 }
 
+/*Estilo del boton buscador*/
+.inputBuscador {
+    position: relative;
+    flex-grow: 1;
+}
+.fronBuscar {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.btnBuscador {
+    position: absolute;
+    height: 100%;
+    border-radius: .25rem;
+    background-color: white;
+    border: 1px solid #ced4da;
+        border-left-color: rgb(206, 212, 218);
+        border-left-style: solid;
+        border-left-width: 1px;
+    border-left: 0px;
+    left: 90%;
+    top: 0%;
+}
+.contBarra{
+    padding: 0px;
+}
 
 
 
@@ -342,13 +381,16 @@ FOOTER
     .FormAdd{
         width: 80%;
     }
+    .btnBuscador{
+        left: 94%;
+    }
 }
 
 
 
 /* --- VERSION PARA ESCRITORIO --- */
 
-@media(min-width:1024px) {
+@media(min-width:992px) {
     section article h2 {
         font-size: 1.9rem;
     }
