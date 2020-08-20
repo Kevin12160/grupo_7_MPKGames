@@ -26,11 +26,36 @@
     padding-top: 55px;
     }
 
-
+    /*Style*/
+    .contBuscador {
+        display: none;
+    }
+    .contBuscadorMd{
+        display: block;
+        padding: 0px;
+    }
+    .bg-light {
+        width: 100%;
+    }
+    li{
+        display: ruby;
+    }
 
 }
 
 @media(min-width:992px){
+    /**/
+    .contBuscadorMd {
+        margin-left: 71px;
+        padding-top: 6px;
+    }
+    li {
+        font-size: 134%;
+    }
+    svg {
+        vertical-align: 0px;
+    }
+    /**/
 
    .tituloOpcion{
 

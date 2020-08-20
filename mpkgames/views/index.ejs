@@ -11,29 +11,29 @@
     <!-- ETIQUETAS LINK PARA VINCULAR CON ONTAWESOME Y BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="shortcut icon " href="images/Logo.ico " type="image/x-icon ">
     <link rel='stylesheet' href='/stylesheets/style.css' />
- 
 </head>
+
 
 <body>
 
     <!--HEADER: CABECERA Y MENÚ DE NAVEGACIÓN-->
-
+      <!--caja contenedora-->
     <header class="container-fluid">
         <!--caja contenedora de boostrap-->
-        <div class="container">
-
             <!--caja que contiene el logotipo, el buscador y botón con un link-->
-            <div class="row">
+            <div class="row rowTitulologo">
                 <!--caja que contiene el logotipo-->
-                <div class="col-5 col-md-2 col-lg-2 logo">
+                <div class="col-2 col-md-1 col-lg-1 logo">
                     <a href=""><img src="/images/logo.png" alt="Logo MPKGames "></a>
-                </div>                
-                <!--caja que contiene el formulario-->
-                <div class="col-7 col-md-6 col-lg-6">                
+                </div> 
+                <div class="contenedorTiuloPag col-10 col-md-5 col-lg-3"><h1 class="h1TituloPagina">MPKGames</h1></div> 
+                       
+                <!--caja que contiene el buscador de juegos -->
+                <div class="contBuscadorMd col-md-6 col-lg-7">                
                     <form action="" method="get" class="search-form">
-                        <input type="text" name="search" placeholder="Buscar tus Juegos, marcas y más" class="search-form_input">
+                        <input type="text" name="search" placeholder="Buscar tu Juego favorito" class="search-form_input">
                         <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
@@ -42,44 +42,54 @@
             </div>
 
             <!--barra de navegación-->
-            <nav class="navbar-expand-md">
+            <div class="row rowBtnBarraIcon">
+                    <div class="contenedorColumNav col-2 col-md-12 col-lg-12">
+                    <nav class="navbar navbar-expand-md navbar-light bg-light">
+            
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                <!--boton para que desplegar el menu  en caso que el viewport sea tamaño movil-->
-                <button class="navbar-toggler burger BtnHamburguesa" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars "></i></button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                          <ul class="navbar-nav">
+                            <li class="nav-item ">
+                              <a class="nav-link" href="/">Home<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+                                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                              </svg></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/detalle">Detalle de producto</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/botones">Carga de producto</a>
+                            </li>
 
-                <!--barra de menu que aparece a partir de la vesión de tablet-->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!--barra de menu izquierdo-->
-                    <ul class="menu navbar-nav mr-auto ">
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li>
-                            <a href="/detalle">Detalle del producto</a>
-                        </li>                      
-                       
-                        <li>
-                            <a href="/botones">Formulario de carga de producto</a>
-                        </li>
-                    </ul>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/registroUsuarios">Creá tu cuenta <i class="far fa-address-card "></i></span></a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href=" ">Ingresá <i class="fas fa-sign-in-alt "></i></a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/carritoCompras">Mis compras <i class="fas fa-shopping-basket "></i></a>
+                              </li>
+                        </ul>
+                        </div>
+                      </nav>
+                    </div>
 
-                    <!--barra de menu: login y registro-->
-                    <ul class="usuario navbar-nav">
-                        <li>
-                            <a href="/registroUsuarios">Creá tu cuenta <i class="far fa-address-card "></i></a>
-                        </li>
-                        <li>
-                            <a href=" ">Ingresá <i class="fas fa-sign-in-alt "></i></a>
-                        </li>
-                        <li>
-                            <a href="/carritoCompras">Mis compras <i class="fas fa-shopping-basket "></i></a>
-                        </li>
-                    </ul>
-
-                </div>
+                
                 <!--finaliza caja contenedora del menu-->
-            </nav>
+
+            <div class="contBuscador col-10 ">                
+                <form action="" method="get" class="search-form">
+                    <input type="text" name="search" placeholder="Buscar tu Juego favorito" class="search-form_input">
+                    <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
         </div>
+ 
         <!--finaliza caja contenedora bootstrap-->
     </header>
 
@@ -116,13 +126,13 @@
                             <img src="images/horizon-zero-dawn-complete-edition-cover.jpg " alt="horizon ">
                         </figure>
                             <!--informacion-->
-                        <article>
+                        <article class="classArtIndex">
                             <!--precio-->
                             <h2>$48.17</h2>
                             <!--descuento-->
                             <span>-20% OFF</span>
                             <!--nombre del producto ??-->
-                            <p>Horizon Zero Dawn Complete Edition</p>
+                            <p class="parrafoArt0">Horizon Zero Dawn Complete Edition</p>
                             <!--icono de Consolas-->
                             <i class="fab fa-xbox Xbox"></i>
                             <i class="fab fa-playstation playStation"></i>
@@ -139,10 +149,10 @@
                         <figure>                            
                             <a><img src="images/mafia-trilogy-cover.jpg" alt="Mafia Trilogy "></a>
                         </figure>
-                        <article>
+                        <article class="classArtIndex">
                             <h2>$52.39</h2>
                             <span>-28% OFF</span>
-                            <p>Mafia Trilogy</p>
+                            <p class="parrafoArt0">Mafia Trilogy</p>
                                 <!--icono de Consolas-->
                                 <i class="fab fa-xbox Xbox"></i>
                                 <i class="fab fa-playstation playStation"></i>
@@ -156,10 +166,10 @@
                         <figure>
                             <img src="images/cyberpunk-2077-cover.jpg " alt="cyberpunk ">
                         </figure>
-                        <article>
+                        <article class="classArtIndex">
                             <h2>$51.79</h2>
                             <span>-28% OFF</span>
-                            <p>Cyberpunk 2077</p>
+                            <p class="parrafoArt0">Cyberpunk 2077</p>
                                 <!--icono de Consolas-->
                                 <i class="fab fa-xbox Xbox"></i>
                                 <i class="fab fa-playstation playStation"></i>
@@ -173,10 +183,10 @@
                         <figure>
                             <img src="images/marvels-avengers-beta-access-cover.jpg" alt="Marvel's Avengers Beta Access ">
                         </figure>
-                        <article>
+                        <article class="classArtIndex">
                             <h2>$20.40</h2>
                             <span>-30% OFF</span>
-                            <p>Marvel's Avengers Beta Access</p>
+                            <p class="parrafoArt0">Marvel's Avengers Beta Access</p>
                                 <!--icono de Consolas-->
                                 <i class="fab fa-xbox Xbox"></i>
                                 <i class="fab fa-playstation playStation"></i>
@@ -215,13 +225,13 @@
                             <img src="images/crusader-kings-iii-royal-edition-cover.jpg " alt=" ">
                         </figure>
                         <!--informacion-->
-                        <article>
+                        <article class="classArtIndex">
                             <!--precio-->
                             <h2>$64.92</h2>
                             <!--descuento-->
                             <span>28% OFF</span>
                             <!--nombre del producto ??-->
-                            <p>Crusader Kings III Royal Edition</p>
+                            <p class="parrafoArt0">Crusader Kings III Royal Edition</p>
                                <!--icono de Consolas-->
                                <i class="fab fa-xbox Xbox"></i>
                                <i class="fab fa-playstation playStation"></i>
@@ -238,10 +248,10 @@
                         <figure>
                             <img src="images/crusader-kings-iii-cover.jpg" alt=" ">
                         </figure>
-                        <article>
+                        <article class="classArtIndex">
                             <h2>$64.92</h2>
                             <span>-28% OFF</span>
-                            <p>Crusader Kings III Royal Edition</p>
+                            <p class="parrafoArt0">Crusader Kings III Royal Edition</p>
                                <!--icono de Consolas-->
                                <i class="fab fa-xbox Xbox"></i>
                                <i class="fab fa-playstation playStation"></i>
@@ -255,10 +265,10 @@
                         <figure>
                             <img src="images/iron-harvest-cover.jpg " alt=" ">
                         </figure>
-                        <article>
+                        <article class="classArtIndex">
                             <h2>$37.10</h2>
                             <span>-38% OFF</span>
-                            <p>Iron Harvest</p>
+                            <p class="parrafoArt0">Iron Harvest</p>
                                <!--icono de Consolas-->
                                <i class="fab fa-xbox Xbox"></i>
                                <i class="fab fa-playstation playStation"></i>
@@ -272,10 +282,10 @@
                         <figure>
                             <img src="images/fifa-21-cover.jpg " alt=" ">
                         </figure>
-                        <article>
+                        <article class="classArtIndex">
                             <h2>$52.80</h2>
                             <span>20% OFF</span>
-                            <p>FIFA 21</p>
+                            <p class="parrafoArt0">FIFA 21</p>
                                <!--icono de Consolas-->
                                <i class="fab fa-xbox Xbox"></i>
                                <i class="fab fa-playstation playStation"></i>
@@ -298,25 +308,25 @@
         <div class="row">
             <!--contiene pago con tarjeta-->
             <div class="col-12 col-lg-4">
-                <article>
+                <article class="classArtIndex">
                     <i class="fas fa-credit-card "></i>
                     <h4>Pagá con tarjeta o en efectivo</h4>
-                    <p>Con MPK Games Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago. ¡Y siempre es seguro!
+                    <p >Con MPK Games Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago. ¡Y siempre es seguro!
                     </p>
                 </article>
             </div>
                 <!--contiene envio gratis-->
             <div class="col-12 col-lg-4">
-                <article>
+                <article class="classArtIndex">
                     <i class="fas fa-gift "></i>
                     <h4>Envío gratis desde $ 999</h4>
-                    <p>Solo por estar registrado en MPK Games tenés envíos gratis en miles de productos. Es un beneficio de Mercado Puntos.
+                    <p >Solo por estar registrado en MPK Games tenés envíos gratis en miles de productos. Es un beneficio de Mercado Puntos.
                     </p>
                 </article>
             </div>
                 <!--contiene seguridad-->
             <div class="col-12 col-lg-4">
-                <article>
+                <article class="classArtIndex">
                     <i class="fas fa-user-shield "></i>
                     <h4>Seguridad, de principio a fin
                     </h4>

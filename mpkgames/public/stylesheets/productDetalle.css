@@ -17,6 +17,9 @@
 .articuloDetalle{
     padding:0px;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--color-grisClaro);
 }
 
 .nomDelJuego{
@@ -40,9 +43,7 @@
 .contDetalle{
     margin: 10px,0px,10px,0px;
 }
-.descripDescDetall{
 
-}
 .unorderList{
     padding: 11px;
     margin-top: 1rem;
@@ -56,9 +57,11 @@
     color: var(--color-grisOscuro);
     font-weight: bold;
     font-size: 19px;
+    display: block;
 }
 .descripDescDetall,.precioDetalle,.mensajDetalle{
     margin: 0;
+    font-size: 14px;
 }
 .botonDeComprar{
     background-color: var(--color-AzulOceano);
@@ -123,9 +126,7 @@
 }
 /*estilo de juegos relacionados*/
 
-.contenedor01{
 
-}
 .rowArtRelaciondos{
     padding: 20px 0px 20px 0px;
     margin: 0px;
@@ -137,10 +138,19 @@
     text-align: center;
     border-top: 2px solid var(--color-grisOscuro);
     padding-top: 15px;
+    font-family: Quicksand, sans-serif;
 }
 .rowSecJuegoEnComun{
     margin: 0px;
     padding: 20px 0px 20px 0px;
+}
+
+.articulosRelacionados01{
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--color-grisClaro);
+    padding: 20px;
+    position: relative;    
 }
 .contCard{
     padding: 10px;
@@ -155,9 +165,7 @@
     transform: scale(1.1);
 }
 
-.listGrupJuegosEnCom{
 
-}
 .liJuegosEnCom{
     padding: 5px;
 }
@@ -176,6 +184,9 @@
     .carro{
         display: initial;
     }
+    .carousel-indicators{
+        z-index: 1;
+    }
     /*estilo del boton de mas detalle*/
     .contBtnCollapse{
         margin: 20px 0px 20px 0px;
@@ -192,7 +203,7 @@
     }
 
 }
-@media(min-width:992px){
+@media(min-width:1024px){
 
     /*stilo del titulo del juego*/
     .nomDelJuego {

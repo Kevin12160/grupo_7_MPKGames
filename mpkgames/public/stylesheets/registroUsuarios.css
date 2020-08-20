@@ -24,7 +24,7 @@ h3{
 
 body{
     background: #142850;
-    /* display: flex; */
+
     min-height: 100vh;    
 }
 
@@ -65,21 +65,13 @@ h2{
 
 
 label{
-    /* padding-right: 30px; */
-    /* margin: 0px; */
-    /* padding-top: 15px; */
     font-family: 'Tenali Ramakrishna', sans-serif;
-    /* font-size: 20px; */
+
 }
 
 
 input{
-     /* display: block;  */
-    /* padding: 4px; */
-    /* width: 100%; */
-    /* margin: 8px 0;      */
     font-family: 'Tenali Ramakrishna', sans-serif;
-    /* font-size: 20px; */
 
 } 
 

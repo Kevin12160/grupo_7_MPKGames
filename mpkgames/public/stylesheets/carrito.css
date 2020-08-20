@@ -4,161 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Tenali+Ramakrishna&family=Uncial+Antiqua&display=swap" rel="stylesheet"');
 
-/* 
-- VARIABLES 
-*/ 
 
- :root {
-    --color-Turquesa: #00909E;
-    --color-grisClaro: #DAE1E7;
-    --color-grisOscuro: #666666;
-    --color-azul: #142850;
-    --color-AzulOceano: #27496D;
-    --color-celeste: #1259c3;
-}
-
-
-/*
-- GENERAL
-*/
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    background-color: var(--color-grisClaro);
-    margin-top: 170px;
-}
-h1{
+.h1MiCompra{
     font-family: 'Uncial Antiqua', cursive;
 }
-
-/*
-- CABECERA
-*/
-
-header {
-    background-color: var(--color-Turquesa);
-    padding: 20px;
-    position: fixed;
-    z-index: 3;
-    top: 0px;
-
-}
-
-header .logo img{  
-      
-    height: 65px;
-    width: 65%;
-    margin-left: 10px;
-}
-header .logo{
-    padding: 0px;
-    height: 34px;    
-}
-
-
-header form {
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    /*background-color: white;
-    border: 1px solid var(--color-grisClaro);
-    border-radius: 5px;
-    padding: 0px 8px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;*/
-}
-
-header form input {
-    border: solid 1px var(--color-grisClaro);
-    display: block;
-    width: 100%;
-    padding: 7px 35px 7px 7px;
-    border-radius: 5px;
-    height: 40px;
-    font-size: 1.5em;
-    font-family: inherit;
-    /*background: none;
-    border: 0;
-    width: 85%;
-    margin: 5px 0px;
-    padding-right: 5px;
-    border-right: 2px solid var(--color-grisClaro);*/
-}
-
-header form input:focus,
-form button:focus {
-    outline: none;
-}
-
-header form button {
-    position: absolute;
-    right: 2px;
-    height: 60%;
-    background-color: white;
-    border: none;
-    border-left: solid 1px var(--color-grisClaro);
-    color: var(--color-grisOscuro);
-    cursor: pointer;
-
-}
-
-header .cuotas {
-    margin: 20px 0;
-    align-self: center;
-}
-
-
-/*
-OPCION PARA COLOCAR EL ICONO DESDE EL CSS DENTRO DE UN ELEMENTO (NO FUNCIONA CON TODOS LOS ICONOS)
-
-header a.cuotas::before {
-    content: '\f09d';
-    font-family: "Font Awesome\ 5 free";
-    margin-right: 5px;
-}
-*/
-
-header nav {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-header nav button.burger {
-    background-color: var(--color-azul);
-    border: none;
-    border-radius: 4px;
-    padding: 3px 15px;
-    margin-top: 10px;
-}
-
-/* es una prueba sobre cada link del menu*/
-/* .BtnActivo :hover{    
-    border-bottom: 1px solid var(--color-AzulOceano);
-} */
 
 menu li a{
         width: 20%;
@@ -168,22 +17,6 @@ menu li a{
 
 /* cambio el aspecto cuando el boton tiene el foco*/
 
-
-
-header nav button.burger:focus {
-    outline: 1px solid white;
-}
-
-header nav button.burger i {
-    color: white;
-}
-
-header nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-top: 30px;
-}
 
 
 /* Titulo y Subtitulo del carrito */
@@ -369,17 +202,12 @@ FOOTER
 /* --- VERSION PARA TABLET --- */
 
 @media(min-width:768px) {
-    /*header form input {
-        width: 92%;
-    }*/
+
     header .cuotas {
         margin: 0;
         text-align: right;
     }
-    header ul li {
-        justify-content: space-between;
-        padding-right: 12px;
-    }
+
     header ul.usuario li:last-child {
         padding-right: 0;
     }
@@ -406,10 +234,11 @@ FOOTER
     .contenidoDeCompra .imagen{
         display: block;   
     }
-    img{
+
+    .imgJuego00{
         width: 100%; 
         height: 100px;
-        margin: 5px 5px;
+        margin: 5px 5px;     
     }
     .caracteristica p{
         text-align: center;
