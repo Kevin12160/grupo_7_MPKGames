@@ -1,9 +1,7 @@
 
 
 /*stilo de botones agregar y modificar*/
-.contBotones{
 
-}
 
 .contBtnOpciones{
     margin: 50px 0px 50px 0px;
@@ -13,9 +11,7 @@
     font-size: 24px;
     text-align: center;
 }
-.titulo01{
-    
-}
+
 @media(min-width:768px){
     /*stilo de botones agregar y modificar*/
     .contBtnOpciones{
