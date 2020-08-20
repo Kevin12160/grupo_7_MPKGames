@@ -11,6 +11,12 @@
 ## MPK GAMES
 [LogoTipo](https://trello-attachments.s3.amazonaws.com/5f11d873338e65591a1421bb/5f16fa40615a1e5ed912946b/12d1e94cf99e94e8c10765d99dda7f4a/Logo.jpg)
 
+
+## Tablero Trello: Grupo G7 MPKGames 
+
+ [Trabajo Integrador G7 MPK Games](https://trello.com/b/Gu1moKCC/trabajo-integrador-g7-mpk-games)
+
+
 ## Descripción de Nuestro Sitio Web
 
 Nuestro sitio ofrece ventas de Video Juegos para todo el publico Gamers. Canales en las plataformas de videos Twitch y/o Youtube mostrando trailers o trucos de nuevos atajos o funciones de los juegos, desde las mismas plataformas se emiten campeonatos entre los usuarios registrados y los mismo participan con calificaciones y comentarios de cada juego.    
