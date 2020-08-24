@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+
+    <div class="container">
+        <section>
+            
+            <div class="row productos"> <!--caja que contiene todos los productos de la ultima visita-->
+                
+                <div class="titulo col-12"> <!--caja que contiene el titulo de la sección-->
+                    <h2>
+                        <%= title %> 
+                    </h2>
+                </div>
+                
+                <% productos.forEach(producto => { %> <!--recorro los productos basados en la ultima visita con un forEach-->                    
+                    <div class="col-12 col-md-6 col-lg-3"> <!--caja de la grilla de bootstrap-->
+                        <!--caja que muestra la información del producto-->
+                        <div class="contenido">
+                            <!--ETIQUETA SEMANTICA-->
+                            <figure>
+                                <a href="/products/detail/<%= producto.IDJuego %> ">
+                                    <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
+                                </a>
+                            </figure>
+
+                            <!--informacion-->
+                            <article>
+                                
+                                <h2>$ <!--precio-->
+                                    <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                </h2>
+                                        <!--descuento-->
+                                <% if (producto.Descuento !=0) { %>
+                                    <span><%- producto.Descuento %> % OFF</span>
+                                <% } %>
+                                
+                                <p> <!--nombre del producto ??-->
+                                    <%- producto.NombreDeProducto %>
+                                </p>
+                                <p>
+                                    <%- producto.Categoria %> 
+                                </p>
+
+                                <i class="fas fa-truck "></i> <!--icono de envío-->
+                            </article>
+                        </div>
+                        <!--finaliza contenido-->
+
+                    </div> <!--finaliza caja de grilla de boostrap-->
+                    
+                    <% }) %>
+            </div> <!--finaliza el div.row-->            
+
+        </section>
+
+    </div>
+
+
+
+
+    
+    
+
+</body>
+</html>
