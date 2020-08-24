@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+let productsRouter = require('./routes/productos') //requiero el módulo que se hará cargo de la administración de las rutas relacionadas con productos
+
 var app = express();
 
 // view engine setup
@@ -21,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/productos', productsRouter) //añado la ruta principal de productos de la cual derivarán todas las demás
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

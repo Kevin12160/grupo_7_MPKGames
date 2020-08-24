@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+
+    <div class="container">
+        <section>
+
+            <!--caja que contiene todos los productos de la ultima visita-->
+            <div class="row productos">
+
+                <!--caja que contiene el titulo de la sección-->
+                <div class="titulo col-12">
+                    <h2>
+                        <%= title %> 
+                    </h2>
+                </div>
+                <!--recorro los productos basados en la ultima visita con un forEach-->
+                <% productos.forEach(producto => { %>
+
+                    <!--caja de la grilla de bootstrap-->
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <!--caja que muestra la información del producto-->
+                        <div class="contenido">
+
+                            <!--ETIQUETA SEMANTICA-->
+                            <figure>
+                                <a href="/products/detail/<%= producto.IDJuego %> ">
+                                    <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
+                                </a>
+                            </figure>
+
+                            <!--informacion-->
+                            <article>
+                                <!--precio-->
+                                <h2>$
+                                    <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                </h2>
+                                <!--descuento-->
+                                <% if (producto.Descuento !=0) { %>
+                                    <span><%- producto.Descuento %> % OFF</span>
+                                <% } %>
+                               
+                                <!--nombre del producto ??-->
+                                <p>
+                                    <%- producto.NombreDeProducto %>
+                                </p>
+                                <!--icono de envío-->
+                                <i class="fas fa-truck "></i>
+                            </article>
+                        </div>
+                        <!--finaliza contenido-->
+
+                    </div>
+                    <!--finaliza caja de grilla de boostrap-->
+
+                    <% }) %>
+            </div>
+            <!--finaliza el div.row-->
+
+        </section>
+
+    </div>
+
+
+
+
+    
+    
+
+</body>
+</html>
