@@ -66,8 +66,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
             IDJuego: lastID + 1,
             NombreDeProducto: req.body.nombreDelProducto.trim(),
             Precio:Number(req.body.precioProd),
-            Tamaño:  req.body.tamanioJue.trim(),
-            Idioma:  req.body.idiomaJuego.trim(),                    
+            Tamaño: req.body.tamanioJue.trim(),
+            Idioma: req.body.idiomaJuego.trim(),                    
             IdiomaSubt: req.body.subtitulo.trim(),     
             Categoria: req.body.categoriaJuego.trim(),                                    
             FechaLanzamiento: req.body.fechaLanzam,
@@ -81,7 +81,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         
         fs.writeFileSync(path.join(__dirname,"..",'data',"productsDataBase.json"),JSON.stringify(dbProduct),'utf-8')
         
-        res.redirect('/products')
+        res.redirect('/productos')
     },
     show:function(req,res){
         let idProducto = req.params.id;

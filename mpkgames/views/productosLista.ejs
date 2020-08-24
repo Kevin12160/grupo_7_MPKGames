@@ -5,25 +5,19 @@
 
     <div class="container">
         <section>
-
-            <!--caja que contiene todos los productos de la ultima visita-->
-            <div class="row productos">
-
-                <!--caja que contiene el titulo de la sección-->
-                <div class="titulo col-12">
+            
+            <div class="row productos"> <!--caja que contiene todos los productos de la ultima visita-->
+                
+                <div class="titulo col-12"> <!--caja que contiene el titulo de la sección-->
                     <h2>
                         <%= title %> 
                     </h2>
                 </div>
-                <!--recorro los productos basados en la ultima visita con un forEach-->
-                <% productos.forEach(producto => { %>
-
-                    <!--caja de la grilla de bootstrap-->
-                    <div class="col-12 col-md-6 col-lg-3">
-
+                
+                <% productos.forEach(producto => { %> <!--recorro los productos basados en la ultima visita con un forEach-->                    
+                    <div class="col-12 col-md-6 col-lg-3"> <!--caja de la grilla de bootstrap-->
                         <!--caja que muestra la información del producto-->
                         <div class="contenido">
-
                             <!--ETIQUETA SEMANTICA-->
                             <figure>
                                 <a href="/products/detail/<%= producto.IDJuego %> ">
@@ -33,31 +27,31 @@
 
                             <!--informacion-->
                             <article>
-                                <!--precio-->
-                                <h2>$
+                                
+                                <h2>$ <!--precio-->
                                     <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                 </h2>
-                                <!--descuento-->
+                                        <!--descuento-->
                                 <% if (producto.Descuento !=0) { %>
                                     <span><%- producto.Descuento %> % OFF</span>
                                 <% } %>
-                               
-                                <!--nombre del producto ??-->
-                                <p>
+                                
+                                <p> <!--nombre del producto ??-->
                                     <%- producto.NombreDeProducto %>
                                 </p>
-                                <!--icono de envío-->
-                                <i class="fas fa-truck "></i>
+                                <p>
+                                    <%- producto.Categoria %> 
+                                </p>
+
+                                <i class="fas fa-truck "></i> <!--icono de envío-->
                             </article>
                         </div>
                         <!--finaliza contenido-->
 
-                    </div>
-                    <!--finaliza caja de grilla de boostrap-->
-
+                    </div> <!--finaliza caja de grilla de boostrap-->
+                    
                     <% }) %>
-            </div>
-            <!--finaliza el div.row-->
+            </div> <!--finaliza el div.row-->            
 
         </section>
 
