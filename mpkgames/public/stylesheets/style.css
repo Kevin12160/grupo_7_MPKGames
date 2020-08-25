@@ -214,6 +214,7 @@ section .contenido {
     border-radius: 5px;
     padding: 5px;
     text-align: center;
+    height: 550px;
 }
 
 section .contenido figure img {
