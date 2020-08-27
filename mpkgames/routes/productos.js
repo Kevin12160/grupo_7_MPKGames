@@ -22,13 +22,16 @@ router.get('/', controller.listar) //construyo la ruta que me visualizará infor
 // router.get('/lista', controller.listar) //construyo la ruta que me visualizará información de prueba
 router.get('/search',controller.search);
 router.get('/detalle/:id',controller.detalle);
-router.get('/add',controller.agregar);
-router.get('/add/form',controller.agregar);
 
+router.get('/carritoCompras/',controller.enCarrito);
+
+
+router.get('/add/form',controller.AbreFormAgregar);
 router.post('/add/form',upload.any(),controller.publicar);
 
-router.get('/show/:id/',controller.show);
 
 router.put('edit/:id',upload.any(),controller.actualizar);
+// router.put('AgregarAlCarrito/:id',controller.AgregarAlCarritoDeCompras);
+
 
 module.exports = router //exporto router

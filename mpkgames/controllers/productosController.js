@@ -13,6 +13,20 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 productos: dbProduct
             }) //muestra información de prueba
     },
+
+
+
+    enCarrito: function(req, res) {
+        let productoEnCarrito = dbProduct.filter(producto => {
+            return producto.AgregadoAlCarrito == true
+        })        
+        
+        res.render('productCart', { //renderizo en el navegador la vista index que contiene el HOME del sitio
+            title: 'Carrito de Compras', //envío el objeto literal con la o las variables necesarias para renderizar de forma correcta el home
+            productoEnCarrito: productoEnCarrito         
+        })
+    },
+    
     search:function(req,res){
         let buscar = req.query.search;
         let resultados=[];
@@ -29,29 +43,48 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
     detalle:function(req,res){
         let id = req.params.id;
+        let CategoriaDelJuego = "";
+
         let producto = dbProduct.filter(producto=>{
             return producto.IDJuego == id
         })
-        // console.log(producto)
+        // console.log(producto[0].Categoria)
+        CategoriaDelJuego = producto[0].Categoria
+        
+        let productoSegunCategoria = dbProduct.filter(producto => {
+            return producto.Categoria == CategoriaDelJuego
+        })   
+            
+
         res.render('productDetail',{
             title:"Detalle del Producto",
-            producto:producto[0]
+            producto:producto[0],
+            productoSegunCategoria: productoSegunCategoria 
         })
     },
-    agregar:function(req,res){
-        let categoria;
-        let sub;
-        if(req.query.categoria){
-            categoria = req.query.categoria;
-            sub = req.query.sub
-        }
+
+    AbreFormAgregar:function(req,res){        
         res.render('productAdd',{
             title:"Agregar Producto",
-            // categorias:dbCategories,
-            // categoria:categoria,
-            sub:sub
         })
     },
+   
+    // por el momento no funciona
+    AgregarAlCarritoDeCompras: function(req,res){
+        let idproducto = req.params.id;
+
+            dbProduct.forEach(producto=>{
+                if(producto.IDJuego==idproducto){                                        
+                    producto.AgregadoAlCarrito = true;                    
+                }
+            })
+
+            fs.writeFileSync(path.join(__dirname,'..','data','productsLista,json'),json.stringify(dbProduct,'utf8'))
+
+            res.redirect('/productos/productosLista/' + idproducto)
+
+    },
+
     publicar:function(req,res,next){
         
         let lastID = 1;
@@ -74,30 +107,20 @@ module.exports = { //exporto un objeto literal con todos los metodos
             Descuento:  Number(req.body.descuento),
             Stock: Number(req.body.stock),    
             DescripcionCorta: req.body.detalle.trim(),
-            Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
+            Calificacion: "",
+            OfertasUtimosJuegos: "",
+            OfertasDeLaSemana: "",
+            AgregadoAlCarrito: ""
+            // Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
         }
 
         dbProduct.push(newProduct);
         
-        fs.writeFileSync(path.join(__dirname,"..",'data',"productsDataBase.json"),JSON.stringify(dbProduct),'utf-8')
+        fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
         
         res.redirect('/productos')
     },
-    show:function(req,res){
-        let idProducto = req.params.id;
-       
-
-        let resultado = dbProduct.filter(producto =>{
-            return producto.IDJuego == idProducto
-        })
-        res.render('productShow',{
-            title: "Ver/Editar Producto",
-            producto: resultado[0],
-            total: dbProduct.length,
-            // categorias:dbCategories
-            
-        })
-    },
+  
     actualizar: function(req,res){
         let idproducto = req.params.id;
 
@@ -121,9 +144,9 @@ module.exports = { //exporto un objeto literal con todos los metodos
                         [0].filename:producto.Imagen);
                 }
             })
-            fs.writeFileSync(path.join(__dirname,'..','data','productoDataBase,json'),json.stringify(dbProduct,'utf8'))
+            fs.writeFileSync(path.join(__dirname,'..','data','productsLista,json'),json.stringify(dbProduct,'utf8'))
 
-            res.redirect('/prodcts/show/' + idproducto)
+            res.redirect('/productos/productosLista/' + idproducto)
 
     }
 }
