@@ -54,7 +54,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         let productoSegunCategoria = dbProduct.filter(producto => {
             return producto.Categoria == CategoriaDelJuego
         })   
-            // console.log(producto[0].Categoria)
+            
 
         res.render('productDetail',{
             title:"Detalle del Producto",
@@ -69,6 +69,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
     },
    
+    // por el momento no funciona
     AgregarAlCarritoDeCompras: function(req,res){
         let idproducto = req.params.id;
 
@@ -106,6 +107,10 @@ module.exports = { //exporto un objeto literal con todos los metodos
             Descuento:  Number(req.body.descuento),
             Stock: Number(req.body.stock),    
             DescripcionCorta: req.body.detalle.trim(),
+            Calificacion: "",
+            OfertasUtimosJuegos: "",
+            OfertasDeLaSemana: "",
+            AgregadoAlCarrito: ""
             // Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
         }
 
