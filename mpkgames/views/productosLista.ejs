@@ -39,7 +39,7 @@
                       </svg></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/detalle">Detalle de producto</a>
+                      <!-- <a class="nav-link" href="/detalle">Detalle de producto</a> -->
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/botones">Carga de producto</a>
@@ -52,7 +52,7 @@
                         <a class="nav-link" href=" ">Ingresá <i class="fas fa-sign-in-alt "></i></a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/carritoCompras">Mis compras <i class="fas fa-shopping-basket "></i></a>
+                        <a class="nav-link" href="/productos/carritoCompras">Mis compras <i class="fas fa-shopping-basket "></i></a>
                       </li>
                 </ul>
                 </div>
@@ -63,7 +63,7 @@
         <!--finaliza caja contenedora del menu-->
 
     <div class="contBuscador col-10 ">                
-        <form action="" method="get" class="search-form">
+        <form action="/productos/search" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar tu Juego favorito" class="search-form_input">
             <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
         </form>
@@ -78,12 +78,18 @@
         <section>
             
             <div class="row productos"> <!--caja que contiene todos los productos de la ultima visita-->
-                
                 <div class="titulo col-12"> <!--caja que contiene el titulo de la sección-->
                     <h2>
                         <%= title %> 
                     </h2>
                 </div>
+                <nav class="navDetalleProd col-12 col-md-12 col-lg-12" aria-label="breadcrumb">
+                    <ol class="orderListDetall breadcrumb">
+                        <li class="liBreadcrumb breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="liBreadcrumb breadcrumb-item active" aria-current="page">Listado de todos los productos</li>
+                    </ol>
+                </nav>
+              
                 
                 <% productos.forEach(producto => { %> <!--recorro los productos basados en la ultima visita con un forEach-->                    
                     <div class="col-12 col-md-6 col-lg-3"> <!--caja de la grilla de bootstrap-->
@@ -91,7 +97,7 @@
                         <div class="contenido">
                             <!--ETIQUETA SEMANTICA-->
                             <figure>
-                                <a href="/products/detail/<%= producto.IDJuego %> ">
+                                <a href="/productos/detalle/<%= producto.IDJuego %> ">
                                     <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
                                 </a>
                             </figure>

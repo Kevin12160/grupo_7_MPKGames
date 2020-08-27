@@ -8,14 +8,16 @@ var router = express.Router();
 // });
 const controller = require('../controllers/mainController'); //requiero el controlador para que se haga cargo de la lógica
 
+
 /* GET home page. */
 router.get('/', controller.index);
 
 
-router.get('/detalle', function(req,res){
+/* router.get('/detalle', function(req,res){
   res.render('productDetail', 
   { title: 'Detalle' });
-});
+}); */
+
 
 router.get('/registroUsuarios', function(req,res){
   res.render('register',
@@ -23,10 +25,10 @@ router.get('/registroUsuarios', function(req,res){
 });
 
 
-router.get('/carritoCompras', function(req,res){
-  res.render('productCart', 
-  { title: 'Carrito de Compras' });
-});
+// router.get('/carritoCompras', function(req,res){
+//   res.render('productCart', 
+//   { title: 'Carrito de Compras' });
+// });
 
 router.get('/botones', function(req,res){
   res.render('btnOpcModCar',
