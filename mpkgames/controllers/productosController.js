@@ -18,7 +18,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
     enCarrito: function(req, res) {
         let productoEnCarrito = dbProduct.filter(producto => {
-            return producto.AgregadoAlCarrito == "1"
+            return producto.AgregadoAlCarrito == true
         })        
         
         res.render('productCart', { //renderizo en el navegador la vista index que contiene el HOME del sitio
@@ -43,13 +43,19 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
     detalle:function(req,res){
         let id = req.params.id;
+        let CategoriaDelJuego = "";
+
         let producto = dbProduct.filter(producto=>{
             return producto.IDJuego == id
         })
+        // console.log(producto[0].Categoria)
+        CategoriaDelJuego = producto[0].Categoria
+        
         let productoSegunCategoria = dbProduct.filter(producto => {
-            return producto.Categoria == "Ingenio y RPG"
+            return producto.Categoria == CategoriaDelJuego
         })   
-        //  console.log(producto)
+            // console.log(producto[0].Categoria)
+
         res.render('productDetail',{
             title:"Detalle del Producto",
             producto:producto[0],
@@ -68,7 +74,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
             dbProduct.forEach(producto=>{
                 if(producto.IDJuego==idproducto){                                        
-                    producto.AgregadoAlCarrito = "1";                    
+                    producto.AgregadoAlCarrito = true;                    
                 }
             })
 
