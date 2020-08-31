@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+   
+        <%- include('partials/header') %>
+
+
+            
+        <div class="formulario container">
+            <div class=" col-12 titulo">
+                <h3 class="h3tituloAgreYMod">
+                    <%= title %>
+                </h3>
+            </div>                         
+                                                                        
+            <form Class="FormAdd" action="/productos/edit/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                         
+                    <div class="form-row">                        
+                        <div class="form-group col-12 col-md-6 col-lg-6">
+                            <label for="nombreDelProducto">Nombre del Juego:</label>
+                            <input type="text" name="nombreDelProducto" id="nombreDelProducto" class="form-control" value="<%= producto.NombreDeProducto%>" required>
+                        </div>                        
+                        <div class="form-group col-12 col-md-6 col-lg-6">
+                            <label for="codigo">Codigo del juego:</label>
+                            <input type="text" name="codigo" id="codigo" class="form-control" value="<%= producto.Codigo%>" required>
+                        </div>  
+                        <div class="form-group col-12 col-md-6 col-lg-6">    
+                            <label form="precioJuego">Precio del juego: </label> 
+                            <input type="text" class="form-control" name="precioProd" id="precioJuego" value="<%= producto.Precio%>" required>            
+                        </div>
+                        <div class="form-group col-12 col-md-6 col-lg-6">    
+                            <label form="tamanio">Tamaño del juego: </label> 
+                            <input type="text" class="form-control" name="tamanioJue" id="tamanio" value="<%= producto.Tamanio%>" required>            
+                        </div>        
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-6 col-lg-6">    
+                            <label form="idioma">Idioma del juego: </label> 
+                            <input type="text"  class="form-control" name="idiomaJuego" id="idioma" value="<%= producto.Idioma%>" required>            
+                        </div>
+                        <div class="form-group col-12 col-md-6 col-lg-6">    
+                            <label form="categoria">Categoria del juego: </label> 
+                            <input type="text"  class="form-control" name="categoriaJuego" id="categoria" value="<%= producto.Categoria%>" required>            
+                        </div>
+                        <div class="form-group col-12 col-md-6 col-lg-6">    
+                            <label form="subtituloJuego">Idioma subtitulo del juego: </label> 
+                            <input type="text"  class="form-control" name="subtitulo" id="subtituloJuego" value="<%= producto.IdiomaSubt%>" required>            
+                        </div>
+                        <div class="form-group col-12 col-md-6 col-lg-6">    
+                            <label form="fecha">Fecha de lanzamiento: </label> 
+                            <input type="text"  class="form-control" name="fechaLanzam" id="fecha" value="<%= producto.FechaLanzamiento%>" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-6 col-lg-6">
+                            <label form="stock">Cantidad de Stock</label> 						
+                            <input type="number" id="stock" class="form-control" name="stock"  value="<%= producto.Stock%>" required/> 
+                        </div>   
+                        <br>
+                        <div class="form-group col-12 col-md-6 col-lg-6">
+                            <label form="descuento">Descuento %</label> 						
+                            <input type="number" id="descuento"  class="form-control" name="descuento" value="<%= producto.Descuento%>" /> 
+                        </div>
+                        
+                      
+
+                        <div class="form-group col-12 col-md-6 col-lg-6">    
+                            <label form="detalle">Descripcion corta: </label> 
+                            <input type="text" class="form-control" name="DescripcionCorta" id="DescripcionCorta" value="<%= producto.DescripcionCorta%>">
+            
+                        </div>
+                        <div class="form-group col-12 col-md-6 col-lg-6">     
+                            <figure class="text-center">
+                                <img src="/images/products/<%= producto.Imagen %> " alt="" class="img-fluid">
+                            </figure>       
+                            
+                            <input type="file" id="imagen" name="imagen" value="<%= producto.IDJuego %> " class="form-control"/>                                         
+                        </div>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-end">
+                        <button class="btn btn-danger mr-2">Cancelar</button>
+                        <button class="btn btn-info" type="submit" name="id" value="<%= producto.IDJuego %> ">Guardar Modificaciones</button>
+                    </div>
+                                           
+        </form>             
+                        
+                    
+    </div>
+
+    <!--caja con el contenido principal de footer-->
+     <!--FOOTER: PIE DE PAGINA-->
+<%- include("./partials/footer") %> 

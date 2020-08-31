@@ -120,7 +120,14 @@
                                     <%- producto.Categoria %> 
                                 </p>
 
-                                <i class="fas fa-truck "></i> <!--icono de envío-->
+                                <div class="d-flex justify-content-around">                                   
+                                    <form action="/productos/show/<%= producto.IDJuego %>" method="GET">
+                                        <button class="btn btn-outline-light"> <h4 class="fas fa-edit text-primary"></h4></button>
+                                    </form>
+                                    <form action="/productos/delete/<%= producto.IDJuego %>?_method=DELETE" method="POST">
+                                        <button class="btn btn-outline-light"> <h4 class="fas fa-trash-alt text-danger"></h4></button>
+                                    </form>
+                                </div>
                             </article>
                         </div>
                         <!--finaliza contenido-->

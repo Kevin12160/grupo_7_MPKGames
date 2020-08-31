@@ -7,9 +7,10 @@ module.exports ={
     agregar: function(req, res){
       res.render("register")
     },
+
     registrarse: function(req,res){
         let lastID = 1;
-        res.send(req.body)
+        // res.send(req.body)
         dbUsers.forEach(user=>{
             if(user.id > lastID){
                 lastID = user.id
@@ -18,11 +19,11 @@ module.exports ={
         let newUsuario ={
             id: lastID + 1,
             nombre: req.body.nombre.trim(),
-            apellido: req.body.apellido.trim(),
-            codArea:  Number(req.body.codArea),
-            telefono: Number(req.body.telefono),                     
-            email: req.body.email.trim(),     
-            contraseña: req.body.contraseña.trim(),                                       
+            apellido: req.body.Apellido.trim(),
+            codArea:  Number(req.body.usu_CodigoArea),
+            telefono: Number(req.body.usu_Telefono),                     
+            email: req.body.usu_email.trim(),     
+            contraseña: req.body.usu_password.trim(),                                       
             //Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
         }
 
@@ -32,6 +33,7 @@ module.exports ={
         
         res.redirect('/registroUsuarios')
     },
+
     login: function(req, res){
        res.send("logeado")
     }

@@ -120,15 +120,23 @@ module.exports = { //exporto un objeto literal con todos los metodos
         
         res.redirect('/productos')
     },
-  
+    show:function(req,res){
+        let idProducto = req.params.id;       
+
+        let resultado = dbProduct.filter(producto =>{
+            return producto.IDJuego == idProducto
+        })
+        res.render('productShow',{
+            title: "Ver/Editar Producto",
+            producto: resultado[0],            
+        })
+    },
     actualizar: function(req,res){
         let idproducto = req.params.id;
 
-        //    res.send(idProducto) 
-
             dbProduct.forEach(producto=>{
                 if(producto.IDJuego==idproducto){
-                    producto.IDJuego = Number(req.body.id);                    
+                    producto.IDJuego = Number(idproducto);                    
                     producto.Codigo = Number(req.body.codigo);
                     producto.NombreDeProducto = req.body.nombreDelProducto.trim();
                     producto.Precio = Number(req.body.precioProd);                    
@@ -139,14 +147,16 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     producto.FechaLanzamiento = req.body.fechaLanzam;
                     producto.Descuento = Number(req.body.descuento);
                     producto.Stock = Number(req.body.stock);    
-                    producto.DescripcionCorta = req.body.detalle.trim();
+                    producto.DescripcionCorta = req.body.DescripcionCorta.trim();
                     producto.Imagen= (req.files[0]?req.files
                         [0].filename:producto.Imagen);
                 }
             })
-            fs.writeFileSync(path.join(__dirname,'..','data','productsLista,json'),json.stringify(dbProduct,'utf8'))
-
-            res.redirect('/productos/productosLista/' + idproducto)
+            
+            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
+            
+            // res.redirect('/productos/')
 
     }
+    
 }

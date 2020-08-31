@@ -29,9 +29,9 @@ router.get('/carritoCompras/',controller.enCarrito);
 router.get('/add/form',controller.AbreFormAgregar);
 router.post('/add/form',upload.any(),controller.publicar);
 
-
+router.get('/show/:id/',controller.show);
 router.put('edit/:id',upload.any(),controller.actualizar);
-// router.patch('actualizarCarrito/:id',controller.AgregarAlCarritoDeCompras);
+
 
 
 module.exports = router //exporto router
