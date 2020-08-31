@@ -86,7 +86,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     },
 
     publicar:function(req,res,next){
-        
+        // res.send(req.files);
         let lastID = 1;
 
         dbProduct.forEach(producto=>{
@@ -110,8 +110,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
             Calificacion: "",
             OfertasUtimosJuegos: "",
             OfertasDeLaSemana: "",
-            AgregadoAlCarrito: ""
-            // Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
+            AgregadoAlCarrito: "",
+            Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
         }
 
         dbProduct.push(newProduct);

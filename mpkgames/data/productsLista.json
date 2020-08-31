@@ -933,4 +933,36 @@
     "OfertasUtimosJuegos": "",
     "OfertasDeLaSemana": "",
     "AgregadoAlCarrito": ""
+}, {
+    "IDJuego": "911",
+    "NombreDeProducto": "Battlefield 1",
+    "Precio": 1256,
+    "Tamaño": "10",
+    "Idioma": "Ingles",
+    "IdiomaSubt": "ing",
+    "Categoria": "Ingenio",
+    "FechaLanzamiento": "26/08/2020",
+    "Descuento": 3,
+    "Stock": 33,
+    "DescripcionCorta": "Battlefield 1",
+    "Calificacion": "",
+    "OfertasUtimosJuegos": "",
+    "OfertasDeLaSemana": "",
+    "AgregadoAlCarrito": ""
+}, {
+    "IDJuego": "9111",
+    "NombreDeProducto": "juego 2",
+    "Precio": 33,
+    "Tamaño": "2",
+    "Idioma": "Ingles",
+    "IdiomaSubt": "Español",
+    "Categoria": "aventur",
+    "FechaLanzamiento": "28/08/2020",
+    "Descuento": 0,
+    "Stock": 4,
+    "DescripcionCorta": "Battlefield 1",
+    "Calificacion": "",
+    "OfertasUtimosJuegos": "",
+    "OfertasDeLaSemana": "",
+    "AgregadoAlCarrito": ""
 }]

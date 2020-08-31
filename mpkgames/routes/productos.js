@@ -31,7 +31,7 @@ router.post('/add/form',upload.any(),controller.publicar);
 
 
 router.put('edit/:id',upload.any(),controller.actualizar);
-// router.put('AgregarAlCarrito/:id',controller.AgregarAlCarritoDeCompras);
+// router.patch('actualizarCarrito/:id',controller.AgregarAlCarritoDeCompras);
 
 
 module.exports = router //exporto router
