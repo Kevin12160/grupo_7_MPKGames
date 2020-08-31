@@ -13,18 +13,54 @@
 </head>
 
 <body>
-       
-       
-<div class="container" >
+    <%- include("./partials/header") %> 
+
+<div class="formularioIngresa">
+    <div class="container">
+        <div class="row">
+            <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/login" method="POST">
+                <div class="row"> 
+                    <div class="col-12 Registro">     
+                        <div class="col-12">
+                            <h3>Ingresar</h3>
+                        </div>   
+                    </div>
+                </div>  
+                <div class="form-group">            
+                    <label form="usu_email">email:</label> 
+                    <input type="email" id="usu_email" name="usu_email" class="form-control" placeholder="Ingrese su email" required/>             
+                </div>
+                
+                <div class="form-group">    
+                    <label form="usu_password">Ingrese una Contraseña</label> 
+                    <input type="password" placeholder="Ingrese una Contraseña" class="form-control" name="usu_password" id="usu_password" required>
+                    <p>
+                        <a href="/"><input type="submit" value="Ingresar" class="botonesRegistrarse"/></a> 
+                    </p>    
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="formularioRegistro">  
+
+    <div class="container" >
      <div class="row">
-        <form Class="FormLogin col-12 col-md-6" action="#" method="POST">
+        <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/registroUsuarios" method="POST">
             <div class="row"> 
-                <div class="LogoFormRegistro">
-                    <div class="col-3 col-md-4">                    
-                        <img src="/images/logo.png" alt="Logo MPKGames ">
-                    </div>       
-                    <div class="col-9 col-md-8">
-                        <h3>Registro de Usuario</h3>
+                <div class="col-12 Registro">     
+                    <div class="col-12">
+                        <h3>Registrarme</h3>
                     </div>   
                 </div>
             </div>   
@@ -48,8 +84,8 @@
                 </div>            
             
                 <div class="form-group col-md-6">
-                <label for="email">Apellido:</label>
-                <input type="email" name="Apellido" id="Apellido" class="form-control" placeholder="Ingrese su Apellido" required>
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="Apellido" id="Apellido" class="form-control" placeholder="Ingrese su Apellido" required>
                 </div>    
             </div>
 
@@ -90,7 +126,7 @@
               </div>
 
             <p>
-                <input type="submit" value="Registrarse" class="botonesRegistrarse"/> 
+                <input type="submit" value="Registrarme" class="botonesRegistrarse"/> 
             </p>    
 
             
@@ -99,12 +135,9 @@
     </form>
  </div> <!--cierra el row -->
 </div>
+</div>
 
-        <!--scripts de bootstrap-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
-    
+<%- include("./partials/footer") %> 
 </body>
 
 </html>
