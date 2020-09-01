@@ -24,7 +24,7 @@ router.get('/search',controller.search);
 router.get('/detalle/:id',controller.detalle);
 
 router.get('/carritoCompras/',controller.enCarrito);
-
+router.put('/agregarAlCarrito/:id',controller.AgregarAlCarritoDeCompras);
 
 router.get('/add/form',controller.AbreFormAgregar);
 router.post('/add/form',upload.any(),controller.publicar);
