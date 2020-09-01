@@ -30,7 +30,9 @@ router.get('/add/form',controller.AbreFormAgregar);
 router.post('/add/form',upload.any(),controller.publicar);
 
 router.get('/show/:id/',controller.show);
-router.put('edit/:id',upload.any(),controller.actualizar);
+router.put('/edit/:id',upload.any(),controller.actualizar);
+
+router.delete('/delete/:id',controller.eliminar);
 
 
 

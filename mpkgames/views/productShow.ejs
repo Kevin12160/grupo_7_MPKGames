@@ -9,11 +9,14 @@
         <div class="formulario container">
             <div class=" col-12 titulo">
                 <h3 class="h3tituloAgreYMod">
-                    <%= title %>
+                    <%= title %> <br>
+                    <%= producto.NombreDeProducto %>
                 </h3>
             </div>                         
                                                                         
-            <form Class="FormAdd" action="/productos/edit/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                         
+            <form  action="/productos/edit/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">   
+                <!-- <form action="/productos/edit/<%= producto.IDJuego %>?_method=PUT" method="POST">    -->
+
                     <div class="form-row">                        
                         <div class="form-group col-12 col-md-6 col-lg-6">
                             <label for="nombreDelProducto">Nombre del Juego:</label>
@@ -75,7 +78,8 @@
                                 <img src="/images/products/<%= producto.Imagen %> " alt="" class="img-fluid">
                             </figure>       
                             
-                            <input type="file" id="imagen" name="imagen" value="<%= producto.IDJuego %> " class="form-control"/>                                         
+                            <!-- <input type="file" id="imagen" name="imagen" value="<%= producto.Imagen %> " class="form-control"/>   -->
+                            <input type="file" id="imagen" name="imagen" class="form-control"/>  
                         </div>
                     </div>
 

@@ -11,7 +11,7 @@ let productsRouter = require('./routes/productos') //requiero el módulo que se 
 
 var app = express();
 
-const methodOverride = require('method-override');
+var methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 // view engine setup

@@ -1,9 +1,9 @@
 const dbProduct = require('../data/database'); //requiero la base de datos de productos
-// const dbCategories = require('../data/dbCategories');
+
 
 const fs = require('fs');
 const path = require('path');
-const { json } = require('express');
+
 
 
 module.exports = { //exporto un objeto literal con todos los metodos
@@ -131,32 +131,48 @@ module.exports = { //exporto un objeto literal con todos los metodos
             producto: resultado[0],            
         })
     },
-    actualizar: function(req,res){
+    actualizar:function(req,res){
         let idproducto = req.params.id;
 
             dbProduct.forEach(producto=>{
                 if(producto.IDJuego==idproducto){
-                    producto.IDJuego = Number(idproducto);                    
+                    producto.IDJuego = Number(req.body.id);                    
                     producto.Codigo = Number(req.body.codigo);
                     producto.NombreDeProducto = req.body.nombreDelProducto.trim();
                     producto.Precio = Number(req.body.precioProd);                    
-                    producto.Tamaño = req.body.tamanioJue.trim();
+                    producto.Tamanio = req.body.tamanioJue.trim();
                     producto.Idioma = req.body.idiomaJuego.trim();                    
                     producto.IdiomaSubt = req.body.subtitulo.trim();     
                     producto.Categoria = req.body.categoriaJuego.trim();                                    
                     producto.FechaLanzamiento = req.body.fechaLanzam;
-                    producto.Descuento = Number(req.body.descuento);
-                    producto.Stock = Number(req.body.stock);    
+                    producto.Stock = Number(req.body.stock); 
+                    producto.Descuento = Number(req.body.descuento);                       
                     producto.DescripcionCorta = req.body.DescripcionCorta.trim();
-                    producto.Imagen= (req.files[0]?req.files
-                        [0].filename:producto.Imagen);
+                    // producto.Imagen= (req.files[0]?req.files
+                    //     [0].filename:producto.Imagen);
                 }
             })
             
             fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
             
-            // res.redirect('/productos/')
+             res.redirect('/productos/')
+    },
+    eliminar:function(req,res){
+        let idProducto = req.params.id;
+          let aEliminar;      
+        dbProduct.forEach(producto=>{
+            if(producto.IDJuego == idProducto){
+                aEliminar = dbProduct.indexOf(producto);
+            }   
+            })
+            dbProduct.splice(aEliminar,1) 
 
-    }
+              
+            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
+            res.redirect('/productos/')
+
+        }
+
+    
     
 }
