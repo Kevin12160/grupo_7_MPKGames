@@ -19,7 +19,7 @@
         
 
             <article class="articuloDetalle">
-
+                    <!--Carrusel de Fotos del Juego-->
                     <div class="contImgArtDetalle col-12 img-fluid">
                         <img class="imgArtDetalle rounded " src="images/horizon-zero-dawn-complete-edition-cover.jpg" alt="">
                     </div>
@@ -59,46 +59,47 @@
 
                  
                     <div class="contenedorDesc col-12 col-md-6 col-lg-5">
-                        <h4 class="nomDelJuego "> <%- producto.NombreDeProducto %></h4>
-
+                <form action="/productos/agregarAlCarrito/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                           
+                        <h4 id="nombreDelProducto" class="nomDelJuego "> <%- producto.NombreDeProducto %></h4>
+                        <h3 id="codigo"> <%- producto.Codigo %> </h3>
                         <ul class="unorderList alert ">
-                            <li class="listDetalle">Descuento <span class="cantDescuento">30%</span></li>
+                            <li id="descuento" class="listDetalle">Descuento: <%- producto.Descuento %><span class="cantDescuento">%</span></li>
                             <li class="listDetalle"><p class="mensajDetalle">¡Compralo Ya!</p></li>
-                            <li class="listDetalle">Precio <s><%- producto.Descuento %></s></li>
-                            <li class="listDetalle">Precio con descuento  <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></li>
-                            <li class="listDetalle">Stock: <%- producto.Stock %> </li>                
+                            <li id="precioProd" class="listDetalle">Precio: $ <s><%- producto.Precio %></s></li>
+                            <li class="listDetalle">Precio con descuento: $  <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></li>
+                            <li id="stock" class="listDetalle">Stock: <%- producto.Stock %> </li>                
                         </ul>
-                    <!--agregando el botond de comprar-->                    
-                           <a href="/productos/carritoCompras"> <button type="button"  class="botonDeComprar btn btn-primary btn-lg btn-block">
-                                Agregar al Carrito de Compras 
+                    
+                        <!--agregando el botond de comprar-->     
+                            <button class="botonDeComprar btn btn-primary btn-lg btn-block" type="submit" name="id" value="<%= producto.IDJuego %> ">Agregar al Carrito de Compras                               
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart4" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                                 </svg>
-                            </button> </a>
+                            </button>                          
+                        <!--Mas detalle extenso del producto-->
+                                </div>
+                            <div class="contBtnCollapse col-12 col-md-12 col-lg-12">
 
-        <!--Mas detalle extenso del producto-->
-                    </div>
-                <div class="contBtnCollapse col-12 col-md-12 col-lg-12">
-
-                    <button class="btnDetalle btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                          Mas Detalles
-                    </button>
+                                <button class="btnDetalle btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    Mas Detalles
+                                </button>
+                            
+                                <div class="collapseDetalle collapse" id="collapseExample">
+                                    <div class="cardDetalle card card-body" style= "width: 100%;">
                 
-                      <div class="collapseDetalle collapse" id="collapseExample">
-                        <div class="cardDetalle card card-body" style= "width: 100%;">
-    
-                            <ul class="listGrupDetalle list-group list-group-flush">
-                                <li class="liDetalle list-group-item">Tamaño: <%- producto.Tamanio %> </li>
-                                <li class="liDetalle list-group-item"> Idioma: <%- producto.Idioma %> </li>
-                                <li class="liDetalle list-group-item">Subtitulos: <%- producto.Ingles %> </li>
-                                <li class="liDetalle list-group-item">Fecha de lanzamiento: <%- producto.FechaLanzamiento %>  </li>
-                                <li class="liDetalle list-group-item">Categoria:<%- producto.Categoria %> </li>
-                                <li class="liDetalle list-group-item">Descripcion breve: <%- producto.DescripcionCorta %> </li>
-                            </ul>
-                                                 
-                            </div>
-                        </div>
-                </div>            
+                                        <ul class="listGrupDetalle list-group list-group-flush">
+                                            <li id="tamanioJue" class="liDetalle list-group-item">Tamaño: <%- producto.Tamanio %> </li>
+                                            <li id="idiomaJuego" class="liDetalle list-group-item">Idioma: <%- producto.Idioma %> </li>
+                                            <li id="subtitulo" class="liDetalle list-group-item">Subtitulos: <%- producto.IdiomaSubt %> </li>
+                                            <li id="fechaLanzam" class="liDetalle list-group-item">Fecha de lanzamiento: <%- producto.FechaLanzamiento %>  </li>
+                                            <li id="categoriaJuego" class="liDetalle list-group-item">Categoria:<%- producto.Categoria %> </li>
+                                            <li id="DescripcionCorta" class="liDetalle list-group-item">Descripcion breve: <%- producto.DescripcionCorta %> </li>
+                                        </ul>
+                                                            
+                                        </div>
+                                    </div>
+                            </div>  
+                    </form>            
         </article>
     </div>
     </section> 

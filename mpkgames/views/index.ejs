@@ -45,7 +45,10 @@
                                    <!--icono de Consolas-->
                                    <i class="fab fa-xbox Xbox"></i>
                                    <i class="fab fa-playstation playStation"></i>
-                                <button type="button" class="btn btn-primary btn-sm btnAgregarCarrito">Agregar al Carrito</button>
+                                   
+                                   <form action="/productos/agregarAlCarrito/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                           
+                                    <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
+                                </form>
                             </article> 
                         <!--finaliza contenido-->
                     </div>
@@ -100,7 +103,11 @@
                                    <!--icono de Consolas-->
                                    <i class="fab fa-xbox Xbox"></i>
                                    <i class="fab fa-playstation playStation"></i>
-                                <button type="button" class="btn btn-primary btn-sm btnAgregarCarrito">Agregar al Carrito</button>
+                                
+                                <form action="/productos/agregarAlCarrito/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                           
+                                    <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                    
+                                    
+                               </form>
                             </article> 
                         <!--finaliza contenido-->
                     </div>

@@ -18,13 +18,15 @@ let storage = multer.diskStorage({
 let upload = multer({storage:storage})
 
 
-router.get('/', controller.listar) //construyo la ruta que me visualizará información de prueba
+router.get('/', controller.listar) //construyo la ruta que me visualizará información de prueba esta es /productos
 // router.get('/lista', controller.listar) //construyo la ruta que me visualizará información de prueba
 router.get('/search',controller.search);
 router.get('/detalle/:id',controller.detalle);
 
 router.get('/carritoCompras/',controller.enCarrito);
-router.put('/agregarAlCarrito/:id',controller.AgregarAlCarritoDeCompras);
+router.put('/agregarAlCarrito/:id',upload.any(),controller.AgregarAlCarritoDeCompras);
+router.put('/retiraDelCarrito/:id',controller.retiraDelCarrito);
+
 
 router.get('/add/form',controller.AbreFormAgregar);
 router.post('/add/form',upload.any(),controller.publicar);
