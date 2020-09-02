@@ -8,9 +8,12 @@ const path = require('path');
 
 module.exports = { //exporto un objeto literal con todos los metodos
     listar: function(req, res) {
+        let  totalDeProductos =  dbProduct.length;
+
         res.render('productosLista', {
                 title: "Todos los Productos",
-                productos: dbProduct
+                productos: dbProduct,
+                totalDeProductos: totalDeProductos
             }) //muestra información de prueba
     },
 
@@ -38,6 +41,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('productosLista',{
             title:"Resultado de la busqueda",
             productos:resultados
+            
         })
     },
 
@@ -69,19 +73,36 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
     },
    
-    // por el momento no funciona
+    // por el momento no easta en funcionamiento la idea es actualizar la inf segun el detalle de producto y solo cuando hace
+    // click en AgregadoAlCarritoq ese campo pasa a true 
     AgregarAlCarritoDeCompras: function(req,res){
         let idproducto = req.params.id;
 
-            dbProduct.forEach(producto=>{
-                if(producto.IDJuego==idproducto){                                        
-                    producto.AgregadoAlCarrito = true;                    
-                }
-            })
-
-            fs.writeFileSync(path.join(__dirname,'..','data','productsLista,json'),json.stringify(dbProduct,'utf8'))
-
-            res.redirect('/productos/productosLista/' + idproducto)
+        dbProduct.forEach(producto=>{
+            if(producto.IDJuego==idproducto){
+                producto.IDJuego = Number(req.body.id);                    
+                producto.Codigo = Number(req.body.codigo);
+                producto.NombreDeProducto = req.body.nombreDelProducto.trim();
+                producto.Precio = Number(req.body.precioProd);                    
+                producto.Tamanio = req.body.tamanioJue.trim();
+                producto.Idioma = req.body.idiomaJuego.trim();                    
+                producto.IdiomaSubt = req.body.subtitulo.trim();     
+                producto.Categoria = req.body.categoriaJuego.trim();                                    
+                producto.FechaLanzamiento = req.body.fechaLanzam;
+                producto.Stock = Number(req.body.stock); 
+                producto.Descuento = Number(req.body.descuento);    
+                producto.OfertasUtimosJuegos = req.body.OfertasUtimosJuegos;
+                producto.OfertasDeLaSemana = req.body.OfertasDeLaSemana;
+                producto.AgregadoAlCarrito = true;
+                producto.DescripcionCorta = req.body.DescripcionCorta.trim();
+                producto.Imagen= (req.files[0]?req.files
+                    [0].filename:producto.Imagen);
+            }
+        })
+        
+        fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
+         res.redirect('/productos/')
+            
 
     },
 
@@ -97,6 +118,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
         let newProduct ={
             IDJuego: lastID + 1,
+            Codigo: req.body.Codigo.trim(),                    
             NombreDeProducto: req.body.nombreDelProducto.trim(),
             Precio:Number(req.body.precioProd),
             Tamaño: req.body.tamanioJue.trim(),
@@ -122,15 +144,17 @@ module.exports = { //exporto un objeto literal con todos los metodos
     },
     show:function(req,res){
         let idProducto = req.params.id;       
-
+        
         let resultado = dbProduct.filter(producto =>{
             return producto.IDJuego == idProducto
         })
         res.render('productShow',{
             title: "Ver/Editar Producto",
-            producto: resultado[0],            
+            producto: resultado[0], 
+            
         })
     },
+
     actualizar:function(req,res){
         let idproducto = req.params.id;
 
@@ -146,17 +170,19 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     producto.Categoria = req.body.categoriaJuego.trim();                                    
                     producto.FechaLanzamiento = req.body.fechaLanzam;
                     producto.Stock = Number(req.body.stock); 
-                    producto.Descuento = Number(req.body.descuento);                       
+                    producto.Descuento = Number(req.body.descuento);    
+                    producto.OfertasUtimosJuegos = req.body.OfertasUtimosJuegos;
+                    producto.OfertasDeLaSemana = req.body.OfertasDeLaSemana;
                     producto.DescripcionCorta = req.body.DescripcionCorta.trim();
-                    // producto.Imagen= (req.files[0]?req.files
-                    //     [0].filename:producto.Imagen);
+                    producto.Imagen= (req.files[0]?req.files
+                        [0].filename:producto.Imagen);
                 }
             })
             
-            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
-            
+            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
              res.redirect('/productos/')
     },
+
     eliminar:function(req,res){
         let idProducto = req.params.id;
           let aEliminar;      
