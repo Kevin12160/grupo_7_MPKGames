@@ -144,7 +144,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             dbProduct.forEach(producto=>{
                 if(producto.IDJuego==idproducto){
                     producto.IDJuego = Number(req.body.id);                    
-                    producto.Codigo = Number(req.body.codigo);
+                    producto.Codigo = req.body.codigo.trim();
                     producto.NombreDeProducto = req.body.nombreDelProducto.trim();
                     producto.Precio = Number(req.body.precioProd);                    
                     producto.Tamanio = req.body.tamanioJue.trim();
