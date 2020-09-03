@@ -79,23 +79,24 @@
                             <!-- <input type="file" id="imagen" name="imagen" value="<%= producto.Imagen %> " class="form-control"/>   -->
                             <input type="file" id="imagen" name="imagen" class="form-control"/>  
                         </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">    
-                            <label form="OfertasUtimosJuegos">¿Oferta de Utimos Juegos? esta en: <%= producto.OfertasUtimosJuegos%>  </label> 
-                            
-                            <select id="OfertasUtimosJuegos" name="OfertasUtimosJuegos" value="Seleccionar">  
-                                <option value="" disabled>Seleccionar una opcion</option>                              
+                        <div class="form-group col-12 col-md-6 col-lg-6">                                                         
+                            <label >¿Oferta de Utimos Juegos? esta en: <%= producto.OfertasDeLaSemana%> </label>  
+                            <select id="OfertasUtimosJuegos"  name="OfertasUtimosJuegos">                                                                     
+                                <option value="" selected >Seleccione una opcion:</option>                             
+                                <option value="" disabled>-</option> 
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>    
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">    
-                            <label form="OfertasDeLaSemana">¿Oferta de la Semana? esta en: <%= producto.OfertasDeLaSemana%> </label>                             
+                            <label >¿Oferta de la Semana? esta en: <%= producto.OfertasDeLaSemana%> </label>                             
                             <!-- <input type="text" class="form-control" name="OfertasDeLaSemana" id="OfertasDeLaSemana" value="<%= producto.OfertasDeLaSemana%>">             -->
-                            <select id="OfertasDeLaSemana" name="OfertasDeLaSemana" value="Seleccionar" >  
-                                <option value="" disabled>Seleccionar una opcion</option>                               
+                            <select id="OfertasDeLaSemana"  name="OfertasDeLaSemana">                                                                     
+                                <option value="" selected >Seleccione una opcion:</option>                             
+                                <option value="" disabled>-</option> 
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
-                            </select> 
+                            </select>  
                         </div>
                     </div>
 
