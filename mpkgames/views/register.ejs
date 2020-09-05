@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,42 +13,6 @@
 
 <body>
     <%- include("./partials/header") %> 
-
-<div class="formularioIngresa">
-    <div class="container">
-        <div class="row">
-            <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/login" method="POST">
-                <div class="row"> 
-                    <div class="col-12 Registro">     
-                        <div class="col-12">
-                            <h3>Ingresar</h3>
-                        </div>   
-                    </div>
-                </div>  
-                <div class="form-group">            
-                    <label form="usu_email">email:</label> 
-                    <input type="email" id="usu_email" name="usu_email" class="form-control" placeholder="Ingrese su email" required/>             
-                </div>
-                
-                <div class="form-group">    
-                    <label form="usu_password">Ingrese una Contraseña</label> 
-                    <input type="password" placeholder="Ingrese una Contraseña" class="form-control" name="usu_password" id="usu_password" required>
-                    <p>
-                        <a href="/"><input type="submit" value="Ingresar" class="botonesRegistrarse"/></a> 
-                    </p>    
-            </form>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
 
 
  <div class="formularioRegistro">  
@@ -139,5 +102,3 @@
 
 <%- include("./partials/footer") %> 
 </body>
-
-</html>

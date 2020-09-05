@@ -33,6 +33,9 @@ module.exports ={
         
         res.redirect('/registroUsuarios')
     },
+     agrege: function(req, res){
+         res.render("logine")
+      },
 
     login: function(req, res){
        res.send("logeado")
