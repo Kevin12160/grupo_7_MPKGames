@@ -33,6 +33,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     search:function(req,res){
         let buscar = req.query.search;
         let resultados=[];
+
         dbProduct.forEach(producto=>{
             if(producto.NombreDeProducto.toLowerCase().includes(buscar.toLowerCase())){
                 resultados.push(producto)
@@ -40,8 +41,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
         res.render('productosLista',{
             title:"Resultado de la busqueda",
-            productos:resultados
-            
+            productos:resultados,
+            totalDeProductos: dbProduct.length
         })
     },
 
