@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
+
 <%- include('partials/head') %>
    
-        <%- include('partials/header') %>
+<%- include('partials/header') %>
 
 
             
@@ -14,16 +13,14 @@
                 </h3>
             </div>                         
                                                                         
-            <form  action="/productos/edit/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">   
-                <!-- <form action="/productos/edit/<%= producto.IDJuego %>?_method=PUT" method="POST">    -->
-
+            <form  action="/productos/edit/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                   
                     <div class="form-row">                        
                         <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="nombreDelProducto">Nombre del Juego:</label>
+                            <label form="nombreDelProducto">Nombre del Juego:</label>
                             <input type="text" name="nombreDelProducto" id="nombreDelProducto" class="form-control" value="<%= producto.NombreDeProducto%>" required>
                         </div>                        
                         <div class="form-group col-12 col-md-6 col-lg-6">
-                            <label for="codigo">Codigo del juego:</label>
+                            <label form="codigo">Codigo del juego:</label>
                             <input type="text" name="codigo" id="codigo" class="form-control" value="<%= producto.Codigo%>" required>
                         </div>  
                         <div class="form-group col-12 col-md-6 col-lg-6">    
@@ -81,13 +78,24 @@
                             <!-- <input type="file" id="imagen" name="imagen" value="<%= producto.Imagen %> " class="form-control"/>   -->
                             <input type="file" id="imagen" name="imagen" class="form-control"/>  
                         </div>
-                        <div class="form-group col-12 col-md-6 col-lg-6">    
-                            <label form="OfertasUtimosJuegos">¿Oferta de Utimos Juegos?: </label> 
-                            <input type="text" class="form-control" name="OfertasUtimosJuegos" id="OfertasUtimosJuegos" value="<%= producto.OfertasUtimosJuegos%>">            
+                        <div class="form-group col-12 col-md-6 col-lg-6">                                                         
+                            <label >¿Oferta de Utimos Juegos? esta en: <%= producto.OfertasDeLaSemana%> </label>  
+                            <select id="OfertasUtimosJuegos"  name="OfertasUtimosJuegos">                                                                     
+                                <option value="" selected >Seleccione una opcion:</option>                             
+                                <option value="" disabled>-</option> 
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>    
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">    
-                            <label form="OfertasDeLaSemana">¿Oferta de la Semana?: </label> 
-                            <input type="text" class="form-control" name="OfertasDeLaSemana" id="OfertasDeLaSemana" value="<%= producto.OfertasDeLaSemana%>">            
+                            <label >¿Oferta de la Semana? esta en: <%= producto.OfertasDeLaSemana%> </label>                             
+                            <!-- <input type="text" class="form-control" name="OfertasDeLaSemana" id="OfertasDeLaSemana" value="<%= producto.OfertasDeLaSemana%>">             -->
+                            <select id="OfertasDeLaSemana"  name="OfertasDeLaSemana">                                                                     
+                                <option value="" selected >Seleccione una opcion:</option>                             
+                                <option value="" disabled>-</option> 
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>  
                         </div>
                     </div>
 

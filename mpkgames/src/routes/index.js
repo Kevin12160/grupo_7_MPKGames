@@ -45,4 +45,9 @@ router.get('/ModificarJuego', function(req,res){
    { title: 'Modificar Juego' });
 });
 
+router.get('/login', function(req,res){
+  res.render('logine',
+   { title: 'Login' });
+});
+
 module.exports = router;

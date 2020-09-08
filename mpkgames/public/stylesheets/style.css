@@ -195,9 +195,7 @@ h2{
 }
 
 .btnAgregarCarrito{
-    margin: -10px  auto;
-    width: 80%;
-    height: 40%;
+    margin: -10px  auto;  
     border-radius: 25px;
 }
 

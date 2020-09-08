@@ -3,10 +3,10 @@ const dbProduct = require('../data/database') //requiero la base de datos de pro
 module.exports = { //exporto un objeto literal con todos los metodos
     index: function(req, res) {
         let OfertasUtimosJuegos = dbProduct.filter(producto => {
-            return producto.OfertasUtimosJuegos == "1"
+            return producto.OfertasUtimosJuegos == "Si"
         })
         let OfertasDeLaSemana = dbProduct.filter(producto => {
-            return producto.OfertasDeLaSemana == "1"
+            return producto.OfertasDeLaSemana == "Si"
         })
         
         res.render('index', { //renderizo en el navegador la vista index que contiene el HOME del sitio

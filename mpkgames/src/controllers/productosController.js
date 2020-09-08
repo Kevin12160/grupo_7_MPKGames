@@ -33,6 +33,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     search:function(req,res){
         let buscar = req.query.search;
         let resultados=[];
+
         dbProduct.forEach(producto=>{
             if(producto.NombreDeProducto.toLowerCase().includes(buscar.toLowerCase())){
                 resultados.push(producto)
@@ -40,8 +41,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
         res.render('productosLista',{
             title:"Resultado de la busqueda",
-            productos:resultados
-            
+            productos:resultados,
+            totalDeProductos: dbProduct.length
         })
     },
 
@@ -73,37 +74,20 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
     },
    
-    // por el momento no easta en funcionamiento la idea es actualizar la inf segun el detalle de producto y solo cuando hace
-    // click en AgregadoAlCarritoq ese campo pasa a true 
+    // praticando me di cuenta que si cargo los name del body 
+    //no me sobreescbrie todo el objeto solo la propieda que le indico 
+    //que raro??
     AgregarAlCarritoDeCompras: function(req,res){
         let idproducto = req.params.id;
 
         dbProduct.forEach(producto=>{
             if(producto.IDJuego==idproducto){
-                producto.IDJuego = Number(req.body.id);                    
-                producto.Codigo = Number(req.body.codigo);
-                producto.NombreDeProducto = req.body.nombreDelProducto.trim();
-                producto.Precio = Number(req.body.precioProd);                    
-                producto.Tamanio = req.body.tamanioJue.trim();
-                producto.Idioma = req.body.idiomaJuego.trim();                    
-                producto.IdiomaSubt = req.body.subtitulo.trim();     
-                producto.Categoria = req.body.categoriaJuego.trim();                                    
-                producto.FechaLanzamiento = req.body.fechaLanzam;
-                producto.Stock = Number(req.body.stock); 
-                producto.Descuento = Number(req.body.descuento);    
-                producto.OfertasUtimosJuegos = req.body.OfertasUtimosJuegos;
-                producto.OfertasDeLaSemana = req.body.OfertasDeLaSemana;
                 producto.AgregadoAlCarrito = true;
-                producto.DescripcionCorta = req.body.DescripcionCorta.trim();
-                producto.Imagen= (req.files[0]?req.files
-                    [0].filename:producto.Imagen);
             }
         })
         
         fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
-         res.redirect('/productos/')
-            
-
+         res.redirect('/productos/carritoCompras/')
     },
 
     publicar:function(req,res,next){
@@ -161,7 +145,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             dbProduct.forEach(producto=>{
                 if(producto.IDJuego==idproducto){
                     producto.IDJuego = Number(req.body.id);                    
-                    producto.Codigo = Number(req.body.codigo);
+                    producto.Codigo = req.body.codigo.trim();
                     producto.NombreDeProducto = req.body.nombreDelProducto.trim();
                     producto.Precio = Number(req.body.precioProd);                    
                     producto.Tamanio = req.body.tamanioJue.trim();
@@ -185,7 +169,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
     eliminar:function(req,res){
         let idProducto = req.params.id;
-          let aEliminar;      
+          let aEliminar;     
+           
         dbProduct.forEach(producto=>{
             if(producto.IDJuego == idProducto){
                 aEliminar = dbProduct.indexOf(producto);
@@ -197,8 +182,20 @@ module.exports = { //exporto un objeto literal con todos los metodos
             fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
             res.redirect('/productos/')
 
-        }
+        },
+        retiraDelCarrito:function(req,res){          
+            let idproducto = req.params.id;
 
+            dbProduct.forEach(producto=>{
+                if(producto.IDJuego==idproducto){
+                    producto.AgregadoAlCarrito = false;
+                }
+            })
+            
+            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
+             res.redirect('/productos/carritoCompras/')
+            }
+            
     
     
 }
