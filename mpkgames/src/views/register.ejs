@@ -19,11 +19,11 @@
 
     <div class="container" >
      <div class="row">
-        <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/registroUsuarios" method="POST">
-            <div class="row"> 
+        <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/registroUsuarios" method="POST" enctype="multipart/form-data">
+         <div class="row"> 
                 <div class="col-12 Registro">     
                     <div class="col-12">
-                        <h3>Registrarme</h3>
+                        <h3>Registrarme</h3> 
                     </div>   
                 </div>
             </div>   
@@ -43,12 +43,14 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su Nombre" required>
+                    <input type="text" name="nombre" id="nombre" class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>" placeholder="Ingrese su Nombre" />
+                    <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
                 </div>            
             
                 <div class="form-group col-md-6">
                 <label for="apellido">Apellido:</label>
-                <input type="text" name="Apellido" id="Apellido" class="form-control" placeholder="Ingrese su Apellido" required>
+                <input type="text" name="apellido" id="apellido" class="form-control <%= (typeof old != 'undefined' && old.apellido)?"is-valid":(typeof errors != 'undefined' && errors.apellido)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>" placeholder="Ingrese su Apellido" />
+                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
                 </div>    
             </div>
 
@@ -67,17 +69,24 @@
 
             <div class="form-group">            
                 <label form="usu_email">email:</label> 
-                <input type="email" id="usu_email" name="usu_email" class="form-control" placeholder="Ingrese su email" required/>             
+                <input type="email" id="email" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="Ingrese su email" />
+                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>             
             </div>
             
             <div class="form-group">    
-                <label form="usu_password">Ingrese una Contraseña</label> 
-                <input type="password" placeholder="Ingrese una Contraseña" class="form-control" name="usu_password" id="usu_password" required>
+                <label form="contraseña">Ingrese una Contraseña</label> 
+                <input type="password" placeholder="Ingrese una Contraseña" class="form-control  <%= (typeof errors != 'undefined' && errors.contraseña)?"is-invalid": ""  %>" name="contraseña" id="contraseña" />
+                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>
             
-                <label form="usu_passwordConf">Confirme su Contraseña</label> 
-                <input type="password" placeholder="Confirme su Contraseña" class="form-control"  name="usu_passwordConf" id="usu_passwordConf" required>
+                <label form="contraseña2">Confirme su Contraseña</label> 
+                <input type="password" placeholder="Confirme su Contraseña" class="form-control <%= (typeof errors != 'undefined' && errors.contraseña2)?"is-invalid": ""  %>"  name="contraseña2" id="contraseña2" />
+                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña2)?errors.contraseña2.msg: "" %> </small>
             </div>
 
+            <div class="form-group">
+                <label for="Avatar">Ingrar un Avatar</label>
+                <input type="file" name="avatar" id="avatar" class="form-control" >
+            </div>
 
             <div class="form-group">
                 <div class="form-check">
