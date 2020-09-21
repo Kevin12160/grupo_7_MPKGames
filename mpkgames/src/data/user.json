@@ -186,34 +186,4 @@
     "telefono": 321321321,
     "email": "sslidesf@apple.com",
     "contraseña": "hrLPff"
-}, {
-    "id": 22,
-    "nombre": "Mario",
-    "apellido": "Mamani",
-    "codArea": "11",
-    "telefono": "231321321",
-    "email": "mario@gmail.com",
-    "contraseña": "$2b$10$LnnFQjHwhQ..rfSMxfRZEexvQdt3VoY.Acz.JQ.scPEC9Gwx11PnO",
-    "avatar": "avatar1600292446271.jpg",
-    "rol": "user"
-}, {
-    "id": 23,
-    "nombre": "Pablo",
-    "apellido": "Cuenca",
-    "codArea": "11",
-    "telefono": "2132131",
-    "email": "pablodc28@hotmail.com",
-    "contraseña": "$2b$10$D3pGcB8Dhm5khFOlPO4oUerExLiUqGvrNyDBVOR/H7hLbl64ZLo2m",
-    "avatar": "avatar1600396497628.jpg",
-    "rol": "Administrador"
-}, {
-    "id": 24,
-    "nombre": "Kevin",
-    "apellido": "Johansen",
-    "codArea": "321",
-    "telefono": "900990",
-    "email": "kevin@gmail.com",
-    "contraseña": "$2b$10$3Kd8ifJwfkT1l1RzqIW7I.fk14XUsOxMDsviorVs8q.wldx5PNGOW",
-    "avatar": "avatar1600523873034.jpg",
-    "rol": "user"
 }]

@@ -13,7 +13,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('productosLista', {
                 title: "Todos los Productos",
                 productos: dbProduct,
-                totalDeProductos: totalDeProductos
+                totalDeProductos: totalDeProductos,   
+                user: req.session.user,             
             }) //muestra información de prueba
     },
 
@@ -26,7 +27,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
         
         res.render('productCart', { //renderizo en el navegador la vista index que contiene el HOME del sitio
             title: 'Carrito de Compras', //envío el objeto literal con la o las variables necesarias para renderizar de forma correcta el home
-            productoEnCarrito: productoEnCarrito         
+            productoEnCarrito: productoEnCarrito ,
+            user: req.session.user,          
         })
     },
     
@@ -42,7 +44,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('productosLista',{
             title:"Resultado de la busqueda",
             productos:resultados,
-            totalDeProductos: dbProduct.length
+            totalDeProductos: dbProduct.length,
+            user: req.session.user,  
         })
     },
 
@@ -64,13 +67,15 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('productDetail',{
             title:"Detalle del Producto",
             producto:producto[0],
-            productoSegunCategoria: productoSegunCategoria 
+            productoSegunCategoria: productoSegunCategoria,
+            user: req.session.user,   
         })
     },
 
     AbreFormAgregar:function(req,res){        
         res.render('productAdd',{
             title:"Agregar Producto",
+            user: req.session.user,  
         })
     },
    
@@ -102,17 +107,17 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
         let newProduct ={
             IDJuego: lastID + 1,
-            Codigo: req.body.Codigo.trim(),                    
-            NombreDeProducto: req.body.nombreDelProducto.trim(),
+            Codigo: req.body.Codigo,                    
+            NombreDeProducto: req.body.nombreDelProducto,
             Precio:Number(req.body.precioProd),
-            Tamaño: req.body.tamanioJue.trim(),
-            Idioma: req.body.idiomaJuego.trim(),                    
-            IdiomaSubt: req.body.subtitulo.trim(),     
-            Categoria: req.body.categoriaJuego.trim(),                                    
+            Tamaño: req.body.tamanioJue,
+            Idioma: req.body.idiomaJuego,                    
+            IdiomaSubt: req.body.subtitulo,     
+            Categoria: req.body.categoriaJuego,                                    
             FechaLanzamiento: req.body.fechaLanzam,
             Descuento:  Number(req.body.descuento),
             Stock: Number(req.body.stock),    
-            DescripcionCorta: req.body.detalle.trim(),
+            DescripcionCorta: req.body.detalle,
             Calificacion: "",
             OfertasUtimosJuegos: "",
             OfertasDeLaSemana: "",
@@ -125,7 +130,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
         fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
         
         res.redirect('/productos')
+        // no tengo render como para mandar el user: req.session.user, 
+        // como tendria que hacer ?? porque me cierra la session al no envaar el user: req.session.user
+        
     },
+
     show:function(req,res){
         let idProducto = req.params.id;       
         
@@ -135,7 +144,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('productShow',{
             title: "Ver/Editar Producto",
             producto: resultado[0], 
-            
+            user: req.session.user,              
         })
     },
 
@@ -164,7 +173,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
             
             fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
-             res.redirect('/productos/')
+            // res.redirect('/productos', {user: req.session.user}) 
+              res.redirect('/productos')           
+             // no tengo render como hago mandar el user: req.session.user, 
+            // como tendria que hacer ?? porque me cierra la session al no envaar el user: req.session.user
+             
     },
 
     eliminar:function(req,res){
@@ -181,7 +194,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
               
             fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
             res.redirect('/productos/')
-
+             
         },
         retiraDelCarrito:function(req,res){          
             let idproducto = req.params.id;
@@ -195,7 +208,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
             fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
              res.redirect('/productos/carritoCompras/')
             }
-            
+              // no tengo render como hago mandar el user: req.session.user, 
+        // como tendria que hacer ?? porque me cierra la session al no envaar el user: req.session.user
     
     
 }

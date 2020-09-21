@@ -7,10 +7,10 @@ var router = express.Router();
 //    { title: 'Home' },)
 // });
 const controller = require('../controllers/mainController'); //requiero el controlador para que se haga cargo de la lógica
-
+const cookieCheck = require('../middleware/cookieCheck'); 
 
 /* GET home page. */
-router.get('/', controller.index);
+router.get('/', cookieCheck,controller.index);
 
 
 /* router.get('/detalle', function(req,res){

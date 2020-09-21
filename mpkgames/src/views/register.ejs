@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,101 +5,104 @@
         <!-- ETIQUETAS LINK PARA VINCULAR CON ONTAWESOME Y BOOTSTRAP-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-            
+        <link rel="shortcut icon " href="images/Logo.ico " type="image/x-icon ">   
         <link rel='stylesheet' href='/stylesheets/registroUsuarios.css' />
-        <link rel="shortcut icon " href="images/logo.ico " type="image/x-icon ">
+        
 </head>
 
-<body>
-    <%- include("./partials/header") %> 
 
+<%- include("./partials/header") %> 
 
- <div class="formularioRegistro">  
+<main>
+    <div class="container">
+        <div class="formularioRegistro"> 
+        <section>
+           
 
-    <div class="container" >
-     <div class="row">
+            <div class="container" >
+            <div class="row">
+         
         <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/registroUsuarios" method="POST" enctype="multipart/form-data">
-         <div class="row"> 
-                <div class="col-12 Registro">     
-                    <div class="col-12">
-                        <h3>Registrarme</h3> 
+                    <div class="row"> 
+                            <div class="col-12 Registro">     
+                                <div class="col-12">
+                                    <h3>Registrarme</h3> 
+                                </div>   
+                            </div>
                     </div>   
-                </div>
-            </div>   
 
-            <div class="row"> 
-                <div class="col-12 col-md-6">
-                    <button type="button" class="btn btn-primary btnLoginRedesFacebook" >Registrarse con Facebook <i class="fab fa-facebook-square"></i></button>
+                    <div class="row"> 
+                        <div class="col-12 col-md-6">
+                            <button type="button" class="btn btn-primary btnLoginRedesFacebook" >Registrarse con Facebook <i class="fab fa-facebook-square"></i></button>
+                            
+                        </div>  
+                        <div class="col-12 col-md-6">                    
+                            <button type="button" class="btn btn-light btnLoginRedesGoogle">Registrarse con Google <i class="fab fa-google-plus-square"></i></button>
+                        </div>  
+                    </div>
+
+                    <h6>O registrese Manulamente</h6>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>" placeholder="Ingrese su Nombre" />
+                            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
+                        </div>            
                     
-                </div>  
-                <div class="col-12 col-md-6">                    
-                    <button type="button" class="btn btn-light btnLoginRedesGoogle">Registrarse con Google <i class="fab fa-google-plus-square"></i></button>
-                </div>  
-            </div>
-
-            <h6>O registrese Manulamente</h6>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>" placeholder="Ingrese su Nombre" />
-                    <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
-                </div>            
-            
-                <div class="form-group col-md-6">
-                <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido" id="apellido" class="form-control <%= (typeof old != 'undefined' && old.apellido)?"is-valid":(typeof errors != 'undefined' && errors.apellido)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>" placeholder="Ingrese su Apellido" />
-                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
-                </div>    
-            </div>
+                        <div class="form-group col-md-6">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" name="apellido" id="apellido" class="form-control <%= (typeof old != 'undefined' && old.apellido)?"is-valid":(typeof errors != 'undefined' && errors.apellido)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>" placeholder="Ingrese su Apellido" />
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
+                        </div>    
+                    </div>
 
 
-            <div class="form-row">
-                    <div class="form-group col-md-6">
-                    <label form="usu_CodigoArea">Codigo de Area</label> 						
-                    <input type="number_format" id="usu_CodigoArea" class="form-control" name="usu_CodigoArea" placeholder="Ingrese su Codigo de Area ej: 011"/> 
-                </div>   
-                <br>
-                <div class="form-group col-md-6">
-                    <label form="usu_Telefono">Telefono</label> 						
-                    <input type="text" id="usu_Telefono"  class="form-control" name="usu_Telefono" placeholder="Ingrese su telefono"/> 
-                </div>
-            </div>    
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                            <label form="usu_CodigoArea">Codigo de Area</label> 						
+                            <input type="number_format" id="usu_CodigoArea" class="form-control" name="usu_CodigoArea" placeholder="Ingrese su Codigo de Area ej: 011"/> 
+                        </div>   
+                        <br>
+                        <div class="form-group col-md-6">
+                            <label form="usu_Telefono">Telefono</label> 						
+                            <input type="text" id="usu_Telefono"  class="form-control" name="usu_Telefono" placeholder="Ingrese su telefono"/> 
+                        </div>
+                    </div>    
 
-            <div class="form-group">            
-                <label form="usu_email">email:</label> 
-                <input type="email" id="email" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="Ingrese su email" />
-                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>             
-            </div>
-            
-            <div class="form-group">    
-                <label form="contraseña">Ingrese una Contraseña</label> 
-                <input type="password" placeholder="Ingrese una Contraseña" class="form-control  <%= (typeof errors != 'undefined' && errors.contraseña)?"is-invalid": ""  %>" name="contraseña" id="contraseña" />
-                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>
-            
-                <label form="contraseña2">Confirme su Contraseña</label> 
-                <input type="password" placeholder="Confirme su Contraseña" class="form-control <%= (typeof errors != 'undefined' && errors.contraseña2)?"is-invalid": ""  %>"  name="contraseña2" id="contraseña2" />
-                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña2)?errors.contraseña2.msg: "" %> </small>
-            </div>
+                    <div class="form-group">            
+                        <label form="usu_email">email:</label> 
+                        <input type="email" id="email" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="Ingrese su email" />
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>             
+                    </div>
+                    
+                    <div class="form-group">    
+                        <label form="contraseña">Ingrese una Contraseña</label> 
+                        <input type="password" placeholder="Ingrese una Contraseña" class="form-control  <%= (typeof errors != 'undefined' && errors.contraseña)?"is-invalid": ""  %>" name="contraseña" id="contraseña" />
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>
+                    
+                        <label form="contraseña2">Confirme su Contraseña</label> 
+                        <input type="password" placeholder="Confirme su Contraseña" class="form-control <%= (typeof errors != 'undefined' && errors.contraseña2)?"is-invalid": ""  %>"  name="contraseña2" id="contraseña2" />
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña2)?errors.contraseña2.msg: "" %> </small>
+                    </div>
 
-            <div class="form-group">
-                <label for="Avatar">Ingrar un Avatar</label>
-                <input type="file" name="avatar" id="avatar" class="form-control" >
-            </div>
+                    <div class="form-group">
+                        <label for="Avatar">Ingrar un Avatar</label>
+                        <input type="file" name="avatar" id="avatar" class="form-control" >
+                    </div>
 
-            <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label" for="gridCheck">
-                    Aceptar los terminos
-                  </label>
-                </div>
-              </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            Aceptar los terminos
+                        </label>
+                        </div>
+                    </div>
 
-            <p>
-                <input type="submit" value="Registrarme" class="botonesRegistrarse"/> 
-            </p>    
-
+                    <p>
+                        <input type="submit" value="Registrarme" class="botonesRegistrarse"/> 
+                    </p>    
             
             <a href="/"><button type="button" class="btn btn-dark " >  Cerrar y Volver</button></a>
 
@@ -108,6 +110,10 @@
  </div> <!--cierra el row -->
 </div>
 </div>
+</section>
 
+</div>
+
+</main>   
 <%- include("./partials/footer") %> 
-</body>
+

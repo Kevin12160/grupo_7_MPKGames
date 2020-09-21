@@ -31,6 +31,7 @@
                                     <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
                                 </a>
                             </figure>
+
                             <!--informacion-->
                             <article>
                                 
@@ -48,6 +49,7 @@
                                 <p>
                                     <%- producto.Categoria %> 
                                 </p>
+
                                 <div class="d-flex justify-content-around">                                   
                                     <form action="/productos/show/<%= producto.IDJuego %>" method="GET">
                                         <button class="btn btn-outline-light"> <h4 class="fas fa-edit text-primary"></h4></button>
@@ -59,12 +61,17 @@
                             </article>
                         </div>
                         <!--finaliza contenido-->
+
                     </div> <!--finaliza caja de grilla de boostrap-->
                     
                     <% }) %>
             </div> <!--finaliza el div.row-->            
-        </section>
-    </div>
-</main>   
-<%- include("./partials/footer") %> 
 
+        </section>
+
+    </div>
+
+</main>   
+
+
+<%- include("./partials/footer") %> 

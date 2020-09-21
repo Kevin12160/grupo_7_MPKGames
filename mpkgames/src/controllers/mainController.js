@@ -12,7 +12,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('index', { //renderizo en el navegador la vista index que contiene el HOME del sitio
             title: 'Home', //envío el objeto literal con la o las variables necesarias para renderizar de forma correcta el home
             OfertasUtimosJuegos: OfertasUtimosJuegos,
-            OfertasDeLaSemana: OfertasDeLaSemana
+            OfertasDeLaSemana: OfertasDeLaSemana,
+            user: req.session.user,  
         })
     }
  
