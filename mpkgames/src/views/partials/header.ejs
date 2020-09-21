@@ -17,6 +17,14 @@
       </div>
    
       <!--finaliza el div.row-->
+      <a href="/users/login"><h5 class="mr-2" style="margin: 13px;" ><%= (user)?user.nick:"Invitado" %>  </h5></a>  
+          
+          <% if (user) { %>
+              <a href="/users/login"><img src="/images/avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
+
+          <% } else{%>
+          <a href="/users/login"><img src="/images/avatares/default.png" alt="" width="50px" height="50px" class="avatar"></a>
+          <% } %>
   </div>
 
   <!--barra de navegación-->
