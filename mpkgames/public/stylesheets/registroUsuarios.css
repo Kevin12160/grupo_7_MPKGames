@@ -1,5 +1,9 @@
-@import url(style.css);
 
+body{
+    background: #142850;
+
+    min-height: 100vh;    
+}
 
 .LogoFormRegistro{
     display: flex;
@@ -22,11 +26,6 @@ h3{
     font-family: 'Uncial Antiqua', cursive;
 }
 
-body{
-    background: #142850;
-
-    min-height: 100vh;    
-}
 
 .FormLogin{
     margin: 35px auto;
@@ -57,11 +56,11 @@ body{
     height: 70px;
 }
 
-h2{
+/*h2{
     text-align: center;
     margin: 20px;
     color: rgba(0,0,0,0.5);
-}
+}*/
 
 
 label{
@@ -82,10 +81,22 @@ input{
     border-radius: 10px;
     font-size: 28px;
     color: white;
-   
-
+}
+.divCheck{
+    justify-content: center;
+    display: flex;
+    margin-bottom: 15px;
 }
 
+.clasLabel{
+    border: 0px;
+    padding: 0px;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #007bff;
+    background-color:var(--color-AzulOceano);
+}
 
 
 @media(min-width:320) {

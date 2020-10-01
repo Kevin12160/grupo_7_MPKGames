@@ -6,10 +6,10 @@
       <div class="col-2 col-md-1 col-lg-1 logo">
           <a href="/"><img src="/images/logo.png" alt="Logo MPKGames "></a>
       </div> 
-      <div class="contenedorTiuloPag col-10 col-md-5 col-lg-3"><h1 class="h1TituloPagina">MPKGames</h1></div> 
+      <div class="contenedorTiuloPag col-10 col-md-5 col-lg-4"><h1 class="h1TituloPagina">MPKGames</h1></div> 
              
       <!--caja que contiene el buscador de juegos -->
-      <div class="contBuscadorMd col-md-4 col-lg-5">                
+      <div class="contBuscadorMd col-md-5 col-lg-5">                
           <form action="/productos/search" method="get" class="search-form">
               <input type="text" name="search" placeholder="Buscar tu Juego favorito" class="search-form_input">
               <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
@@ -17,18 +17,18 @@
       </div>
    
         <!--caja que contiene el link-->
-        
-          <a href="/users/login"><h5 class="mr-2" style="margin: 13px;" ><%= (user)?user.nick:"Invitado" %>  </h5></a>  
+        <div class="cabezalAvatar col-12 col-md-1 col-lg-2 justify-content-end align-items-center">
+          <a href="/"><h5 class="nombreApelluser "  ><%= (user)?user.nick:"Invitado" %>  </h5></a>  
           
           <% if (user) { %>
-              <a href="/users/login"><img src="/images/avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
+              <a href="/"><img src="/images/avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
 
           <% } else{%>
           <a href="/users/login"><img src="/images/avatares/default.png" alt="" width="50px" height="50px" class="avatar"></a>
           <% } %>
 
-          
         </div>
+      
       <!--finaliza el div.row-->
   </div>
 

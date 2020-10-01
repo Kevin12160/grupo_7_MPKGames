@@ -5,6 +5,7 @@
 @import url('productAdd.css');
 @import url('productDetalle.css');
 @import url('styleCargaDeProductos.css');
+@import url('registroUsuarios.css');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Tenali+Ramakrishna&family=Uncial+Antiqua&display=swap" rel="stylesheet"');
 
 /*
@@ -73,15 +74,19 @@ header .logo img{
     width: 100%;
    /* margin-left: 10px;*/
 }
+.cabezalAvatar{
+    display:none;
+    margin:0px;
+}
 header .avatar{
     border-radius:50%;
     object-fit: cover;
     object-position: top;
 }
-header .cuotas {
+/*header .cuotas {
     margin: 5px 0;
     align-self: center;
-}
+}*/
 .logo{
     padding: 0px 0px 0px 5px;
 }
@@ -347,13 +352,23 @@ FOOTER
 /* --- VERSION PARA TABLET --- */
 
 @media(min-width:768px) {
+    header .avatar{
+        margin-top: -9px;
+    }
+    .cabezalAvatar{
+        display:flex;
+    }
+    .nombreApelluser{
+        display: none;
+    }
 
     .contBuscador {
         display: none;
     }
     .contBuscadorMd{
         display: block;
-        padding: 0px;
+        padding-left: 0px;
+        padding-right: 20px;
     }
     .bg-light {
         width: 100%;
@@ -368,16 +383,24 @@ FOOTER
 /* --- VERSION PARA ESCRITORIO --- */
 
 @media(min-width:992px) {
+    .cabezalAvatar {
+        padding: 0px;
+    }
 
     .contBuscadorMd {
-        margin-left: 71px;
-        padding-top: 6px;
+        margin-left: 0px;
+        padding-top: 0px;
     }
     li {
         font-size: 134%;
     }
     svg {
         vertical-align: 0px;
+    }
+    .nombreApelluser{
+        display: flex;
+        margin-right: 8px;
+        margin-bottom: 17px;
     }
     
 }

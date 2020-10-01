@@ -41,7 +41,7 @@ module.exports ={
             fs.writeFileSync(path.join(__dirname,'..','data','dbUsers.json'),JSON.stringify(dbUsers),'utf-8')
             return res.redirect('/users/login')
             
-        }else{           
+        }else{     
             res.render("register",{
                 title:"con errores",                
                 errors:errors.mapped(), 
@@ -53,7 +53,7 @@ module.exports ={
     },
 
      MostraLogin: function(req, res){
-         res.render("logine",{
+         res.render("login",{
             title:"Ingreso de Usuarios",            
             user:req.session.user
         })
@@ -62,33 +62,32 @@ module.exports ={
       //Procesos de Loguearse , si esta vacio el array de errores entonces entra sino muestra errores
       processLogin:function(req,res){
         let errors = validationResult(req);
-        
         if(errors.isEmpty()){
-            dbUsers.forEach(usuario=>{
-                if(usuario.email == req.body.usu_email){
-                    req.session.user = {
-                        id:usuario.id,
-                        nick:usuario.nombre + ' ' + usuario.apellido,                                       
-                        TipoUsuario:usuario.rol,
-                        avatar:usuario.avatar
+ 
+            for(let i=0;i<dbUsers.length;i++){
+                if(req.body.usu_email==dbUsers[i].email && bcrypt.compareSync(req.body.usu_password,dbUsers[i].contraseña)){
+                    console.log("\n\ndentro del for");
+                    req.session.user={
+                        id: dbUsers[i].id,
+                        nick: "Hola "+dbUsers[i].nombre,
+                        avatar: dbUsers[i].avatar,
+                        TipoUsuario:dbUsers[i].rol
                     }
-                    
                 }
-            })            
+            }
             if(req.body.recordar){
                 res.cookie('userMPKGames',req.session.user,{maxAge:1000*60*5})
             }
             return res.redirect('/')      
-        }else{
-            return res.render('logine',{
+        }else{     
+            return res.render('login',{
                 title:"Error en Ingreso de credenciales",                
-                errors: errors.mapped(),                
+                errors: errors.mapped(), 
+                old:req.body,                  
                 user:req.session.user
             })
         }
     },
-    
-    // sale o cierra seccion
     logout:function(req,res){
         req.session.destroy();
         if(req.cookies.userMPKGames){

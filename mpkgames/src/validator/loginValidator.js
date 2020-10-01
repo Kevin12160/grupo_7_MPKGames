@@ -1,44 +1,58 @@
-const dbUsers = require('../data/dataUsers');
+const dataBase=require("../data/dataUsers");
 
-const {check,validationResult,body} = require('express-validator');
-const bcrypt = require('bcrypt')
+const {check,validationResult,body}=require("express-validator");
 
-module.exports = [
-    check('usu_email')
-    .isEmail()
-    .withMessage('Debes ingresar un email válido'),
+const bcrypt=require("bcrypt");
 
-    body('usu_email')
-    .custom(function(value){
-       let usuario = dbUsers.filter(function(usuario){
-           return usuario.email == value
-       })
+module.exports=[
 
-       if(usuario == false){
-           return false
-       }else{
-           return true
-       }
-    })
-    .withMessage('El usuario no está registrado'),
-    
-    body('usu_password')
-    .custom(function(value,{req}){
-        let result = true;
+    body('usu_email').custom(function(value){
 
-        dbUsers.forEach(user => {
-            if(user.email == req.body.usu_email){
-                if(!bcrypt.compareSync(value,user.contraseña)){
-                    result = false
-                }
-            }
+        if(value){
+            return true
+        }else{
+            return false
+        }
+    }).withMessage("Escribe una dirección de correo electrónico"),
+
+
+    check('usu_email').isEmail().withMessage("Ingrese su mail correctamente"),
+
+    body('usu_email').custom(function(value){
+        let arrayUsers=[];
+        dataBase.forEach(element => {
+            arrayUsers.push(element.email);
         });
 
-        if (result == false){
-            return false
-        }else{
+        return (arrayUsers.includes(value));
+    }).withMessage("El email ingresado no esta registrado."),
+    
+    body('usu_password').custom(function(value){
+
+        if(value){
             return true
-        }        
-    })
-    .withMessage("Contraseña incorrecta")
+        }else{
+            return false
+        }
+    }).withMessage("No ingreso una contraseña"),
+
+
+
+    body('usu_password').custom(function(value){
+
+        console.log("\n\n el valor de value: "+value+"\n\n");
+
+        let arrayPass=[]
+
+        dataBase.forEach(element=>{
+            arrayPass.push(element.contraseña);
+        });
+
+        for(let i=0;i<arrayPass.length;i++){
+            if(bcrypt.compareSync(value,arrayPass[i])){
+                return(bcrypt.compareSync(value,arrayPass[i]));
+            }
+        }
+
+    }).withMessage("La contraseña ingresada es incorrecta")
 ]

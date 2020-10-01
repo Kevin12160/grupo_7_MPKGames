@@ -1,219 +1,299 @@
-[{
-    "id": 1,
-    "nombre": "Constanta",
-    "apellido": "Grassick",
-    "codArea": 11,
-    "telefono": "152-273-8498",
-    "email": "cgrassick0@utexas.edu",
-    "contraseña": "MhtUNBQPY",
-    "avatar": "user_1.jpg"
-}, {
-    "id": 2,
-    "nombre": "Stormi",
-    "apellido": "Hesey",
-    "codArea": 12,
-    "telefono": "361-500-8210",
-    "email": "shesey1@blinklist.com",
-    "contraseña": "b98mG4y5Qmor",
-    "avatar": "user_2.jpg"
-}, {
-    "id": 3,
-    "nombre": "Lissie",
-    "apellido": "enzley",
-    "codArea": 14,
-    "telefono": "687-333-3318",
-    "email": "lenzley2@edublogs.org",
-    "contraseña": "lYtWSvaLKD",
-    "avatar": "user_3.jpg"
-}, {
-    "id": 4,
-    "nombre": "Alverta",
-    "apellido": "Camellini",
-    "codArea": 13,
-    "telefono": "569-619-6491",
-    "email": "acamellini3@globo.com",
-    "contraseña": "4nzSVa",
-    "avatar": "user_4.jpg"
-}, {
-    "id": 5,
-    "nombre": "Sonny",
-    "apellido": "Morfell",
-    "codArea": 15,
-    "telefono": "293-759-6990",
-    "email": "smorfell4@jugem.jp",
-    "contraseña": "UoU3Eb1H",
-    "avatar": "user_5.jpg"
-}, {
-    "id": 6,
-    "nombre": "Denys",
-    "apellido": "Possell",
-    "codArea": 12,
-    "telefono": "860-446-1617",
-    "email": "dpossell5@businesswire.com",
-    "contraseña": "BGno1sY6",
-    "avatar": "user_6.jpg"
-}, {
-    "id": 7,
-    "nombre": "Teresa",
-    "apellido": "Hamshar",
-    "codArea": 11,
-    "telefono": "726-444-9682",
-    "email": "thamshar6@china.com.cn",
-    "contraseña": "TBnut8RhW",
-    "avatar": "user_7.jpg"
-}, {
-    "id": 8,
-    "nombre": "Sawyer",
-    "apellido": "Van der Daal",
-    "codArea": 12,
-    "telefono": "180-585-7838",
-    "email": "svanderdaal7@boston.com",
-    "contraseña": "Oe7l0aBYTeAf",
-    "avatar": "user_8.jpg"
-}, {
-    "id": 9,
-    "nombre": "Gradey",
-    "apellido": "Brackstone",
-    "codArea": 15,
-    "telefono": "820-150-6947",
-    "email": "gbrackstone8@walmart.com",
-    "contraseña": "01JVHB",
-    "avatar": "user_9.jpg"
-}, {
-    "id": 10,
-    "nombre": "Tracey",
-    "apellido": "Boniface",
-    "codArea": 15,
-    "telefono": "761-546-2383",
-    "email": "tboniface9@nydailynews.com",
-    "contraseña": "kLQzMTN",
-    "avatar": "user_10.jpg"
-}, {
-    "id": 11,
-    "nombre": "Mab",
-    "apellido": "Bayfield",
-    "codArea": 12,
-    "telefono": "282-559-4034",
-    "email": "mbayfielda@nps.gov",
-    "contraseña": "KO4ZkT",
-    "avatar": "user_11.jpg"
-}, {
-    "id": 12,
-    "nombre": "Sibylle",
-    "apellido": "Atkyns",
-    "codArea": 14,
-    "telefono": "716-951-8483",
-    "email": "satkynsb@walmart.com",
-    "contraseña": "oDjNrf0Wm",
-    "avatar": "user_12.jpg"
-}, {
-    "id": 13,
-    "nombre": "Doria",
-    "apellido": "Roust",
-    "codArea": 11,
-    "telefono": "363-756-5925",
-    "email": "droustc@sohu.com",
-    "contraseña": "F9E7tCuk7ka",
-    "avatar": "user_13.jpg"
-}, {
-    "id": 14,
-    "nombre": "Andreas",
-    "apellido": "Cholonin",
-    "codArea": 13,
-    "telefono": "714-784-0929",
-    "email": "acholonind@answers.com",
-    "contraseña": "SJdA1P",
-    "avatar": "user_14.jpg"
-}, {
-    "id": 15,
-    "nombre": "Brynna",
-    "apellido": "Nare",
-    "codArea": 13,
-    "telefono": "813-145-3143",
-    "email": "bnaree@hp.com",
-    "contraseña": "O0KfL5",
-    "avatar": "user_15.jpg"
-}, {
-    "id": 16,
-    "nombre": "Stavro",
-    "apellido": "Slides",
-    "codArea": 12,
-    "telefono": "191-925-1127",
-    "email": "sslidesf@apple.com",
-    "contraseña": "hrLPff",
-    "avatar": "user_16.jpg"
-}, {
-    "id": 17,
-    "nombre": "Lancelot",
-    "apellido": "Winnett",
-    "codArea": 11,
-    "telefono": "651-918-6107",
-    "email": "lwinnettg@wisc.edu",
-    "contraseña": "IzUOg9vQDTd",
-    "avatar": "user_17.jpg"
-}, {
-    "id": 18,
-    "nombre": "Jaymie",
-    "apellido": "Scutchings",
-    "codArea": 15,
-    "telefono": "581-550-5568",
-    "email": "jscutchingsh@globo.com",
-    "contraseña": "koC7m8iYucsy",
-    "avatar": "user_18.jpg"
-}, {
-    "id": 19,
-    "nombre": "Konstanze",
-    "apellido": "Keitley",
-    "codArea": 15,
-    "telefono": "540-305-3919",
-    "email": "kkeitleyi@phpbb.com",
-    "contraseña": "oKej1Ra",
-    "avatar": "user_19.jpg"
-}, {
-    "id": 20,
-    "nombre": "Bary",
-    "apellido": "Minghella",
-    "codArea": 15,
-    "telefono": "125-580-5648",
-    "email": "bminghellaj@si.edu",
-    "contraseña": "84iwqz4166H",
-    "avatar": "user_20.jpg"
-}, {
-    "id": 21,
-    "nombre": "pala",
-    "apellido": "sadsa",
-    "codArea": 11,
-    "telefono": 321321321,
-    "email": "sslidesf@apple.com",
-    "contraseña": "hrLPff"
-}, {
-    "id": 22,
-    "nombre": "Mario",
-    "apellido": "Mamani",
-    "codArea": "11",
-    "telefono": "231321321",
-    "email": "mario@gmail.com",
-    "contraseña": "$2b$10$LnnFQjHwhQ..rfSMxfRZEexvQdt3VoY.Acz.JQ.scPEC9Gwx11PnO",
-    "avatar": "avatar1600292446271.jpg",
-    "rol": "user"
-}, {
-    "id": 23,
-    "nombre": "Pablo",
-    "apellido": "Cuenca",
-    "codArea": "11",
-    "telefono": "2132131",
-    "email": "pablodc28@hotmail.com",
-    "contraseña": "$2b$10$D3pGcB8Dhm5khFOlPO4oUerExLiUqGvrNyDBVOR/H7hLbl64ZLo2m",
-    "avatar": "avatar1600396497628.jpg",
-    "rol": "Administrador"
-}, {
-    "id": 24,
-    "nombre": "Kevin",
-    "apellido": "Johansen",
-    "codArea": "321",
-    "telefono": "900990",
-    "email": "kevin@gmail.com",
-    "contraseña": "$2b$10$3Kd8ifJwfkT1l1RzqIW7I.fk14XUsOxMDsviorVs8q.wldx5PNGOW",
-    "avatar": "avatar1600523873034.jpg",
-    "rol": "user"
-}]
+[
+    {
+        "id": 1,
+        "nombre": "Constanta",
+        "apellido": "Grassick",
+        "codArea": 11,
+        "telefono": "152-273-8498",
+        "email": "cgrassick0@utexas.edu",
+        "contraseña": "MhtUNBQPY",
+        "avatar": "user_1.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Stormi",
+        "apellido": "Hesey",
+        "codArea": 12,
+        "telefono": "361-500-8210",
+        "email": "shesey1@blinklist.com",
+        "contraseña": "b98mG4y5Qmor",
+        "avatar": "user_2.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Lissie",
+        "apellido": "enzley",
+        "codArea": 14,
+        "telefono": "687-333-3318",
+        "email": "lenzley2@edublogs.org",
+        "contraseña": "lYtWSvaLKD",
+        "avatar": "user_3.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Alverta",
+        "apellido": "Camellini",
+        "codArea": 13,
+        "telefono": "569-619-6491",
+        "email": "acamellini3@globo.com",
+        "contraseña": "4nzSVa",
+        "avatar": "user_4.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Sonny",
+        "apellido": "Morfell",
+        "codArea": 15,
+        "telefono": "293-759-6990",
+        "email": "smorfell4@jugem.jp",
+        "contraseña": "UoU3Eb1H",
+        "avatar": "user_5.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Denys",
+        "apellido": "Possell",
+        "codArea": 12,
+        "telefono": "860-446-1617",
+        "email": "dpossell5@businesswire.com",
+        "contraseña": "BGno1sY6",
+        "avatar": "user_6.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Teresa",
+        "apellido": "Hamshar",
+        "codArea": 11,
+        "telefono": "726-444-9682",
+        "email": "thamshar6@china.com.cn",
+        "contraseña": "TBnut8RhW",
+        "avatar": "user_7.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Sawyer",
+        "apellido": "Van der Daal",
+        "codArea": 12,
+        "telefono": "180-585-7838",
+        "email": "svanderdaal7@boston.com",
+        "contraseña": "Oe7l0aBYTeAf",
+        "avatar": "user_8.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Gradey",
+        "apellido": "Brackstone",
+        "codArea": 15,
+        "telefono": "820-150-6947",
+        "email": "gbrackstone8@walmart.com",
+        "contraseña": "01JVHB",
+        "avatar": "user_9.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "Tracey",
+        "apellido": "Boniface",
+        "codArea": 15,
+        "telefono": "761-546-2383",
+        "email": "tboniface9@nydailynews.com",
+        "contraseña": "kLQzMTN",
+        "avatar": "user_10.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "Mab",
+        "apellido": "Bayfield",
+        "codArea": 12,
+        "telefono": "282-559-4034",
+        "email": "mbayfielda@nps.gov",
+        "contraseña": "KO4ZkT",
+        "avatar": "user_11.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "Sibylle",
+        "apellido": "Atkyns",
+        "codArea": 14,
+        "telefono": "716-951-8483",
+        "email": "satkynsb@walmart.com",
+        "contraseña": "oDjNrf0Wm",
+        "avatar": "user_12.jpg"
+    },
+    {
+        "id": 13,
+        "nombre": "Doria",
+        "apellido": "Roust",
+        "codArea": 11,
+        "telefono": "363-756-5925",
+        "email": "droustc@sohu.com",
+        "contraseña": "F9E7tCuk7ka",
+        "avatar": "user_13.jpg"
+    },
+    {
+        "id": 14,
+        "nombre": "Andreas",
+        "apellido": "Cholonin",
+        "codArea": 13,
+        "telefono": "714-784-0929",
+        "email": "acholonind@answers.com",
+        "contraseña": "SJdA1P",
+        "avatar": "user_14.jpg"
+    },
+    {
+        "id": 15,
+        "nombre": "Brynna",
+        "apellido": "Nare",
+        "codArea": 13,
+        "telefono": "813-145-3143",
+        "email": "bnaree@hp.com",
+        "contraseña": "O0KfL5",
+        "avatar": "user_15.jpg"
+    },
+    {
+        "id": 16,
+        "nombre": "Stavro",
+        "apellido": "Slides",
+        "codArea": 12,
+        "telefono": "191-925-1127",
+        "email": "sslidesf@apple.com",
+        "contraseña": "hrLPff",
+        "avatar": "user_16.jpg"
+    },
+    {
+        "id": 17,
+        "nombre": "Lancelot",
+        "apellido": "Winnett",
+        "codArea": 11,
+        "telefono": "651-918-6107",
+        "email": "lwinnettg@wisc.edu",
+        "contraseña": "IzUOg9vQDTd",
+        "avatar": "user_17.jpg"
+    },
+    {
+        "id": 18,
+        "nombre": "Jaymie",
+        "apellido": "Scutchings",
+        "codArea": 15,
+        "telefono": "581-550-5568",
+        "email": "jscutchingsh@globo.com",
+        "contraseña": "koC7m8iYucsy",
+        "avatar": "user_18.jpg"
+    },
+    {
+        "id": 19,
+        "nombre": "Konstanze",
+        "apellido": "Keitley",
+        "codArea": 15,
+        "telefono": "540-305-3919",
+        "email": "kkeitleyi@phpbb.com",
+        "contraseña": "oKej1Ra",
+        "avatar": "user_19.jpg"
+    },
+    {
+        "id": 20,
+        "nombre": "Bary",
+        "apellido": "Minghella",
+        "codArea": 15,
+        "telefono": "125-580-5648",
+        "email": "bminghellaj@si.edu",
+        "contraseña": "84iwqz4166H",
+        "avatar": "user_20.jpg"
+    },
+    {
+        "id": 21,
+        "nombre": "pala",
+        "apellido": "sadsa",
+        "codArea": 11,
+        "telefono": 321321321,
+        "email": "sslidesf@apple.com",
+        "contraseña": "hrLPff"
+    },
+    {
+        "id": 22,
+        "nombre": "Mario",
+        "apellido": "Mamani",
+        "codArea": "11",
+        "telefono": "231321321",
+        "email": "mario@gmail.com",
+        "contraseña": "$2b$10$LnnFQjHwhQ..rfSMxfRZEexvQdt3VoY.Acz.JQ.scPEC9Gwx11PnO",
+        "avatar": "avatar1600292446271.jpg",
+        "rol": "user"
+    },
+    {
+        "id": 23,
+        "nombre": "Pablo",
+        "apellido": "Cuenca",
+        "codArea": "11",
+        "telefono": "2132131",
+        "email": "pablodc28@hotmail.com",
+        "contraseña": "$2b$10$D3pGcB8Dhm5khFOlPO4oUerExLiUqGvrNyDBVOR/H7hLbl64ZLo2m",
+        "avatar": "avatar1600396497628.jpg",
+        "rol": "Administrador"
+    },
+    {
+        "id": 24,
+        "nombre": "Kevin",
+        "apellido": "Johansen",
+        "codArea": "321",
+        "telefono": "900990",
+        "email": "kevin@gmail.com",
+        "contraseña": "$2b$10$3Kd8ifJwfkT1l1RzqIW7I.fk14XUsOxMDsviorVs8q.wldx5PNGOW",
+        "avatar": "avatar1600523873034.jpg",
+        "rol": "user"
+    },
+    {
+        "id": 25,
+        "nombre": "mercedes",
+        "apellido": "nene",
+        "codArea": "4584",
+        "telefono": "654574987",
+        "email": "nene@gmail.com",
+        "contraseña": "$2b$10$V6JfvuftGcAR5gJgBR7f.O2OtvptVzhRi3h2SLNdOVaWAol7tsa62",
+        "avatar": "avatar1601203340837.png",
+        "rol": "user"
+    },
+    {
+        "id": 26,
+        "nombre": "pedro ",
+        "apellido": "cece",
+        "codArea": "78994",
+        "telefono": "456478987",
+        "email": "pepe@gmail.com",
+        "contraseña": "$2b$10$1753oYwzmNFnUbtuS9XAheSY5J4JO8CPefQkdXkurR1LNlaMgX69C",
+        "avatar": "avatar1601203552203.png",
+        "rol": "user"
+    },
+    {
+        "id": 27,
+        "nombre": "carlos",
+        "apellido": "xeres",
+        "codArea": "7787",
+        "telefono": "4564879",
+        "email": "fafa@gmail.com",
+        "contraseña": "$2b$10$Kr.xgV2ESmERx/iOrtDt9OkxBLnJayCYu5Ba7PvOMbrVaNsXfNNOG",
+        "avatar": "avatar1601281288669.png",
+        "rol": "user"
+    },
+    {
+        "id": 28,
+        "nombre": "mercedes",
+        "apellido": "garcia",
+        "codArea": "23131",
+        "telefono": "15515151515",
+        "email": "shaa@gmail.com",
+        "contraseña": "$2b$10$T7dW47jyEjrL9nPLJMTBi.bz/XwpK4EN5g3HvtqB1XUcftxtrPRNe",
+        "avatar": "avatar1601281849848.png",
+        "rol": "user"
+    },
+    {
+        "id": 29,
+        "nombre": "peres",
+        "apellido": "raton",
+        "codArea": "7897",
+        "telefono": "564654877",
+        "email": "perez@gmail.com",
+        "contraseña": "$2b$10$6HdztGqZ47FphPtZii1/P.8/e0ilDz8wwG8b0Is/POc5RIfm4itiS",
+        "avatar": "avatar1601285653520.png",
+        "rol": "user"
+    }
+]
