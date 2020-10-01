@@ -21,7 +21,8 @@ Nuestro equipo es ágil y uno de los secretos de la agilidad es el de fallar rá
   
 ## Listado retrospectivas :
 
- [Retrospectiva 2](https://app.mural.co/invitation/mural/g7mpkgames9489/1597955366902?sender=ua5bd8186056f7a3aec066975&key=62cbde34-1f63-46a5-889b-bee1c8912a13)
+ [Retrospectiva 2](https://github.com/Kevin12160/grupo_7_MPKGames/blob/master/retro/Sprint2.png)
 
- [Retrospectiva 3](https://app.mural.co/invitation/mural/g7mpkgames9489/1599588732842?sender=ua5bd8186056f7a3aec066975&key=6d50f1fa-158e-44d5-a416-3a1ab8cbff61)
+ [Retrospectiva 3](https://github.com/Kevin12160/grupo_7_MPKGames/blob/master/retro/SpRINT3.png)
 
+ [Retrospectiva 4](https://github.com/Kevin12160/grupo_7_MPKGames/blob/master/retro/Sprint4.png)	
