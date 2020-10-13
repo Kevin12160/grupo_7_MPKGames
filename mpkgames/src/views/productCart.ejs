@@ -73,14 +73,15 @@
                       <% productoEnCarrito.forEach(producto => { %> 
                   <div class=" row align-items-center contenidoDeCompra">
                     <p style="display: none" > <%- producto.idcarrito %>
-                        <div class="col-md-2 imagen">
+                        
+                      <!-- <div class="col-md-2 imagen">
                           <% if (producto.Imagen) { %>
                              <img style="width: 60px;" src="/images/products/<%- producto.Imagen %>  " alt=" "> 
                           <% } else { %>                             
                              <img style="width: 60px;" src="/images/products/default.png " alt=" "> 
                           <% } %>  
                              
-                        </div>                                         
+                        </div>                                          -->
                         
                         <div class="col-4 col-md-4">                    
                             <p> <%- producto.NombreDeProducto %>
