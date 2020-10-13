@@ -1,4 +1,5 @@
-const dbUsers = require('../data/dataUsers');
+// const dbUsers = require('../data/dataUsers');
+const db = require("../database/models")
 const fs = require('fs');
 const path = require('path');
 const {validationResult} = require('express-validator');
@@ -9,38 +10,34 @@ module.exports ={
       res.render("register",{
         title:"Registro de Usuario",            
         user:req.session.user
-      }) 
-    },
+      })  
+    }, 
 
     registrarse: function(req,res){
         let errors = validationResult(req);
-        let lastID = 0;
-        if(dbUsers.length > 0){
-            dbUsers.forEach(user=>{
-                if(user.id > lastID){
-                    lastID = user.id
-                }
-            })
-        }
-
+        
         if(errors.isEmpty()){
-            let nuevoUsuario = {
-                id:lastID+1,
+
+            db.User.create(
+             {
                 nombre:req.body.nombre,
                 apellido:req.body.apellido,
-                codArea: req.body.usu_CodigoArea,
-                telefono: req.body.usu_Telefono,
+                usu_CodigoArea: req.body.usu_CodigoArea,
+                usu_Telefono: req.body.usu_Telefono,
                 email:req.body.email,
                 contraseña:bcrypt.hashSync(req.body.contraseña,10),
                 avatar:(req.files[0])?req.files[0].filename:"default.png",
                 rol:"user"
             }
-            // console.log("------------->>guardo nuevo usuario >>>>> --------- " + errors.isEmpty())
-            dbUsers.push(nuevoUsuario);
+          )
 
-            fs.writeFileSync(path.join(__dirname,'..','data','dbUsers.json'),JSON.stringify(dbUsers),'utf-8')
-            return res.redirect('/users/login')
-            
+          .then(result => {
+            console.log(result)
+                return res.redirect('/')
+        })  
+        .catch(errores => {
+            console.log(errores)
+        })
         }else{     
             res.render("register",{
                 title:"con errores",                
@@ -48,7 +45,6 @@ module.exports ={
                 old:req.body,                               
                 user:req.session.user
             })
-            
         }
     },
 
@@ -56,38 +52,56 @@ module.exports ={
          res.render("login",{
             title:"Ingreso de Usuarios",            
             user:req.session.user
-        })
+        }) 
       },
 
-      //Procesos de Loguearse , si esta vacio el array de errores entonces entra sino muestra errores
-      processLogin:function(req,res){
+      processLogin: function(req,res){
+        let url = '/'; //asigno a url la ruta del home
+        if(req.session.url){
+            url = req.session.url //si se deriva por medio de sessionUserCheck, guardo la url de origen para luego, una vez logueado lo redirija a esa pagina
+        }
         let errors = validationResult(req);
         if(errors.isEmpty()){
- 
-            for(let i=0;i<dbUsers.length;i++){
-                if(req.body.usu_email==dbUsers[i].email && bcrypt.compareSync(req.body.usu_password,dbUsers[i].contraseña)){
-                    console.log("\n\ndentro del for");
-                    req.session.user={
-                        id: dbUsers[i].id,
-                        nick: "Hola "+dbUsers[i].nombre,
-                        avatar: dbUsers[i].avatar,
-                        TipoUsuario:dbUsers[i].rol
-                    }
+
+            db.User.findOne({ //busco el usuario usando el mail ingresado
+                where:{
+                    email:req.body.email
+                },                 
+            })
+            .then(user => {
+                req.session.user = { //asigno a la session un objeto literal con los datos del usuario
+                    id: user.id,
+                    nick: user.nombre + " " + user.apellido,
+                    email: user.email,                    
+                    avatar: user.avatar,
+                    rol: user.rol,                    
                 }
-            }
-            if(req.body.recordar){
-                res.cookie('userMPKGames',req.session.user,{maxAge:1000*60*5})
-            }
-            return res.redirect('/')      
-        }else{     
-            return res.render('login',{
-                title:"Error en Ingreso de credenciales",                
-                errors: errors.mapped(), 
-                old:req.body,                  
-                user:req.session.user
+                res.cookie('idUsuario', user.id,{ expires: new Date(Date.now() + (60*60*24*365*3)) });
+                
+                if(req.body.recordar){ //si viene tildada el checkbox creo la cookie
+                    res.cookie('userMPKGames',req.session.user, {maxAge:1000*60*5})                    
+                }
+
+                res.locals.user = req.session.user //asigno session a la variable locals
+                return res.redirect(url)
+            })
+            .catch(error => {
+                res.send(error)
+            })
+
+        }else{
+            res.render('login',{
+                title:"Ingresá a tu cuenta",                
+                errors:errors.mapped(),
+                old:req.body
             })
         }
+
     },
+
+    
+
+
     logout:function(req,res){
         req.session.destroy();
         if(req.cookies.userMPKGames){

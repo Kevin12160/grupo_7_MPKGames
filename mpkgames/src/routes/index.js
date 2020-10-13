@@ -19,10 +19,10 @@ router.get('/', cookieCheck,controller.index);
 }); */
 
 
-router.get('/registroUsuarios', function(req,res){
-  res.render('register',
-  { title: 'Registro de usuarios' });
-});
+// router.get('/registroUsuarios', function(req,res){
+//   res.render('register',
+//   { title: 'Registro de usuarios' });
+// });
 
 
 // router.get('/carritoCompras', function(req,res){
@@ -30,24 +30,24 @@ router.get('/registroUsuarios', function(req,res){
 //   { title: 'Carrito de Compras' });
 // });
 
-router.get('/botones', function(req,res){
-  res.render('btnOpcModCar',
-   { title: 'botonesAgreMod' });
-});
+// router.get('/botones', function(req,res){
+//   res.render('btnOpcModCar',
+//    { title: 'botonesAgreMod' });
+// });
 
-router.get('/botonAgregar', function(req,res){
-  res.render('productAdd',
-   { title: 'Agregar Producto' });
-});
+// router.get('/botonAgregar', function(req,res){
+//   res.render('productAdd',
+//    { title: 'Agregar Producto' });
+// });
 
-router.get('/ModificarJuego', function(req,res){
-  res.render('modificarJuego',
-   { title: 'Modificar Juego' });
-});
+// router.get('/ModificarJuego', function(req,res){
+//   res.render('modificarJuego',
+//    { title: 'Modificar Juego' });
+// });
 
-router.get('/login', function(req,res){
-  res.render('logine',
-   { title: 'Login' });
-});
+// router.get('/login', function(req,res){
+//   res.render('logine',
+//    { title: 'Login' });
+// });
 
 module.exports = router;

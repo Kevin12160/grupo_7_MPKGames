@@ -1,58 +1,44 @@
-const dataBase=require("../data/dataUsers");
+const db = require('../database/models');
 
 const {check,validationResult,body}=require("express-validator");
 
 const bcrypt=require("bcrypt");
 
 module.exports=[
+    check('email')
+    .isEmail()
+    .withMessage('Debes ingresar un email válido'),
 
-    body('usu_email').custom(function(value){
-
-        if(value){
-            return true
-        }else{
-            return false
-        }
-    }).withMessage("Escribe una dirección de correo electrónico"),
-
-
-    check('usu_email').isEmail().withMessage("Ingrese su mail correctamente"),
-
-    body('usu_email').custom(function(value){
-        let arrayUsers=[];
-        dataBase.forEach(element => {
-            arrayUsers.push(element.email);
-        });
-
-        return (arrayUsers.includes(value));
-    }).withMessage("El email ingresado no esta registrado."),
+    body('email')
+    .custom(function(value){
+      return db.User.findOne({
+          where:{
+              email:value
+          }
+      })
+      .then(user => {
+          if(!user){
+              return Promise.reject("Email no registrado")
+          }
+      })
+    }),
     
-    body('usu_password').custom(function(value){
-
-        if(value){
-            return true
-        }else{
-            return false
-        }
-    }).withMessage("No ingreso una contraseña"),
-
-
-
-    body('usu_password').custom(function(value){
-
-        console.log("\n\n el valor de value: "+value+"\n\n");
-
-        let arrayPass=[]
-
-        dataBase.forEach(element=>{
-            arrayPass.push(element.contraseña);
-        });
-
-        for(let i=0;i<arrayPass.length;i++){
-            if(bcrypt.compareSync(value,arrayPass[i])){
-                return(bcrypt.compareSync(value,arrayPass[i]));
+    body('contraseña')
+    .custom(function(value,{req}){
+      
+        return db.User.findOne({
+            where:{
+                email:req.body.email
             }
-        }
-
-    }).withMessage("La contraseña ingresada es incorrecta")
+        })
+        .then(user => {
+            console.log(user)
+            if(!bcrypt.compareSync(value,user.dataValues.contraseña)){
+                return Promise.reject()
+            }
+        })
+        .catch(()=>{
+            return Promise.reject("Contraseña incorrecta")
+        })
+    })
 ]

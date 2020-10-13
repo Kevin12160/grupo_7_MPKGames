@@ -26,10 +26,6 @@ router.get('/',UsuAministradorMiddleware, controller.listar) //construyo la ruta
 router.get('/search',controller.search);
 router.get('/detalle/:id',controller.detalle);
 
-router.get('/carritoCompras/',sessionUserCheck,controller.enCarrito);
-router.put('/agregarAlCarrito/:id',upload.any(),sessionUserCheck,controller.AgregarAlCarritoDeCompras);
-router.put('/retiraDelCarrito/:id',sessionUserCheck,controller.retiraDelCarrito);
-
 
 // SOLO si es administrador puede ver el form de agregar modificar y borrar
 router.get('/add/form',sessionUserCheck,UsuAministradorMiddleware,controller.AbreFormAgregar);

@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 let productsRouter = require('./routes/productos') //requiero el módulo que se hará cargo de la administración de las rutas relacionadas con productos
-
+let carritosRouter = require('./routes/carritos')
 var app = express();
 
 
@@ -39,7 +39,7 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productsRouter) //añado la ruta principal de productos de la cual derivarán todas las demás
-
+app.use('/carritos', carritosRouter) //añado la ruta principal de productos de la cual derivarán todas las demás
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

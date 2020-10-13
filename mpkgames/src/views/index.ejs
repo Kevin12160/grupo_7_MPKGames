@@ -20,41 +20,40 @@
                     <div class="contenido">
                         <!--ETIQUETA SEMANTICA-->
                         <figure>
-                            <a href="/productos/detalle/<%= producto.IDJuego %> ">
+                            <a href="/productos/detalle/<%= producto.IdJuego %> ">
                                 <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
                             </a>
                         </figure>
+                        <form action="/carritos/agregarAlCarrito/<%= producto.IdJuego %>" method="POST">                                                   
                             <!--informacion-->
-                            <article class="classArtIndex">
+                            <article class="classArtIndex">                                
+                                <input name="IdJuego" style="display: none" value="<%- producto.IdJuego %>">
+                                <input name="codigo" style="display: none" value="<%- producto.Codigo %>">
+
                                 <!--precio-->
+                                <h2>$<%- producto.Precio %></h2>                                
                                 <h2>$
-                                    <%- producto.Precio %>
+                                     <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                 </h2>
-                                <h2>$
-                                    <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                                </h2>
-                                
+                                <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
+
                                 <!--descuento-->
                                 <% if (producto.Descuento !=0) { %>
                                     <span><%- producto.Descuento %> % OFF</span>
-                                <% } %>                           
-                               <!--nombre del producto ??-->
-                               <p>
-                                    <%- producto.NombreDeProducto %>
-                                </p>                        
-                                   <!--icono de Consolas-->
+                                <% } %>     
+                                                      
+                               <p> <%- producto.NombreDeProducto %></p>
+                               <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
+
+                               <!--icono de Consolas-->
                                    <i class="fab fa-xbox Xbox"></i>
-                                   <i class="fab fa-playstation playStation"></i>
+                                   <i class="fab fa-playstation playStation"></i>                              
                                    
-                                   <form action="/productos/agregarAlCarrito/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                           
                                     <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
-                                </form>
-                            </article> 
-                        <!--finaliza contenido-->
-                    </div>
-                    <!--finaliza caja de grilla de boostrap-->
-                </div>
-                <!--finaliza el div.row-->
+                        </form>
+                            </article>                         <!--finaliza contenido-->
+                    </div>                    <!--finaliza caja de grilla de boostrap-->
+                </div> <!--finaliza el div.row-->
                 <% }) %>
             </div>
 
@@ -75,39 +74,37 @@
                     <div class="contenido">
                         <!--ETIQUETA SEMANTICA --*-->
                         <figure>
-                            <a href="/productos/detalle/<%= producto.IDJuego %> ">
+                            <a href="/productos/detalle/<%= producto.IdJuego %> ">
                                 <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
                             </a>
                         </figure>
+                        <form action="/carritos/agregarAlCarrito/<%= producto.IdJuego %>" method="POST">                                                   
                             <!--informacion-->
-                            <article class="classArtIndex">
+                            <article class="classArtIndex">                                
+                                <input name="IdJuego" style="display: none" value="<%- producto.IdJuego %>">
+                                <input name="codigo" style="display: none" value="<%- producto.Codigo %>">
+
                                 <!--precio-->
+                                <h2>$<%- producto.Precio %></h2>                                
                                 <h2>$
-                                    <%- producto.Precio %>
+                                     <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                 </h2>
-                                <h2>$
-                                    <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                                </h2>
-                                
+                                <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
+
                                 <!--descuento-->
                                 <% if (producto.Descuento !=0) { %>
                                     <span><%- producto.Descuento %> % OFF</span>
-                                <% } %>                           
-                               
-                                <!--nombre del producto ??-->
-                                <div>
-                                <p>
-                                    <%- producto.NombreDeProducto %>
-                                </p>                        
-                                </div>
-                                   <!--icono de Consolas-->
+                                <% } %>     
+                                                      
+                               <p> <%- producto.NombreDeProducto %></p>
+                               <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
+
+                               <!--icono de Consolas-->
                                    <i class="fab fa-xbox Xbox"></i>
-                                   <i class="fab fa-playstation playStation"></i>
-                                
-                                <form action="/productos/agregarAlCarrito/<%= producto.IDJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                           
-                                    <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                    
-                                    
-                               </form>
+                                   <i class="fab fa-playstation playStation"></i>                              
+                                   
+                                    <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
+                        </form>
                             </article> 
                         <!--finaliza contenido-->
                     </div>

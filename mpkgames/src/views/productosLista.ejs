@@ -27,7 +27,7 @@
                         <div class="contenido">
                             <!--ETIQUETA SEMANTICA-->
                             <figure>
-                                <a href="/productos/detalle/<%= producto.IDJuego %> ">
+                                <a href="/productos/show/<%= producto.IdJuego %> ">
                                     <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
                                 </a>
                             </figure>
@@ -49,10 +49,10 @@
                                     <%- producto.Categoria %> 
                                 </p>
                                 <div class="d-flex justify-content-around">                                   
-                                    <form action="/productos/show/<%= producto.IDJuego %>" method="GET">
+                                    <form action="/productos/show/<%= producto.IdJuego %>" method="GET">
                                         <button class="btn btn-outline-light"> <h4 class="fas fa-edit text-primary"></h4></button>
                                     </form>
-                                    <form action="/productos/delete/<%= producto.IDJuego %>?_method=DELETE" method="POST">
+                                    <form action="/productos/delete/<%= producto.IdJuego %>?_method=DELETE" method="POST">
                                         <button class="btn btn-outline-light"> <h4 class="fas fa-trash-alt text-danger"></h4></button>
                                     </form>
                                 </div>

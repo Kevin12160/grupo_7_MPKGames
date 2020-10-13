@@ -1,76 +1,72 @@
-const dbProduct = require('../data/database'); //requiero la base de datos de productos
+// const dbProduct = require('../data/database'); //requiero la base de datos de productos
 
 
 const fs = require('fs');
 const path = require('path');
-
-
+const db = require('../database/models');
+const { Op } = require("sequelize");
 
 module.exports = { //exporto un objeto literal con todos los metodos
+    //OK realizado
     listar: function(req, res) {
-        let  totalDeProductos =  dbProduct.length;
+        let  totalDeProductos = 0;
+        db.Producto.count().then(resultado => {
+             totalDeProductos = (resultado)
+            })
 
-        res.render('productosLista', {
-                title: "Todos los Productos",
-                productos: dbProduct,
-                totalDeProductos: totalDeProductos,   
-                user: req.session.user,             
-            }) //muestra información de prueba
-    },
-
-
-
-    enCarrito: function(req, res) {
-        let productoEnCarrito = dbProduct.filter(producto => {
-            return producto.AgregadoAlCarrito == true
-        })        
-        
-        res.render('productCart', { //renderizo en el navegador la vista index que contiene el HOME del sitio
-            title: 'Carrito de Compras', //envío el objeto literal con la o las variables necesarias para renderizar de forma correcta el home
-            productoEnCarrito: productoEnCarrito ,
-            user: req.session.user,          
-        })
+        // db.Producto.findAll({attributes: ['IdJuego', 'Codigo', 'NombreDeProducto', 'Precio', 'Idioma', 'Descuento`', 'Imagen']})
+        db.Producto.findAll()
+            .then(function(ListaDeproductos){                
+                res.render('productosLista', {
+                    title: "Todos los Productos",
+                    productos: ListaDeproductos,
+                    totalDeProductos: totalDeProductos,   
+                    user: req.session.user,  
+                               
+                })
+            })
     },
     
-    search:function(req,res){
-        let buscar = req.query.search;
-        let resultados=[];
 
-        dbProduct.forEach(producto=>{
-            if(producto.NombreDeProducto.toLowerCase().includes(buscar.toLowerCase())){
-                resultados.push(producto)
+    search:function(req,res){            
+        let  totalDeProductos = 0;
+
+        db.Producto.count().then(resultado => {
+             totalDeProductos = (resultado)
+            })
+
+        db.Producto.findAll({
+            where: {
+                NombreDeProducto: { [Op.substring] : req.query.search}
             }
-        })
-        res.render('productosLista',{
-            title:"Resultado de la busqueda",
-            productos:resultados,
-            totalDeProductos: dbProduct.length,
-            user: req.session.user,  
-        })
+            })
+            .then(function(ListaDeproductosFiltro){                
+                res.render('productosLista', {
+                    title: "Resultado de la busqueda",
+                    productos: ListaDeproductosFiltro,
+                    totalDeProductos: totalDeProductos,   
+                    user: req.session.user,             
+                })
+            })
     },
+
 
     detalle:function(req,res){
         let id = req.params.id;
-        let CategoriaDelJuego = "";
+        // let CategoriaDelJuego = "";
 
-        let producto = dbProduct.filter(producto=>{
-            return producto.IDJuego == id
-        })
-        // console.log(producto[0].Categoria)
-        CategoriaDelJuego = producto[0].Categoria
-        
-        let productoSegunCategoria = dbProduct.filter(producto => {
-            return producto.Categoria == CategoriaDelJuego
-        })   
-            
-
-        res.render('productDetail',{
-            title:"Detalle del Producto",
-            producto:producto[0],
-            productoSegunCategoria: productoSegunCategoria,
-            user: req.session.user,   
-        })
+        db.Producto.findByPk(id)
+            .then(function(DetalleProducto){                               
+                        res.render('productDetail',{
+                            title:"Detalle del Producto",
+                            producto: DetalleProducto,
+                            productoSegunCategoria: DetalleProducto,                            
+                            user: req.session.user,   
+                        })
+            })       
     },
+
+
 
     AbreFormAgregar:function(req,res){        
         res.render('productAdd',{
@@ -78,36 +74,14 @@ module.exports = { //exporto un objeto literal con todos los metodos
             user: req.session.user,  
         })
     },
-   
-    // praticando me di cuenta que si cargo los name del body 
-    //no me sobreescbrie todo el objeto solo la propieda que le indico 
-    //que raro??
-    AgregarAlCarritoDeCompras: function(req,res){
-        let idproducto = req.params.id;
+    
+    
 
-        dbProduct.forEach(producto=>{
-            if(producto.IDJuego==idproducto){
-                producto.AgregadoAlCarrito = true;
-            }
-        })
-        
-        fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
-         res.redirect('/productos/carritoCompras/')
-    },
-
+//OK realizado
     publicar:function(req,res,next){
-        // res.send(req.files);
-        let lastID = 1;
-
-        dbProduct.forEach(producto=>{
-            if(producto.IDJuego > lastID){
-                lastID = producto.IDJuego
-            }
-        })
-
-        let newProduct ={
-            IDJuego: lastID + 1,
-            Codigo: req.body.Codigo,                    
+        
+        db.Producto.create({            
+            Codigo: req.body.codigo,                    
             NombreDeProducto: req.body.nombreDelProducto,
             Precio:Number(req.body.precioProd),
             Tamaño: req.body.tamanioJue,
@@ -120,96 +94,77 @@ module.exports = { //exporto un objeto literal con todos los metodos
             DescripcionCorta: req.body.detalle,
             Calificacion: "",
             OfertasUtimosJuegos: "",
-            OfertasDeLaSemana: "",
-            AgregadoAlCarrito: "",
+            OfertasDeLaSemana: "",            
             Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
-        }
-
-        dbProduct.push(newProduct);
-        
-        fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
-        
-        res.redirect('/productos')
-        // no tengo render como para mandar el user: req.session.user, 
-        // como tendria que hacer ?? porque me cierra la session al no envaar el user: req.session.user
-        
+        })
+        .then(result => {
+            console.log(result)
+            res.redirect('/productos')
+        })
+        .catch(err => {
+            res.send(err)
+        })        
     },
 
     show:function(req,res){
         let idProducto = req.params.id;       
         
-        let resultado = dbProduct.filter(producto =>{
-            return producto.IDJuego == idProducto
-        })
-        res.render('productShow',{
-            title: "Ver/Editar Producto",
-            producto: resultado[0], 
-            user: req.session.user,              
-        })
+        db.Producto.findByPk(idProducto)
+            .then(function(DetalleProducto){   
+                // res.send(DetalleProducto)                            
+                        res.render('productShow',{
+                            title:"Ver/Editar Producto",
+                            producto: DetalleProducto,                                                      
+                            user: req.session.user,   
+                        })
+            })  
+        
     },
 
     actualizar:function(req,res){
         let idproducto = req.params.id;
+        
 
-            dbProduct.forEach(producto=>{
-                if(producto.IDJuego==idproducto){
-                    producto.IDJuego = Number(req.body.id);                    
-                    producto.Codigo = req.body.codigo.trim();
-                    producto.NombreDeProducto = req.body.nombreDelProducto.trim();
-                    producto.Precio = Number(req.body.precioProd);                    
-                    producto.Tamanio = req.body.tamanioJue.trim();
-                    producto.Idioma = req.body.idiomaJuego.trim();                    
-                    producto.IdiomaSubt = req.body.subtitulo.trim();     
-                    producto.Categoria = req.body.categoriaJuego.trim();                                    
-                    producto.FechaLanzamiento = req.body.fechaLanzam;
-                    producto.Stock = Number(req.body.stock); 
-                    producto.Descuento = Number(req.body.descuento);    
-                    producto.OfertasUtimosJuegos = req.body.OfertasUtimosJuegos;
-                    producto.OfertasDeLaSemana = req.body.OfertasDeLaSemana;
-                    producto.DescripcionCorta = req.body.DescripcionCorta.trim();
-                    producto.Imagen= (req.files[0]?req.files
-                        [0].filename:producto.Imagen);
+
+        db.Producto.update({                                         
+                    Codigo: req.body.codigo.trim(),
+                    NombreDeProducto: req.body.nombreDelProducto.trim(),
+                    Precio: Number(req.body.precioProd),                    
+                    Tamanio: req.body.tamanioJue.trim(),
+                    Idioma: req.body.idiomaJuego.trim(),                    
+                    IdiomaSubt: req.body.subtitulo.trim(),     
+                    Categoria: req.body.categoriaJuego.trim(),                                    
+                    FechaLanzamiento: req.body.fechaLanzam,
+                    Stock: Number(req.body.stock), 
+                    Descuento: Number(req.body.descuento),    
+                    OfertasUtimosJuegos: req.body.OfertasUtimosJuegos,
+                    OfertasDeLaSemana: req.body.OfertasDeLaSemana,
+                    DescripcionCorta: req.body.DescripcionCorta.trim(),                    
+                    // Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
+                    Imagen: (req.files[0]) ? req.files[0].filename : req.body.imagen,
+                    
+                },
+                {
+                    where: {
+                    IdJuego: idproducto
                 }
-            })
-            
-            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
-            // res.redirect('/productos', {user: req.session.user}) 
-              res.redirect('/productos')           
-             // no tengo render como hago mandar el user: req.session.user, 
-            // como tendria que hacer ?? porque me cierra la session al no envaar el user: req.session.user
-             
+                });
+              
+            res.redirect('/productos')                                   
     },
 
+    //OK realizado
     eliminar:function(req,res){
         let idProducto = req.params.id;
-          let aEliminar;     
-           
-        dbProduct.forEach(producto=>{
-            if(producto.IDJuego == idProducto){
-                aEliminar = dbProduct.indexOf(producto);
-            }   
-            })
-            dbProduct.splice(aEliminar,1) 
-
-              
-            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')
-            res.redirect('/productos/')
-             
-        },
-        retiraDelCarrito:function(req,res){          
-            let idproducto = req.params.id;
-
-            dbProduct.forEach(producto=>{
-                if(producto.IDJuego==idproducto){
-                    producto.AgregadoAlCarrito = false;
-                }
-            })
             
-            fs.writeFileSync(path.join(__dirname,"..",'data',"productsLista.json"),JSON.stringify(dbProduct),'utf-8')            
-             res.redirect('/productos/carritoCompras/')
+        db.Producto.destroy({
+                where: {
+                IdJuego: idProducto,
             }
-              // no tengo render como hago mandar el user: req.session.user, 
-        // como tendria que hacer ?? porque me cierra la session al no envaar el user: req.session.user
+            });          
+            
+            res.redirect('/productos')                                   
+        },        
     
     
 }

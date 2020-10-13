@@ -1,4 +1,4 @@
-const dbUsers = require("../data/dataUsers");
+const db = require('../database/models');
 
 const {check,validationResult,body} = require('express-validator');
 
@@ -12,7 +12,7 @@ module.exports = [
 
     check('apellido')
     .isLength({
-        min:1
+        min:1 
     })
     .withMessage('Debes ingresar tu apellido'),
 
@@ -22,14 +22,18 @@ module.exports = [
 
     body('email')
     .custom(function(value){
-        for(let i = 0; i<dbUsers.length;i++){
-            if(dbUsers[i].email == value){
-                return false
+        return db.User.findOne({
+            where:{
+                email:value
             }
-        }
-        return true
-    })
-    .withMessage('Este mail ya está registrado'),
+        })
+        .then(user => {
+            if(user){
+                return Promise.reject('Este mail ya está registrado')
+            }
+        })
+     }),
+
 
     check('contraseña')
     .isLength({
@@ -46,5 +50,9 @@ module.exports = [
         return true
     })
     .withMessage('Las contraseñas no coinciden'),
+
+   // check('bases')
+   // .isString('on')
+    //.withMessage('Debe aceptar las bases y condiciones')
 
 ]
