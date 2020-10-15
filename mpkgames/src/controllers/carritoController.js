@@ -13,11 +13,11 @@ module.exports = {
 
         db.Carrito.findAll({
             where: {usuario_id: req.cookies.idUsuario},
-            // incluide : [{ association: 'Producto'}],  pendiente a consultar
+             include : [{ association: 'Producto'}],  //Pendiente a consultar
             
         }).then(resultados=>{
                 productoEnCarrito = resultados                                                
-                    //  res.send(resultados)
+                       //res.send(resultados)
                      resultados.forEach(element => {
                         sumaTotal += element.precio
                      });
@@ -36,9 +36,7 @@ module.exports = {
             // esta lineas hacerlas bien luego buscando ..
             usuario_id: req.cookies.idUsuario,
             cantidad: 1,
-            juego_id: req.body.IdJuego,
-            codigo: req.body.codigo,                    
-            NombreDeProducto: req.body.NombreDeproducto,
+            juego_id: req.body.IdJuego,            
             precio:Number(req.body.precioDescuento),            
             fecha: Date()
         })

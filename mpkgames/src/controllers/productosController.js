@@ -124,8 +124,6 @@ module.exports = { //exporto un objeto literal con todos los metodos
     actualizar:function(req,res){
         let idproducto = req.params.id;
         
-
-
         db.Producto.update({                                         
                     Codigo: req.body.codigo.trim(),
                     NombreDeProducto: req.body.nombreDelProducto.trim(),

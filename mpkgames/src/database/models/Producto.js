@@ -46,9 +46,6 @@ module.exports= (sequelize, DataTypes) => {
         DescripcionCorta:{
             type:DataTypes.STRING(150),            
         }, 
-        AgregadoAlCarrito:{
-            type:DataTypes.STRING(5),            
-        }, 
         Descuento:{
             type:DataTypes.INTEGER(11),
             allowNull:false
@@ -77,14 +74,19 @@ module.exports= (sequelize, DataTypes) => {
 
     const Producto = sequelize.define(alias,cols,config);
     
-     Producto.associate = function(models){
-         Producto.belongsTo(models.Carrito,{
-             as:"carrito",
-             foreignKey:"IdJuego",
-             //foreignKey:"juego_id"
-         })
-        
-     }
+    Producto.associate = function(models){
+        Producto.hasMany(models.Carrito,{
+            as:"carrito",
+            foreignKey:"juego_id",            
+        })        
+       
+        Producto.belongsToMany(models.User,{
+           as:"User",
+           through:"Carrito",            
+           foreignKey:"juego_id",
+           otherKey: "usuario_id",
+       })
+       }  
 
     return Producto;
 }
