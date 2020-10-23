@@ -17,18 +17,18 @@
       </div>
    
         <!--caja que contiene el link-->
-        <div class="cabezalAvatar col-12 col-md-1 col-lg-2 justify-content-end align-items-center">
-          <a href=""><h5 class="nombreApelluser"><%= (typeof user != "undefined" && user)?user.nick:"Invitado" %> </h5></a>
-          <% if (typeof user != "undefined" && user) { %>
-              <% if (user.rol == "Administrador") { %>                  
-                  <a href="/"><img src="/images/avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
-              <% } else{%>
-                <a href="/users/login"><img src="/images/avatares/default.png" alt="" width="50px" height="50px" class="avatar"></a>
-              <% } %>             
 
-          <% } else{%>
-          <a href=""><img src="/images/avatares/default.png" alt="" width="50px" height="50px"></a>
-          <% } %>
+
+      <div class="cabezalAvatar col-12 col-md-1 col-lg-2 justify-content-end align-items-center">
+        <a href="/"><h5 class="nombreApelluser "  ><%= (user)?user.nick:"Invitado" %>  </h5></a>  
+        
+        <% if (user) { %>
+            <a href="/"><img src="/images/avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
+
+        <% } else{%>
+        <a href="/users/login"><img src="/images/avatares/default.png" alt="" width="50px" height="50px" class="avatar"></a>
+        <% } %>
+
       </div>
       
       <!--finaliza el div.row-->

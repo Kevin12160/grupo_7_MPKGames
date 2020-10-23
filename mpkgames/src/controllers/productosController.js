@@ -8,14 +8,14 @@ const { Op } = require("sequelize");
 
 module.exports = { //exporto un objeto literal con todos los metodos
     //OK realizado
-    listar: function(req, res) {
+   /* listar: function(req, res) {
         let  totalDeProductos = 0;
         db.Producto.count().then(resultado => {
              totalDeProductos = (resultado)
-            })
+            })*/
 
         // db.Producto.findAll({attributes: ['IdJuego', 'Codigo', 'NombreDeProducto', 'Precio', 'Idioma', 'Descuento`', 'Imagen']})
-        db.Producto.findAll()
+       /* db.Producto.findAll()
             .then(function(ListaDeproductos){                
                 res.render('productosLista', {
                     title: "Todos los Productos",
@@ -25,6 +25,18 @@ module.exports = { //exporto un objeto literal con todos los metodos
                                
                 })
             })
+    },*/
+    listar: function(req, res) {
+        
+        db.Producto.findAndCountAll().then(function(resultados){
+       
+        res.render('productosLista', {
+                title: "Todos los Productos",
+                productos: resultados.rows,
+                totalDeProductos: resultados.count,   
+                user: req.session.user,             
+            })
+        })
     },
     
 
@@ -138,9 +150,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     OfertasUtimosJuegos: req.body.OfertasUtimosJuegos,
                     OfertasDeLaSemana: req.body.OfertasDeLaSemana,
                     DescripcionCorta: req.body.DescripcionCorta.trim(),                    
-                    // Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
                     Imagen: (req.files[0]) ? req.files[0].filename : req.body.imagen,
-                    
                 },
                 {
                     where: {
