@@ -37,13 +37,14 @@ module.exports = (sequelize,dataTypes) => {
             type:dataTypes.STRING(200)
         },
         rol : {
-            type:dataTypes.STRING(45)
+            type:dataTypes.STRING(45),
+            defaultValue: "user"
         }
     }
 
     let config = {
         tableName: "user", //nombre de la tabla
-        timestamps:true,
+        timestamps:false,
         underscored: false //evita problemas
     }
 

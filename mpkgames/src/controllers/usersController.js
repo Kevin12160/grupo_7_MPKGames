@@ -33,7 +33,7 @@ module.exports ={
 
           .then(result => {
             console.log(result)
-                return res.redirect('/')
+            return res.redirect('/users/login')
         })  
         .catch(errores => {
             console.log(errores)
@@ -55,52 +55,37 @@ module.exports ={
         }) 
       },
 
-      processLogin: function(req,res){
-        let url = '/'; //asigno a url la ruta del home
-        if(req.session.url){
-            url = req.session.url //si se deriva por medio de sessionUserCheck, guardo la url de origen para luego, una vez logueado lo redirija a esa pagina
-        }
+      processLogin:function(req,res){
+
         let errors = validationResult(req);
         if(errors.isEmpty()){
+           db.User.findAll().then(function(resultados){
+            for(let i=0;i<resultados.length;i++){
+                if(req.body.email==resultados[i].email && bcrypt.compareSync(req.body.contraseña,resultados[i].contraseña)){
 
-            db.User.findOne({ //busco el usuario usando el mail ingresado
-                where:{
-                    email:req.body.email
-                },                 
-            })
-            .then(user => {
-                req.session.user = { //asigno a la session un objeto literal con los datos del usuario
-                    id: user.id,
-                    nick: user.nombre + " " + user.apellido,
-                    email: user.email,                    
-                    avatar: user.avatar,
-                    rol: user.rol,                    
+                    req.session.user={
+                        id: resultados[i].id,
+                        nick: "Hola "+resultados[i].nombre,
+                        avatar: resultados[i].avatar,
+                        rol:resultados[i].rol
+                    }
                 }
-                res.cookie('idUsuario', user.id,{ expires: new Date(Date.now() + (60*60*24*365*3)) });
-                
-                if(req.body.recordar){ //si viene tildada el checkbox creo la cookie
-                    res.cookie('userMPKGames',req.session.user, {maxAge:1000*60*5})                    
-                }
-
-                res.locals.user = req.session.user //asigno session a la variable locals
-                return res.redirect(url)
-            })
-            .catch(error => {
-                res.send(error)
-            })
-
-        }else{
-            res.render('login',{
-                title:"Ingresá a tu cuenta",                
-                errors:errors.mapped(),
-                old:req.body
+            }
+        
+            if(req.body.recordar){
+                res.cookie('userMPKGames',req.session.user,{maxAge:1000*60*5})
+            }
+            return res.redirect('/')      
+        });
+        }else{     
+            return res.render('login',{
+                title:"Error en Ingreso de credenciales",                
+                errors: errors.mapped(), 
+                old:req.body,                  
+                user:req.session.user
             })
         }
-
     },
-
-    
-
 
     logout:function(req,res){
         req.session.destroy();
