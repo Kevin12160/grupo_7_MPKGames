@@ -8,17 +8,18 @@
     <div class="formularioIngresa">
         <div class="container">
             <div class="row">
-                <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/login" method="POST">
+                <form id="loginForm" class="FormLogin col-12 col-md-8 col-lg-8" action="/users/login" method="POST">
                     <div class="row"> 
                         <div class="col-12 Registro">     
                             <div class="col-12">
                                 <h3>Ingresar</h3>
                             </div>   
+                            <div id="errors"></div>
                         </div>
                     </div>  
                     <div class="form-group col-12 col-md-12 col-lg-12">            
                         <label form="email">email:</label> 
-                        <input type="text" id="email" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.usu_email)?old.email:'' %>"  placeholder="Ingrese su email" />             
+                        <input type="text" id="email" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>"  placeholder="Ingrese su email" />             
                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
                     </div>                    
 
