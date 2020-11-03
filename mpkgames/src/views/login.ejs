@@ -1,8 +1,8 @@
-
+ 
 
 <%- include("./partials/head") %> 
 
-<%- include("./partials/header") %> 
+<%- include("./partials/header") %>  
 
 
     <div class="formularioIngresa">
@@ -19,14 +19,14 @@
                     </div>  
                     <div class="form-group col-12 col-md-12 col-lg-12">            
                         <label form="email">email:</label> 
-                        <input type="text" id="email" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>"  placeholder="Ingrese su email" />             
-                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
+                        <input type="text" id="emailLogin" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>"  placeholder="Ingrese su email" />             
+                        <small id="smallEmailLogin" class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
                     </div>                    
 
                     <div class="form-group col-12 col-md-12 col-lg-12">    
                         <label form="contraseña">Ingrese una Contraseña</label> 
-                        <input type="password" placeholder="Ingrese una Contraseña" class="form-control <%= (typeof old != 'undefined' && old.contraseña && !errors.contraseña)?"is-valid":(typeof errors != 'undefined' && errors.contraseña)?"is-invalid": ""  %>" name="contraseña" id="contraseña" >
-                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>  
+                        <input type="password" placeholder="Ingrese una Contraseña" class="form-control <%= (typeof old != 'undefined' && old.contraseña && !errors.contraseña)?"is-valid":(typeof errors != 'undefined' && errors.contraseña)?"is-invalid": ""  %>" name="contraseña" id="contraseñaLogin" > 
+                        <small id="smallContraseñaLogin" class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>  
         
                     </div> 
                     
@@ -48,3 +48,5 @@
    
    
 <%- include("./partials/footer") %> 
+
+<script src="/javascripts/loginFront.js"></script>
