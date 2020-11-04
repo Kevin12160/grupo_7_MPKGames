@@ -150,8 +150,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
     actualizar:function(req,res){
         let idproducto = req.params.id;
-        
-        db.Producto.update({                                         
+        let errors=validationResult(req);
+
+        console.log("\nvalor de error "+errors.mapped());
+        if(errors.isEmpty()){
+            db.Producto.update({                                         
                     Codigo: req.body.codigo.trim(),
                     NombreDeProducto: req.body.nombreDelProducto.trim(),
                     Precio: Number(req.body.precioProd),                    
@@ -165,17 +168,26 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     OfertasUtimosJuegos: req.body.OfertasUtimosJuegos,
                     OfertasDeLaSemana: req.body.OfertasDeLaSemana,
                     DescripcionCorta: req.body.DescripcionCorta.trim(),                    
-                    // Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
                     Imagen: (req.files[0]) ? req.files[0].filename : req.body.imagen,
-                    
                 },
                 {
                     where: {
                     IdJuego: idproducto
                 }
                 });
-              
-            res.redirect('/productos')                                   
+                res.redirect('/productos')    
+            }else{
+                db.Producto.findByPk(idproducto).then(resultados=>{
+                res.render("productShow",{
+                    title:"con errores",                
+                    errors:errors.mapped(), 
+                    old:req.body,                               
+                    user:req.session.user,
+                    producto:resultados
+                })
+            })
+        }
+                                             
     },
 
     //OK realizado

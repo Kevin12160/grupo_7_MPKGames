@@ -1,4 +1,6 @@
 
+
+
 const qs=function(element){
 
     return document.querySelector(element);
@@ -17,8 +19,8 @@ window.addEventListener("load",function(){
     let validNombre=qs("#nombreDelProducto")
     //let smallnNmbreProd=qs("#smallNombreProd")
 
-let arrayValidator=[];
-let arrayInputs=[]
+    let arrayValidator=[];
+    let arrayInputs=[]
 
     for(let i=0;i< elementos.length-1;i++){
         arrayInputs.push(document.getElementById(elementos[i].id))
@@ -206,8 +208,122 @@ let arrayInputs=[]
         }
 
     })
+    if(arrayInputs[6].value!=null){
 
-    console.log(arrayValidator.length)
+        arrayInputs[6].classList.add("is-valid");
+    }
+    
+    arrayInputs[6].addEventListener("keyup",function(){
+        switch(true){
+            case this.value==0:
+                arrayInputs[6].nextElementSibling.innerHTML ="Debes completar el campo subtitulo del juego";
+                this.classList.add("is-invalid");
+               
+            break;
+            case this.value.trim().length>10:
+                arrayInputs[6].nextElementSibling.innerHTML ="EL subtitulo del juego debe contener como maximo 10 caracteres";
+                this.classList.add("is-invalid");
+                arrayValidator.push(true)
+
+            break;
+            default:
+                this.classList.remove("is-invalid")
+                arrayInputs[6].nextElementSibling.innerHTML ="";
+                this.classList.add("is-valid");
+                arrayValidator=[]
+            break;
+
+
+        }
+
+    })
+    if(arrayInputs[7].value!=null){
+
+        arrayInputs[7].classList.add("is-valid");
+    }
+    
+    if(arrayInputs[8].value!=null){
+
+        arrayInputs[8].classList.add("is-valid");
+    }
+    
+    arrayInputs[8].addEventListener("keyup",function(){
+        switch(true){
+            case this.value==0:
+                arrayInputs[8].nextElementSibling.innerHTML ="Debes completar el campo stock del juego";
+                this.classList.add("is-invalid");
+               
+            break;
+            case this.value.length>2:
+                arrayInputs[8].nextElementSibling.innerHTML ="El stock del juego debe contener como maximo 3 caracteres";
+                this.classList.add("is-invalid");
+                arrayValidator.push(true)
+
+            break;
+            default:
+                this.classList.remove("is-invalid")
+                arrayInputs[8].nextElementSibling.innerHTML ="";
+                this.classList.add("is-valid");
+                arrayValidator=[]
+            break;
+        }
+
+    })
+
+    if(arrayInputs[9].value!=null){
+
+        arrayInputs[9].classList.add("is-valid");
+    }
+    
+    arrayInputs[9].addEventListener("keyup",function(){
+        switch(true){
+            case this.value==0:
+                arrayInputs[9].nextElementSibling.innerHTML ="Debes completar el campo descuento del juego";
+                this.classList.add("is-invalid");
+               
+            break;
+            case this.value.length>2:
+                arrayInputs[9].nextElementSibling.innerHTML ="El descuento del juego debe contener como maximo 3 caracteres";
+                this.classList.add("is-invalid");
+                arrayValidator.push(true)
+
+            break;
+            default:
+                this.classList.remove("is-invalid")
+                arrayInputs[9].nextElementSibling.innerHTML ="";
+                this.classList.add("is-valid");
+                arrayValidator=[]
+            break;
+        }
+
+    })
+    
+    if(arrayInputs[10].value!=null){
+
+        arrayInputs[10].classList.add("is-valid");
+    }
+    arrayInputs[10].addEventListener("keyup",function(){
+        switch(true){
+            case this.value==0:
+                arrayInputs[10].nextElementSibling.innerHTML ="Debes completar el campo descripcion corta del juego";
+                this.classList.add("is-invalid");
+               
+            break;
+            case this.value.trim().length<20:
+                arrayInputs[10].nextElementSibling.innerHTML ="La descripción corta del juego debe contener al menos 20 caracteres";
+                this.classList.add("is-invalid");
+                arrayValidator.push(true)
+
+            break;
+            default:
+                this.classList.remove("is-invalid")
+                arrayInputs[10].nextElementSibling.innerHTML ="";
+                this.classList.add("is-valid");
+                arrayValidator=[]
+            break;
+        }
+
+    })
 
    formulario.addEventListener("submit",function(event){
        

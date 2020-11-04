@@ -51,7 +51,7 @@ module.exports = [
     .isEmpty()
     .withMessage('Tamaño del Juego is requerido'),
   
-    body("imagen")
+    /*body("imagen")
     .custom(function(value,{req}){
        
         if(req.files[0] == undefined){
@@ -68,6 +68,6 @@ module.exports = [
         }
         
     }).withMessage("Cambiar imagen con algun formato compatible (.jpg/.png/.jpeg/.gif)")
-
+*/
     
 ]
