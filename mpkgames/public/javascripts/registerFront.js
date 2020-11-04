@@ -15,7 +15,7 @@ window.onload = function(){
     let smallContraseña2 = document.getElementById("smallContraseña2")
     let regexEmail = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
 
-
+    //verifica el mail desde json
     inputEmail.onblur = function(){
         fetch("//localhost:3000/apiuser/allUsers")
         .then(function(response){
