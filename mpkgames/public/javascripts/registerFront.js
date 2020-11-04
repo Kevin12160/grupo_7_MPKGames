@@ -16,6 +16,27 @@ window.onload = function(){
     let regexEmail = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
 
 
+    inputEmail.onblur = function(){
+        fetch("//localhost:3000/apiuser/allUsers")
+        .then(function(response){
+                return response.json()
+            })
+            .then(function(information) {
+                // console.log(information);
+                information.forEach(element => {
+                    // console.log(element.email)
+                    if(inputEmail.value == element.email){
+                        inputEmail.classList.add("is-invalid")
+                        inputErrorMail.innerText="El mail ya esta registrado"
+                    }
+                });
+            })
+            .catch(function(error) {
+            console.log("Error: " + error);
+            })       
+
+    }
+    
     let errores=[]
      
     
