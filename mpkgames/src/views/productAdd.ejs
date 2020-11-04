@@ -1,33 +1,45 @@
+
 <%- include("./partials/head") %> 
 
+
    <!--HEADER: CABECERA Y MENÚ DE NAVEGACIÓN-->
-
+   
    <%- include("./partials/header") %> 
-
+   <!-- <script src="/js/productosValidatorFt.js"></script> -->
+   <script src="/js/productosValidatorFront.js"></script>
+    
+   
         <div class="formulario container">
+
+
         <div class=" col-12 titulo">
             <h3 class="h3tituloAgreYMod">Agregar Juego</h3>
         </div>
-        <form Class="FormAdd" action="" method="POST" enctype="multipart/form-data">
+        <form Class="FormAdd" id="formAdd" action="" method="POST" enctype="multipart/form-data">
     
             <div class="form-row">
                 <div class="form-group col-12 col-md-6 col-lg-6">
-                    <label for="nombreDelProducto">Nombre del Juego:</label>
-                    <input type="text" name="nombreDelProducto" id="nombreDelProducto" class="form-control" placeholder="Ingrese el Nombre del juego" required>
+                    <label for="nombreDelProducto">Nombre del Juego:</label>                    
+                    <input type="text" name="nombreDelProducto" id="nombreDelProducto" class="form-control <%= (typeof old != 'undefined' && old.nombreDelProducto)?"is-valid":(typeof errors != 'undefined' && errors.nombreDelProducto)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.nombreDelProducto)?old.nombreDelProducto:'' %>" placeholder="Ingrese el nombre Del Producto" />
+                    <small class="text-danger" id="errorNombreProducto"><%= (typeof errors != 'undefined' && errors.nombreDelProducto)?errors.nombreDelProducto.msg: "" %> </small>                    
                 </div>            
     
                 <div class="form-group col-12 col-md-6 col-lg-6">
-                    <label clase="" for="codigo">Codigo del juego:</label>
-                    <input type="text" name="codigo" id="codigo" class="form-control" placeholder="Ingrese el Codigo del juego" required>
+                    <label clase="" for="codigo">Codigo del juego:</label>                    
+                    <input type="text" name="codigo" id="codigo" class="form-control <%= (typeof old != 'undefined' && old.codigo)?"is-valid":(typeof errors != 'undefined' && errors.codigo)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.codigo)?old.codigo:'' %>" placeholder="Ingrese el Codigo del juego" />
+                    <small class="text-danger" id="errorCodigo"><%= (typeof errors != 'undefined' && errors.codigo)?errors.codigo.msg: "" %> </small>                    
+
                 </div>  
                 <div class="form-group col-12 col-md-6 col-lg-6">    
-                    <label form="precioJuego">Precio del juego: </label> 
-                    <input type="tex" placeholder="Ingrese precio del juego" class="form-control" name="precioProd" id="precioJuego" required>
-    
+                    <label form="precioJuego">Precio del juego: </label>                     
+                    <input type="number" name="precioProd" id="precioJuego" class="form-control <%= (typeof old != 'undefined' && old.precioProd)?"is-valid":(typeof errors != 'undefined' && errors.precioProd)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.precioProd)?old.precioProd:'' %>" placeholder="Ingrese el Precio del juego" />
+                    <small class="text-danger" id="errorPrecio"><%= (typeof errors != 'undefined' && errors.precioProd)?errors.precioProd.msg: "" %> </small>
+                    <!-- <small class="text-danger" id="errorPrecio"></small> -->
                 </div>
                 <div class="form-group col-12 col-md-6 col-lg-6">    
-                    <label form="tamanio">Tamaño del juego: </label> 
-                    <input type="tex" placeholder="Ingrese tamaño del juego" class="form-control" name="tamanioJue" id="tamanio" required>
+                    <label form="tamanio">Tamaño del juego: </label>                     
+                    <input type="text" name="tamanioJue" id="tamanio" class="form-control <%= (typeof old != 'undefined' && old.tamanioJue)?"is-valid":(typeof errors != 'undefined' && errors.tamanioJue)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.tamanioJue)?old.tamanioJue:'' %>" placeholder="Ingrese el Tamaño del juego" />
+                    <small class="text-danger"><%= (typeof errors != 'undefined' && errors.tamanioJue)?errors.tamanioJue.msg: "" %> </small>
     
                 </div>
   
@@ -37,29 +49,34 @@
 
                 <div class="form-group col-12 col-md-6 col-lg-6">    
                     <label form="idioma">Idioma del juego: </label> 
-                    <input type="tex" placeholder="Ingrese idioma del juego" class="form-control" name="idiomaJuego" id="idioma" required>
+                    <input type="tex" placeholder="Ingrese idioma del juego" class="form-control" name="idiomaJuego" id="idioma" >
     
                 </div>
                 <div class="form-group col-12 col-md-6 col-lg-6">    
                     <label form="categoria">Categoria del juego: </label> 
-                    <input type="tex" placeholder="Ingrese la categoria del juego" class="form-control" name="categoriaJuego" id="categoria" required>
+                    <input type="tex" placeholder="Ingrese la categoria del juego" class="form-control" name="categoriaJuego" id="categoria" >
     
                 </div>
                 <div class="form-group col-12 col-md-6 col-lg-6">    
                     <label form="subtituloJuego">Idioma subtitulo del juego: </label> 
-                    <input type="tex" placeholder="Ingrese el idioma del subtitulo del juego" class="form-control" name="subtitulo" id="subtituloJuego" required>
+                    <input type="tex" placeholder="Ingrese el idioma del subtitulo del juego" class="form-control" name="subtitulo" id="subtituloJuego" >
     
                 </div>
                 <div class="form-group col-12 col-md-6 col-lg-6">    
                     <label form="fecha">Fecha de lanzamiento: </label> 
-                    <input type="tex" placeholder="Ingrese fecha de lanzamiento" class="form-control" name="fechaLanzam" id="fecha" required>
+                     <!-- <input type="date" placeholder="Ingrese fecha de lanzamiento" class="form-control" name="fechaLanzam" id="fecha" >  -->
+                    <input type="date" name="fechaLanzam" id="fecha" class="form-control <%= (typeof old != 'undefined' && old.fechaLanzam)?"is-valid":(typeof errors != 'undefined' && errors.fechaLanzam)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.fechaLanzam)?old.fechaLanzam:'' %>" placeholder="La fecha no puede ser mayor a la fecha actual" />
+                    <small class="text-danger"><%= (typeof errors != 'undefined' && errors.fechaLanzam)?errors.fechaLanzam.msg: "" %> </small>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-12 col-md-6 col-lg-6">
                     <label form="stock">Cantidad de Stock</label> 						
-                    <input type="number" id="stock" class="form-control" name="stock" placeholder="Ingrese la cantidad de Stock" required/> 
+                    <input type="number" name="stock" id="stock"  value="0" class="form-control <%= (typeof old != 'undefined' && old.stock)?"is-valid":(typeof errors != 'undefined' && errors.stock)?"is-invalid": "" %>"  value="<%= (typeof old != 'undefined' && old.stock)?old.stock:'' %>" placeholder="Ingrese el Stock del juego" />
+                    <small class="text-danger" id="errorStock"><%= (typeof errors != 'undefined' && errors.stock)?errors.stock.msg: "" %> </small>
+                    
+
                 </div>   
                 <br>
                 <div class="form-group col-12 col-md-6 col-lg-6">
@@ -69,19 +86,20 @@
                   
                 <div class="form-group col-12 col-md-6 col-lg-6">            
                     <label form="imagen">Imagen del juego:</label> 
-                    <input type="file" id="imagen" name="imagen" class="form-control" placeholder="Ingrese el url de la imagen" required/>             
+                    <input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg, image/jpg, image/gif" class="form-control" placeholder="Ingrese el url de la imagen" />
+                    <small class="text-danger" id="errorFoto"></small>
                 </div>
 
                 <div class="form-group col-12 col-md-6 col-lg-6">    
                     <label form="detalle">Descripcion corta: </label> 
-                    <input type="tex" placeholder="Ingrese descripcion corta" class="form-control" name="detalle" id="detalle" required>
+                    <input type="tex" placeholder="Ingrese descripcion corta" class="form-control" name="detalle" id="detalle" >
     
                 </div>
             </div>
 
             <article class="row col-12 botones">
                 <div class="col-6 agregar">
-                    <input type="submit" value="Agregar " class="botonAgregarProducto"/>  
+                    <input type="submit" value="Agregar " id="botonAgregarProductos" class="botonAgregarProducto"/>  
                 </div> 
                 <div class="col-6 cancelar">
                         <input type="reset" value="Cancelar" class="botonCancelar"/> 
@@ -91,7 +109,9 @@
      
         </form>
     </div>
-
+    
+   
+    
         <!--caja con el contenido principal de footer-->
          <!--FOOTER: PIE DE PAGINA-->
 <%- include("./partials/footer") %> 
