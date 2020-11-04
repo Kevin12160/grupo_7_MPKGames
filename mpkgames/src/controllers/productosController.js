@@ -5,17 +5,18 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { Op } = require("sequelize");
+const {validationResult} = require('express-validator');
 
 module.exports = { //exporto un objeto literal con todos los metodos
     //OK realizado
-   /* listar: function(req, res) {
+    listar: function(req, res) {
         let  totalDeProductos = 0;
         db.Producto.count().then(resultado => {
              totalDeProductos = (resultado)
-            })*/
+            })
 
         // db.Producto.findAll({attributes: ['IdJuego', 'Codigo', 'NombreDeProducto', 'Precio', 'Idioma', 'Descuento`', 'Imagen']})
-       /* db.Producto.findAll()
+        db.Producto.findAll()
             .then(function(ListaDeproductos){                
                 res.render('productosLista', {
                     title: "Todos los Productos",
@@ -25,20 +26,24 @@ module.exports = { //exporto un objeto literal con todos los metodos
                                
                 })
             })
-    },*/
-    listar: function(req, res) {
-        
-        db.Producto.findAndCountAll().then(function(resultados){
-       
-        res.render('productosLista', {
-                title: "Todos los Productos",
-                productos: resultados.rows,
-                totalDeProductos: resultados.count,   
-                user: req.session.user,             
-            })
-        })
     },
-    
+    listarProdUsers:function(req,res){
+        let  totalDeProductos = 0;
+        db.Producto.count().then(resultado => {
+             totalDeProductos = (resultado)
+            })
+
+        // db.Producto.findAll({attributes: ['IdJuego', 'Codigo', 'NombreDeProducto', 'Precio', 'Idioma', 'Descuento`', 'Imagen']})
+        db.Producto.findAll()
+            .then(function(ListaDeproductos){                
+                res.render('productosListaUsers', {
+                    title: "Listado de Productos",
+                    productos: ListaDeproductos,
+                    totalDeProductos: totalDeProductos,   
+                    user: req.session.user,                                 
+                })
+            })
+    },
 
     search:function(req,res){            
         let  totalDeProductos = 0;
@@ -53,7 +58,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             }
             })
             .then(function(ListaDeproductosFiltro){                
-                res.render('productosLista', {
+                res.render('productosListaUsers', {
                     title: "Resultado de la busqueda",
                     productos: ListaDeproductosFiltro,
                     totalDeProductos: totalDeProductos,   
@@ -85,18 +90,20 @@ module.exports = { //exporto un objeto literal con todos los metodos
             title:"Agregar Producto",
             user: req.session.user,  
         })
-    },
-    
-    
-
+    },    
+ 
 //OK realizado
     publicar:function(req,res,next){
+               
+        let errors = validationResult(req);
         
+        if(errors.isEmpty()){
+
         db.Producto.create({            
             Codigo: req.body.codigo,                    
             NombreDeProducto: req.body.nombreDelProducto,
             Precio:Number(req.body.precioProd),
-            Tamaño: req.body.tamanioJue,
+            Tamanio: req.body.tamanioJue,
             Idioma: req.body.idiomaJuego,                    
             IdiomaSubt: req.body.subtitulo,     
             Categoria: req.body.categoriaJuego,                                    
@@ -110,12 +117,20 @@ module.exports = { //exporto un objeto literal con todos los metodos
             Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
         })
         .then(result => {
-            console.log(result)
+            // console.log(result)
             res.redirect('/productos')
         })
         .catch(err => {
             res.send(err)
-        })        
+        })
+        }else{     
+            res.render("productAdd",{
+                title:"con errores",                
+                errors:errors.mapped(), 
+                old:req.body,                               
+                user:req.session.user
+            })
+        }        
     },
 
     show:function(req,res){
@@ -150,7 +165,9 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     OfertasUtimosJuegos: req.body.OfertasUtimosJuegos,
                     OfertasDeLaSemana: req.body.OfertasDeLaSemana,
                     DescripcionCorta: req.body.DescripcionCorta.trim(),                    
+                    // Imagen: (req.files[0])?req.files[0].filename:"default-image.png"
                     Imagen: (req.files[0]) ? req.files[0].filename : req.body.imagen,
+                    
                 },
                 {
                     where: {

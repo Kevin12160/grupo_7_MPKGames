@@ -1,0 +1,70 @@
+<%- include("./partials/head") %> 
+
+<%- include("./partials/header") %> 
+
+<main>
+    <div class="container">
+        <section>
+            
+            <div class="row productos"> <!--caja que contiene todos los productos de la ultima visita-->
+                <div class="titulo col-12"> <!--caja que contiene el titulo de la sección-->
+                    <h2>
+                        <%= title %> 
+                    </h2>
+                </div>
+                <nav class="navDetalleProd col-12 col-md-12 col-lg-12" aria-label="breadcrumb">
+                    <ol class="orderListDetall breadcrumb">
+                        <li class="liBreadcrumb breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="liBreadcrumb breadcrumb-item active" aria-current="page">Listado de todos los productos son: <%- totalDeProductos %></li>
+                    </ol>
+                </nav>
+                
+                                                                                                                 
+                <% productos.forEach(producto => { %> <!--recorro los productos basados en la ultima visita con un forEach-->                    
+                
+                    <div class="col-12 col-md-6 col-lg-3"> <!--caja de la grilla de bootstrap-->
+                        <!--caja que muestra la información del producto-->
+                        <div class="contenido">
+                            <!--ETIQUETA SEMANTICA-->
+                            <figure>
+                                <a href="/productos/detalle/<%= producto.IdJuego %> ">
+                                    <img src="/images/products/<%- producto.Imagen %>  " alt=" ">
+                                </a>
+                            </figure>
+                            <!--informacion-->
+                            <article>
+                                
+                                <h2>$ <!--precio-->
+                                    <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                </h2>
+                                        <!--descuento-->
+                                <% if (producto.Descuento !=0) { %>
+                                    <span><%- producto.Descuento %> % OFF</span>
+                                <% } %>
+                                
+                                <p> <!--nombre del producto ??-->
+                                    <%- producto.NombreDeProducto %>
+                                </p>
+                                <p>
+                                    <%- producto.Categoria %> 
+                                </p>
+                                  
+                                <form action="/carritos/agregarAlCarrito/<%= producto.IdJuego %>" method="POST"> 
+                                    <input name="IdJuego" style="display: none" value="<%- producto.IdJuego %>">
+                                    <input name="codigo" style="display: none" value="<%- producto.Codigo %>">
+                                    <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
+                                        <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                         
+                                    </form>
+                                
+                            </article>
+                        </div>
+                        <!--finaliza contenido-->
+                    </div> <!--finaliza caja de grilla de boostrap-->
+                    
+                    <% }) %>
+            </div> <!--finaliza el div.row-->            
+        </section>
+    </div>
+</main>   
+<%- include("./partials/footer") %> 
+

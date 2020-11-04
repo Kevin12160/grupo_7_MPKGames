@@ -8,7 +8,10 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 
 var indexRouter = require('./routes/index');
+
 var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/productosApi');
+var apiUsersRouter = require('./routes/usersApi');
 
 let productsRouter = require('./routes/productos') //requiero el módulo que se hará cargo de la administración de las rutas relacionadas con productos
 let carritosRouter = require('./routes/carritos')
@@ -40,6 +43,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productsRouter) //añado la ruta principal de productos de la cual derivarán todas las demás
 app.use('/carritos', carritosRouter) //añado la ruta principal de productos de la cual derivarán todas las demás
+
+app.use('/api', apiRouter);
+app.use('/apiuser', apiUsersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -17,7 +17,8 @@ module.exports = {
             
         }).then(resultados=>{
                 productoEnCarrito = resultados                                                
-                       //res.send(resultados)
+                    //    res.send(resultados)
+
                      resultados.forEach(element => {
                         sumaTotal += element.precio
                      });

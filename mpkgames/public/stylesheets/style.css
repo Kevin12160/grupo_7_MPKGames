@@ -226,7 +226,7 @@ section .contenido {
     border-radius: 5px;
     padding: 5px;
     text-align: center;
-    height: 550px;
+    height: 620px;
 }
 
 section .contenido figure img {
@@ -349,6 +349,13 @@ FOOTER
 }
 
 
+@media(min-width:425px){
+    section .contenido {        
+        height: 677px;
+    }
+}
+
+
 /* --- VERSION PARA TABLET --- */
 
 @media(min-width:768px) {
@@ -402,6 +409,13 @@ FOOTER
         margin-right: 8px;
         margin-bottom: 17px;
     }
-    
+
+    @media(min-width:1024px){
+        section .contenido {        
+            height: 550px;
+        }
+    }
+
+
 }
 

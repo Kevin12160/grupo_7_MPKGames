@@ -121,9 +121,9 @@
 .liDetalle{
     background-color: var(--color-grisClaro);
 }
-.carro{
+/* .carro{
     display:none;
-}
+} */
 /*estilo de juegos relacionados*/
 
 
@@ -181,9 +181,9 @@
         display: none;
     }
 
-    .carro{
+    /* .carro{
         display: initial;
-    }
+    } */
     .carousel-indicators{
         z-index: 1;
     }
