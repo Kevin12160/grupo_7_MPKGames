@@ -23,15 +23,18 @@
         <div class="cabezalAvatar col-12 col-md-1 col-lg-2 justify-content-end align-items-center">
         
           <a href=""><h5 class="nombreApelluser"><%= (typeof user != "undefined" && user)?user.nick:"Invitado" %> </h5></a>
-          <% if (typeof user != "undefined" && user) { %>
-              <% if (user.rol == "Administrador") { %>                  
-                  <a href="/"><img src="/images/avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
-              <% } else{%>
-                <a href="/users/login"><img src="/images/avatares/default.png" alt="" width="50px" height="50px" class="avatar"></a>
-              <% } %>             
-
-          <% } else{%>
-          <a href=""><img src="/images/avatares/default.png" alt="" width="50px" height="50px" class="avatar"></a>
+      <% if (typeof user != "undefined" && user) { %>
+                  <!-- si es un usuario registrado entonces -->
+                  <% if (user.rol == "Administrador") { %>      
+                     <!-- si es Administrador              -->
+                      <a href="/"><img src="/images/Avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
+                  <% } else{%>
+                      <!-- si es usuario  -->
+                    <a href="/users/login"><img src="/images/Avatares/<%= user.avatar %>" alt="" width="50px" height="50px" class="avatar"></a>
+                  <% } %>             
+          <% } else{%>            
+              <!-- Si es invitado -->
+              <a href=""><img src="/images/Avatares/default.png" alt="" width="50px" height="50px" class="avatar"></a>
           <% } %>
       </div>
       
