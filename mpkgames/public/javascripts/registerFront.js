@@ -14,8 +14,8 @@ window.onload = function(){
     let inputContraseña2 = document.getElementById("contraseña2")
     let smallContraseña2 = document.getElementById("smallContraseña2")
     let regexEmail = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
+   
 
-    //verifica el mail desde json
     inputEmail.onblur = function(){
         fetch("//localhost:3000/apiuser/allUsers")
         .then(function(response){
@@ -27,19 +27,34 @@ window.onload = function(){
                     // console.log(element.email)
                     if(inputEmail.value == element.email){
                         inputEmail.classList.add("is-invalid")
-                        inputErrorMail.innerText="El mail ya esta registrado"
+                        smallEmail.innerText="El mail ya esta registrado"                            
                     }
                 });
             })
             .catch(function(error) {
-            console.log("Error: " + error);
+                console.log("Error: " + error);
             })       
 
     }
-    
-    let errores=[]
-     
-    
+
+    inputEmail.onfocus = function(){
+        smallEmail.innerText=""
+    }
+
+    inputEmail.onkeyup = function(){
+        if(!regexEmail.test(inputEmail.value)){            
+            inputEmail.classList.add("is-invalid")
+       }else{
+           inputEmail.classList.remove("is-invalid")
+           inputEmail.classList.add("is-valid") 
+       }
+      }
+
+
+
+
+    let errores=[]     
+
 
     inputNombre.onkeyup = function(){
         if(inputNombre.value.length < 3 ){
@@ -79,18 +94,7 @@ window.onload = function(){
         }
     }
 
-   inputEmail.onkeyup = function(){
-    if(!regexEmail.test(inputEmail.value)){
-        inputEmail.classList.add("is-invalid")
-        smallEmail.innerHTML = "Tiene que tener formato Email"
-        errores.push(true)
-   }else{
-       inputEmail.classList.remove("is-invalid")
-       inputEmail.classList.add("is-valid")
-       smallEmail.innerHTML = ""
-       errores=[]
-   }
-  }
+
 
   inputContraseña.onkeyup = function(){
     if(inputContraseña.value.length < 6 ||  inputContraseña.value.length > 12 ){

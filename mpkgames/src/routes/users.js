@@ -21,6 +21,9 @@ const cookieCheck = require('../middleware/cookieCheck');
 router.get("/registroUsuarios", controller.agregar);
 router.post("/registroUsuarios", multerAvatar.any(), registerValidator, controller.registrarse);
 
+
+
+
 router.get("/login", controller.MostraLogin);
 router.post("/login",loginValidator, controller.processLogin);
 
