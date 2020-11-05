@@ -80,9 +80,9 @@
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">     
                             <figure class="text-center">
-                                <img src="/images/products/<%= producto.Imagen %> " alt="" class="img-fluid">
+                                <img src="/images/products/<%= producto.Imagen %> " alt="" class="img-fluid imagenModi">
                             </figure>  
-                            <input type="file" id="imagen" name="imagen" class="form-control <%= (typeof old != 'undefined' && old.imagen && !errors.imagen)?"is-valid":(typeof errors != 'undefined' && errors.imagen)?"is-invalid": ""  %>" value="<%= producto.Imagen %>"/>  
+                            <input type="file" id="imagen" name="imagen" class="form-control <%= (typeof old != 'undefined' && old.imagen && !errors.imagen)?"is-valid":(typeof errors != 'undefined' && errors.imagen)?"is-invalid": ""  %>" value=""/>  
                             <small class="text-danger" id="smallimagen"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %> </small>                           
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">                                                         

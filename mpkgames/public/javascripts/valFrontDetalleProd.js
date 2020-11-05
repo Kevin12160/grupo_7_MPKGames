@@ -325,6 +325,23 @@ window.addEventListener("load",function(){
 
     })
 
+    arrayInputs[11].addEventListener('change',function(e){
+
+        let imagen=document.querySelector(".imagenModi");
+
+        let reader = new FileReader();
+
+        reader.readAsDataURL(e.target.files[0]);
+
+        reader.onload = function(){
+                imagen.src = reader.result;
+                arrayInputs[11].classList.remove('is-invalid')
+                arrayInputs[11].classList.add('is-valid');
+                arrayInputs[11].nextElementSibling.innerHTML= ""
+        }      
+    })
+
+
    formulario.addEventListener("submit",function(event){
        
         if(arrayValidator.length>0){
