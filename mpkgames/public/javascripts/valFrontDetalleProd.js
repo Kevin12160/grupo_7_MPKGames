@@ -326,29 +326,50 @@ window.addEventListener("load",function(){
     })
 
     arrayInputs[11].addEventListener('change',function(e){
+        console.log("value"+ typeof this.value)
+        console.log("value "+ (/\.(jpg|png|gif)$/i).test(this.value))
 
         let imagen=document.querySelector(".imagenModi");
-
         let reader = new FileReader();
 
-        reader.readAsDataURL(e.target.files[0]);
+        let expreReg=(/\.(jpg|png|gif|jpeg)$/i)
+        switch(true){
 
-        reader.onload = function(){
-                imagen.src = reader.result;
-                arrayInputs[11].classList.remove('is-invalid')
-                arrayInputs[11].classList.add('is-valid');
-                arrayInputs[11].nextElementSibling.innerHTML= ""
-        }      
+            case !(expreReg.test(this.value)):
+
+                if(this.classList){
+                    arrayInputs[11].classList.remove('is-valid')
+                }
+                imagen.src ="/images/products/default-image.png";
+                arrayInputs[11].nextElementSibling.innerHTML ="Ingrese una imagen con extencion valida (Ej: JPG, JPEG, PNG, GIF)";
+                this.classList.add("is-invalid");
+
+                arrayValidator.push(true)
+            break;
+            default:
+                reader.readAsDataURL(e.target.files[0]);
+
+                reader.onload = function(){
+                    imagen.src = reader.result;
+                    arrayInputs[11].classList.remove('is-invalid')
+                    arrayInputs[11].classList.add('is-valid');
+                    arrayInputs[11].nextElementSibling.innerHTML= ""
+                }  
+                arrayValidator=[]
+            break;
+        }
+
     })
 
 
    formulario.addEventListener("submit",function(event){
        
         if(arrayValidator.length>0){
-            console.log("No envio el form")
+
             event.preventDefault()
         }else{
-            console.log("se envio el form ")
+ 
+            window.location.reload();
         }
 
     })
