@@ -3,7 +3,7 @@ window.onload = function(){
     let inputApellido = document.getElementById("apellido")
     let inputUsu_Telefono = document.getElementById("usu_Telefono")
     let inputEmail = document.getElementById("email")
-    let inputErrorMail = document.getElementById("errorMail")
+    let smallEmail= document.getElementById("smallEmail")
     
     let inputContraseña = document.getElementById("contraseña")
     let inputContraseña2 = document.getElementById("contraseña2")
@@ -16,12 +16,12 @@ window.onload = function(){
                 return response.json()
             })
             .then(function(information) {
-                // console.log(information);
+                 console.log(information);
                 information.forEach(element => {
                     // console.log(element.email)
                     if(inputEmail.value == element.email){
                         inputEmail.classList.add("is-invalid")
-                        inputErrorMail.innerText="El mail ya esta registrado"
+                        smallEmail.innerText="El mail ya esta registrado"
                     }
                 });
             })
@@ -32,8 +32,19 @@ window.onload = function(){
     }
     
     inputEmail.onfocus = function(){
-        inputErrorMail.innerText=""
+        smallEmail.innerText=""
     }
+
+    inputEmail.onkeyup = function(){
+        if(!regexEmail.test(inputEmail.value)){            
+            inputEmail.classList.add("is-invalid")
+       }else{
+           inputEmail.classList.remove("is-invalid")
+           inputEmail.classList.add("is-valid") 
+       }
+      }
+
+      //************** */
     inputNombre.onkeyup = function(){
         if(inputNombre.value.length < 3 ){
             inputNombre.classList.add("is-invalid")
@@ -60,14 +71,7 @@ window.onload = function(){
         }
     }
 
-   inputEmail.onkeyup = function(){
-    if(!regexEmail.test(inputEmail.value)){
-        inputEmail.classList.add("is-invalid")
-   }else{
-       inputEmail.classList.remove("is-invalid")
-       inputEmail.classList.add("is-valid") 
-   }
-  }
+   
 
 
   inputContraseña.onkeyup = function(){

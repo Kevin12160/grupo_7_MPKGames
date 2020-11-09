@@ -1,0 +1,102 @@
+
+
+<%- include("./partials/head") %> 
+<%- include("./partials/header") %> 
+
+<script src="/javascripts/previeFile.js"></script>
+
+<main>
+    <div class="container">
+        <div class="formularioRegistro"> 
+        <section>
+           
+
+            <div class="container" >
+            <div class="row">
+         
+        <form class="FormLogin col-12 col-md-8 col-lg-8" action="/users/edit/<%= userAModif.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="row"> 
+                            <div class="col-12 Registro">     
+                                <div class="col-12">
+                                    <h3>Perfil del usuario</h3> 
+                                </div>   
+                            </div>
+                    </div>   
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" value="<%= userAModif.nombre%>"  placeholder="Ingrese su Nombre" />
+                            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
+                        </div>            
+                    
+                        <div class="form-group col-md-6">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" name="apellido" id="apellido" class="form-control" value="<%= userAModif.apellido%>" placeholder="Ingrese su Apellido" />
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
+                        </div>    
+                    </div>
+
+
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                            <label form="usu_CodigoArea">Codigo de Area</label> 						
+                            <input type="number_format" id="usu_CodigoArea" class="form-control" name="usu_CodigoArea" value="<%= userAModif.usu_CodigoArea%>" placeholder="Ingrese su Codigo de Area ej: 011"/> 
+                        </div>   
+                        <br>
+                        <div class="form-group col-md-6">
+                            <label form="usu_Telefono">Telefono</label> 						
+                            <input type="text" id="usu_Telefono"  class="form-control" name="usu_Telefono" value="<%= userAModif.usu_Telefono%>" placeholder="Ingrese su telefono"/> 
+                        </div>
+                    </div>    
+
+                    <div class="form-group">            
+                        <label form="usu_email">email:</label> 
+                        <input type="email" id="email" name="email" class="form-control"  value="<%= userAModif.email%>" placeholder="Ingrese su email" />
+                        <small id="smallEmail" class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>             
+                    </div>
+                    
+                    <div class="form-group">    
+                        <label form="contraseña">Ingrese una Contraseña</label> 
+                        <input type="password" placeholder="Ingrese una Contraseña" class="form-control"  value="<%= userAModif.contraseña%>" name="contraseña" id="contraseña" />
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>
+                    
+                        <label form="contraseña2">Confirme su Contraseña</label> 
+                        <input type="password" placeholder="Confirme su Contraseña" class="form-control <%= (typeof errors != 'undefined' && errors.contraseña2)?"is-invalid": ""  %>"  name="contraseña2" id="contraseña2" />
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña2)?errors.contraseña2.msg: "" %> </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Avatar">Ingresar un Avatar</label>
+                        
+                        <figure class="text-center">
+                            <img id="imgPrevia"  src="/images/Avatares/<%= userAModif.avatar %> " alt="" class="img-fluid">
+                            <input type="file" onchange="previewFile()" id="avatar" name="avatar" value="<%= userAModif.avatar %> " class="form-control"/>      
+                        </figure> 
+                    </div>
+
+                    
+                    
+                    <p>
+                        <input type="submit" value="Guardar Modificaciones" class="btn btn-primary btn-lg btn-block"/> 
+                    </p>    
+            
+                        <a href="/"><button type="button" class="btn btn-dark " >  Cerrar y Volver</button></a>            
+
+                        <form action="/users/delete/<%= userAModif.id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Darme de baja <h4 class="fas fa-trash-alt text-danger"></h4></button>
+                        </form>
+
+
+    </form>
+ </div> <!--cierra el row -->
+</div>
+</div>
+</section>
+
+</div>
+
+</main>   
+<%- include("./partials/footer") %> 
+

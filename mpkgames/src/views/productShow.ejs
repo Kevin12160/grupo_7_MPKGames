@@ -13,104 +13,96 @@
                 </h3>
             </div>                         
                                                                         
-            <form class="formShow" action="/productos/edit/<%= producto.IdJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                   
+            <form  action="/productos/edit/<%= producto.IdJuego %>?_method=PUT" method="POST" enctype="multipart/form-data">                   
                     <div class="form-row">                        
                         <div class="form-group col-12 col-md-6 col-lg-6">
                             <label form="nombreDelProducto">Nombre del Juego:</label>
-                            <input type="text" name="nombreDelProducto" id="nombreDelProducto" class="form-control <%= (typeof old != 'undefined' && old.nombreDelProducto && !errors.nombreDelProducto)?"is-valid":(typeof errors != 'undefined' && errors.nombreDelProducto)?"is-invalid": ""  %>" value="<%= (typeof errors != 'undefined' && errors.nombreDelProducto)? old.nombreDelProducto: producto.NombreDeProducto%>" >
-                            <small class="text-danger " id="smallNombreProd"><%= (typeof errors != 'undefined' && errors.nombreDelProducto)?errors.nombreDelProducto.msg: "" %> </small>
+                            <input type="text" name="nombreDelProducto" id="nombreDelProducto" class="form-control" value="<%= producto.NombreDeProducto%>" required>
                         </div>                        
                         <div class="form-group col-12 col-md-6 col-lg-6">
                             <label form="codigo">Codigo del juego:</label>
-                            <input type="text" name="codigo" id="codigo" class="form-control <%= (typeof old != 'undefined' && old.codigo && !errors.codigo)?"is-valid": (typeof errors != 'undefined' && errors.codigo)?"is-invalid": ""  %>" value="<%= (typeof errors != 'undefined' && errors.codigo)? old.codigo: producto.Codigo%>" >
-                            <small class="text-danger" id="smallcodigo"><%= (typeof errors != 'undefined' && errors.codigo)?errors.codigo.msg: "" %> </small>
+                            <input type="text" name="codigo" id="codigo" class="form-control" value="<%= producto.Codigo%>" required>
                         </div>  
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label form="precioJuego">Precio del juego: </label> 
-                            <input type="number" class="form-control <%= (typeof old != 'undefined' && old.precioProd && !errors.precioProd)?"is-valid":(typeof errors != 'undefined' && errors.precioProd)?"is-invalid": ""  %>" name="precioProd" id="precioJuego" value="<%= (typeof errors != 'undefined' && errors.precioProd)?old.precioProd: producto.Precio%>" >            
-                            <small class="text-danger" id="smallprecioJuego"><%= (typeof errors != 'undefined' && errors.precioProd)?errors.precioProd.msg: "" %> </small>
+                            <input type="text" class="form-control" name="precioProd" id="precioJuego" value="<%= producto.Precio%>" required>            
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label form="tamanio">Tamaño del juego: </label> 
-                            <input type="text" class="form-control <%= (typeof old != 'undefined' && old.tamanioJue && !errors.tamanioJue)?"is-valid":(typeof errors != 'undefined' && errors.tamanioJue)?"is-invalid": ""  %>" name="tamanioJue" id="tamanio" value="<%= (typeof errors != 'undefined' && errors.tamanioJue)?old.tamanioJue:producto.Tamanio%>" >            
-                            <small class="text-danger" id="smalltamanio"><%= (typeof errors != 'undefined' && errors.tamanioJue)?errors.tamanioJue.msg: "" %> </small>  
+                            <input type="text" class="form-control" name="tamanioJue" id="tamanio" value="<%= producto.Tamanio%>">            
                         </div>        
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label form="idioma">Idioma del juego: </label> 
-                            <input type="text"  class="form-control <%= (typeof old != 'undefined' && old.idiomaJuego && !errors.idiomaJuego)?"is-valid":(typeof errors != 'undefined' && errors.idiomaJuego)?"is-invalid": ""  %>" name="idiomaJuego" id="idioma" value="<%=(typeof errors != 'undefined' && errors.idiomaJuego)?old.idiomaJuego: producto.Idioma%>" >            
-                            <small class="text-danger" id="smallidioma"><%= (typeof errors != 'undefined' && errors.idiomaJuego)?errors.idiomaJuego.msg: "" %> </small>  
+                            <input type="text"  class="form-control" name="idiomaJuego" id="idioma" value="<%= producto.Idioma%>" >            
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label form="categoria">Categoria del juego: </label> 
-                            <input type="text"  class="form-control <%= (typeof old != 'undefined' && old.categoriaJuego && !errors.categoriaJuego)?"is-valid":(typeof errors != 'undefined' && errors.categoriaJuego)?"is-invalid": ""  %>" name="categoriaJuego" id="categoria" value="<%=(typeof errors != 'undefined' && errors.categoriaJuego)?old.categoriaJuego: producto.Categoria%>" >            
-                            <small class="text-danger" id="smallcategoria"><%= (typeof errors != 'undefined' && errors.categoriaJuego)?errors.categoriaJuego.msg: "" %> </small>  
+                            <input type="text"  class="form-control" name="categoriaJuego" id="categoria" value="<%= producto.Categoria%>" >            
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label form="subtituloJuego">Idioma subtitulo del juego: </label> 
-                            <input type="text"  class="form-control <%= (typeof old != 'undefined' && old.subtitulo && !errors.subtitulo)?"is-valid":(typeof errors != 'undefined' && errors.subtitulo)?"is-invalid": ""  %>" name="subtitulo" id="subtituloJuego" value="<%=(typeof errors != 'undefined' && errors.subtitulo)? old.subtitulo: producto.IdiomaSubt %>" >            
-                            <small class="text-danger" id="smallSub"><%= (typeof errors != 'undefined' && errors.subtitulo)?errors.subtitulo.msg: "" %> </small>  
+                            <input type="text"  class="form-control" name="subtitulo" id="subtituloJuego" value="<%= producto.IdiomaSubt%>" >            
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label form="fecha">Fecha de lanzamiento: </label> 
-                            <input type="date"  class="form-control <%= (typeof old != 'undefined' && old.fechaLanzam && !errors.fechaLanzam)?"is-valid":(typeof errors != 'undefined' && errors.fechaLanzam)?"is-invalid": ""  %>" name="fechaLanzam" id="fecha" value="<%=(typeof errors != 'undefined' && errors.fechaLanzam)?old.fechaLanzam: producto.FechaLanzamiento%>" >
-                            <small class="text-danger" id="smallfecha"><%= (typeof errors != 'undefined' && errors.fechaLanzam)?errors.fechaLanzam.msg: "" %> </small>  
+                            <input type="text"  class="form-control" name="fechaLanzam" id="fecha" value="<%= producto.FechaLanzamiento%>" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-12 col-md-6 col-lg-6">
                             <label form="stock">Cantidad de Stock</label> 						
-                            <input type="number" id="stock" class="form-control <%= (typeof old != 'undefined' && old.stock && !errors.stock)?"is-valid":(typeof errors != 'undefined' && errors.stock)?"is-invalid": ""  %>" name="stock"  value="<%=(typeof errors != 'undefined' && errors.stock)?old.stock :producto.Stock%>"/> 
-                            <small class="text-danger" id="smallstock"><%= (typeof errors != 'undefined' && errors.stock)?errors.stock.msg: "" %> </small>  
+                            <input type="number" id="stock" class="form-control" name="stock"  value="<%= producto.Stock%>" required/> 
                         </div>   
                         <br>
                         <div class="form-group col-12 col-md-6 col-lg-6">
                             <label form="descuento">Descuento %</label> 						
-                            <input type="number" id="descuento"  class="form-control <%= (typeof old != 'undefined' && old.descuento && !errors.descuento)?"is-valid":(typeof errors != 'undefined' && errors.descuento)?"is-invalid": ""  %>" name="descuento" value="<%=(typeof errors != 'undefined' && errors.descuento)?old.descuento: producto.Descuento%>" > 
-                            <small class="text-danger" id="smalldescuento"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>  
+                            <input type="number" id="descuento"  class="form-control" name="descuento" value="<%= producto.Descuento%>" /> 
                         </div>
+                        
+                      
 
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label form="detalle">Descripcion corta: </label> 
-                            <input type="text" class="form-control <%= (typeof old != 'undefined' && old.DescripcionCorta && !errors.DescripcionCorta)?"is-valid":(typeof errors != 'undefined' && errors.DescripcionCorta)?"is-invalid": ""  %>" name="DescripcionCorta" id="DescripcionCorta" value="<%= (typeof errors != 'undefined' && errors.DescripcionCorta)?old.DescripcionCorta:producto.DescripcionCorta%>">
-                            <small class="text-danger" id="smalldetalle"><%= (typeof errors != 'undefined' && errors.DescripcionCorta)?errors.DescripcionCorta.msg: "" %> </small>
+                            <input type="text" class="form-control" name="DescripcionCorta" id="DescripcionCorta" value="<%= producto.DescripcionCorta%>">
+            
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">     
                             <figure class="text-center">
-                                <img src="/images/products/<%= producto.Imagen %> " alt="" class="img-fluid imagenModi">
-                            </figure>  
-                            <input type="file" id="imagen" name="imagen" class="form-control <%= (typeof old != 'undefined' && old.imagen && !errors.imagen)?"is-valid":(typeof errors != 'undefined' && errors.imagen)?"is-invalid": ""  %>" value=""/>  
-                            <small class="text-danger" id="smallimagen"><%= (typeof errors != 'undefined' && errors.imagen)?errors.imagen.msg: "" %> </small>                           
+                                <img src="/images/products/<%= producto.Imagen %> " alt="" class="img-fluid">
+                                <input type="file" id="imagen" name="imagen" value="<%= producto.Imagen %> " class="form-control"/>        - -->
+                            </figure>       
+                            <div>                            
+                            </div>
+                            
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">                                                         
                             <label >¿Oferta de Utimos Juegos? esta en: <%= producto.OfertasUtimosJuegos%> </label>  
-                            <select class="form-control" id="OfertasUtimosJuegos"  name="OfertasUtimosJuegos">                                                                     
+                            <select id="OfertasUtimosJuegos"  name="OfertasUtimosJuegos">                                                                     
                                 <option value="" selected >Seleccione una opcion:</option>                             
                                 <option value="" disabled>-</option> 
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
-                            </select> 
-                            <small class="text-danger" id="smallOfertUltJue"> </small>                           
-   
+                            </select>    
                         </div>
                         <div class="form-group col-12 col-md-6 col-lg-6">    
                             <label >¿Oferta de la Semana? esta en: <%= producto.OfertasDeLaSemana%> </label>                             
-                            <select class="form-control"  id="OfertasDeLaSemana"  name="OfertasDeLaSemana">                                                                     
+                            <!-- <input type="text" class="form-control" name="OfertasDeLaSemana" id="OfertasDeLaSemana" value="<%= producto.OfertasDeLaSemana%>">             -->
+                            <select id="OfertasDeLaSemana"  name="OfertasDeLaSemana">                                                                     
                                 <option value="" selected >Seleccione una opcion:</option>                             
                                 <option value="" disabled>-</option> 
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>  
-                            <small class="text-danger" id="smallOfertSemana"> </small>                           
                         </div>
                     </div>
 
                     <div class="col-12 d-flex justify-content-end">
                         <button class="btn btn-danger mr-2">Cancelar</button>
-                        <button class="btn btn-info" type="submit" name="id" >Guardar Modificaciones</button>
+                        <button class="btn btn-info" type="submit" name="id" value="<%= producto.IdJuego %> ">Guardar Modificaciones</button>
                     </div>
                                            
         </form>             
