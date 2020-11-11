@@ -15,10 +15,17 @@ module.exports = [
     
     check('nombreDelProducto')
     .isLength({
+        min:5,
+        max:100
+    })
+    .withMessage('EL nombre del producto debe tener minimo 5 caracteres y un maximo de 100 caracteres'),
+
+    check('detalle')
+    .isLength({
         min:20,
         max:100
     })
-    .withMessage('EL nombre del producto debe tener minimo 20 caracteres y un maximo de 100 caracteres'),
+    .withMessage('La descripcion del producto debe tener minimo 20 caracteres y un maximo de 100 caracteres'),
 
 
     check('precioProd')    
@@ -51,23 +58,22 @@ module.exports = [
     .isEmpty()
     .withMessage('Tamaño del Juego is requerido'),
   
-    /*body("imagen")
-    .custom(function(value,{req}){
+    // body("imagen")
+    // .custom(function(value,{req}){
        
-        if(req.files[0] == undefined){
-            return false;
-        }else{
-            value = req.files[0].originalname
-
-            if((/.(gif|jpeg|jpg|png)$/i).test(path.extname(value))){
-                return true
-            }else{
-
-                return false
-            }
-        }
+    //     if(req.files[0] == undefined){
+    //         return false;
+    //     }else{
+    //         value = req.files[0].originalname
+            
+    //         if((/.(gif|jpeg|jpg|png)$/i).test(path.extname(value))){
+    //             return true
+    //         }else{
+    //             return false
+    //         }
+    //     }
         
-    }).withMessage("Cambiar imagen con algun formato compatible (.jpg/.png/.jpeg/.gif)")
-*/
+    // }).withMessage("Cambiar imagen con algun formato compatible (.jpg/.png/.jpeg/.gif)")
+
     
 ]
