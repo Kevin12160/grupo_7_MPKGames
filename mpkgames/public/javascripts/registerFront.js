@@ -1,4 +1,5 @@
 
+
 window.onload = function(){
     let registerForm = document.getElementById("registerForm")
     let inputNombre = document.getElementById("nombre")
@@ -41,96 +42,143 @@ window.onload = function(){
         smallEmail.innerText=""
     }
 
+
+    let errores = 'undefined'
+
     inputEmail.onkeyup = function(){
+
+        let errores = "undefined"
+
         if(!regexEmail.test(inputEmail.value)){            
             inputEmail.classList.add("is-invalid")
+            smallEmail.innerHTML = "Tiene que tener formato Email"
        }else{
            inputEmail.classList.remove("is-invalid")
            inputEmail.classList.add("is-valid") 
+           smallEmail.innerHTML = ""
        }
+       console.log(errores)
       }
 
 
-
-
-    let errores=[]     
-
-
     inputNombre.onkeyup = function(){
+
+        let errores = "undefined"
+
         if(inputNombre.value.length < 3 ){
             inputNombre.classList.add("is-invalid")
             smallNombre.innerHTML = "Tiene que tener minimo 3 letras"
-            errores.push(true)
+            errores = true
         }else{
             inputNombre.classList.remove("is-invalid")
             inputNombre.classList.add("is-valid")
             smallNombre.innerHTML = ""
-            errores=[]
+            errores= false
     }
+    if( typeof errores == 'undefined' || inputNombre.value == inputApellido.value){
+        inputNombre.classList.add("is-invalid")
+        smallNombre.innerHTML = "No pueden ser iguales"
+        errores = true
+        
+    }
+}
 
     inputApellido.onkeyup = function(){
+
+        let errores = "undefined"
+
+
         if(inputApellido.value.length < 3 ){
             inputApellido.classList.add("is-invalid")
             smallApellido.innerHTML = "Tiene que tener minimo 3 letras"
-            errores.push(true)
+            errores = true
         }else{
             inputApellido.classList.remove("is-invalid")
             inputApellido.classList.add("is-valid")
             smallApellido.innerHTML = ""
-            errores=[]
+            errores= false
+        }
+
+        if( typeof errores == 'undefined' || inputNombre.value == inputApellido.value){
+            inputApellido.classList.add("is-invalid")
+            smallApellido.innerHTML = "No pueden ser iguales"
+            errores = true
+            console.log(errores)
         }
     }
 
     inputUsu_Telefono.onkeyup = function(){
+
+        let errores = "undefined"
+
         if(inputUsu_Telefono.value.length < 8 ){
             inputUsu_Telefono.classList.add("is-invalid")
             smallTelefono.innerHTML = "Tiene que tener minimo 8 numeros"
-            errores.push(true)
+            errores = true
         }else{
             inputUsu_Telefono.classList.remove("is-invalid")
             inputUsu_Telefono.classList.add("is-valid")
             smallTelefono.innerHTML = ""
-            errores=[]
+            errores= false
         }
     }
 
 
 
   inputContraseña.onkeyup = function(){
+
+    let errores = "undefined"
+
     if(inputContraseña.value.length < 6 ||  inputContraseña.value.length > 12 ){
         inputContraseña.classList.add("is-invalid")
         smallContraseña.innerHTML = "Tiene que tener entre 6 y 12 caracteres"
-        errores.push(true)
+        errores = true
     }else{
         inputContraseña.classList.remove("is-invalid")
         inputContraseña.classList.add("is-valid")
         smallContraseña.innerHTML = ""
-        errores=[]
+        errores= false
     }
 
   }
 
   inputContraseña2.onkeyup = function(){
+
+    let errores = "undefined"
+
     if(inputContraseña2.value !==  inputContraseña.value  ){
         inputContraseña2.classList.add("is-invalid")
         smallContraseña2.innerHTML = "Las dos contraseñas deben coincidir"
-        errores.push(true)
+        errores = true
     }else{
         inputContraseña2.classList.remove("is-invalid")
         inputContraseña2.classList.add("is-valid")
-        smallContraseña.innerHTML = ""
-        errores=[]
+        smallContraseña2.innerHTML = ""
+        errores= false
     }
 
   }
 
-console.log(errores.length)
-
-   }
-
    registerForm.addEventListener("submit",function(event){
        
-    if(errores.length> 0 ){
+    if( errores == "undefined"){
+        console.log("No envio el form")
+        event.preventDefault()
+        inputNombre.classList.add("is-invalid")
+        smallNombre.innerHTML = "No puede estar vacio"
+        inputApellido.classList.add("is-invalid")
+        smallApellido.innerHTML = "No puede estar vacio"
+        inputUsu_Telefono.classList.add("is-invalid")
+        smallTelefono.innerHTML = "No puede estar vacio"
+        inputEmail.classList.add("is-invalid")
+        smallEmail.innerHTML = "No puede estar vacio"
+        inputContraseña.classList.add("is-invalid")
+        smallContraseña.innerHTML = "No puede estar vacio"
+        inputContraseña2.classList.add("is-invalid")
+        smallContraseña2.innerHTML = "No puede estar vacio"
+
+    }
+    if( errores == true){
         console.log("No envio el form")
         event.preventDefault()
     }
