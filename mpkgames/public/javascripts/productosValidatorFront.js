@@ -15,6 +15,10 @@ window.addEventListener("load",function(){
     let inputNombreDelProducto = document.getElementById("nombreDelProducto")
     let EtqerrorNombreProducto = document.getElementById("errorNombreProducto")
     
+    let inputDetalle = document.getElementById("detalle")
+    let EtqerrorDetalle = document.getElementById("errordetalle")
+    
+
 
     let inputPrecioJuego = document.getElementById('precioJuego')    
     let EtqErrorPrecioJuego = document.getElementById("errorPrecio")
@@ -48,7 +52,7 @@ window.addEventListener("load",function(){
 
 //Aqui solo validaciones cuando es keyup al teclear    
     inputNombreDelProducto.addEventListener('keyup',function(){
-        if(inputNombreDelProducto.value.length <20){   
+        if(inputNombreDelProducto.value.length <5){   
             inputNombreDelProducto.classList.add("is-invalid")                    
             EtqerrorNombreProducto.innerText = "caracteres son: "+ inputNombreDelProducto.value.length + " .EL nombre del producto debe tener minimo 20 caracteres y un maximo de 100 caracteres"                       
         }else{
@@ -56,7 +60,19 @@ window.addEventListener("load",function(){
             inputNombreDelProducto.classList.add("is-valid")
             EtqerrorNombreProducto.innerText = ""
         }       
-    })        
+    })  
+    //Descripcion 
+    inputDetalle.addEventListener('keyup',function(){
+        if( inputDetalle.value.length <20){   
+            inputDetalle.classList.add("is-invalid")                    
+            EtqerrorDetalle.innerText = "caracteres son: "+ inputDetalle.value.length + " .La descripcion del producto debe tener minimo 20 caracteres y un maximo de 100 caracteres"                       
+        }else{
+            inputDetalle.classList.remove("is-invalid")
+            inputDetalle.classList.add("is-valid")
+            EtqerrorDetalle.innerText = ""
+        }       
+    }) 
+
 //Codigo
     inputCodigo.addEventListener('keyup',function(){
         if(inputCodigo.value.length <5){     
@@ -98,12 +114,20 @@ window.addEventListener("load",function(){
 // *************************************** 
 
     function nombreDelProducto(){
-        if(inputNombreDelProducto.value.length <20){                       
-            return true
+        if(inputNombreDelProducto.value.length <5){                       
+            return  true
         }else{
-            return false
+            return  false
         }   
     }
+    function detalleDelProducto(){
+        if(inputDetalle.value.length <20){                       
+            return  true
+        }else{
+            return  false
+        }   
+    }
+
     function codigo(){
         if(inputCodigo.value.length <5){                       
             return true            
@@ -138,6 +162,11 @@ window.addEventListener("load",function(){
             esCorrecto=false;
         }
 
+        if(detalleDelProducto()){            
+            erroresArray.push("Detalle")
+            esCorrecto=false;
+        }
+        
         if(codigo()){            
             erroresArray.push("Codigo")
             esCorrecto=false;

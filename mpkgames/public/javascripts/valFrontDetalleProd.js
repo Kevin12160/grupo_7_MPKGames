@@ -1,6 +1,3 @@
-
-
-
 const qs=function(element){
 
     return document.querySelector(element);
@@ -376,5 +373,3 @@ window.addEventListener("load",function(){
     
 
 })
-
-
