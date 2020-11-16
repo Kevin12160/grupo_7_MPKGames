@@ -1,0 +1,35 @@
+<%- include("./partials/head") %> 
+
+
+   <!--HEADER: CABECERA Y MENÚ DE NAVEGACIÓN-->
+   
+<%- include("./partials/header") %> 
+
+<div class="container">
+
+    <div calss="row ">
+        <div class=" col-12 titulo">
+            <h3 class="h3tituloAgreYMod">Noticias </h3>
+        </div>
+    </div>
+    <% noticias.forEach(element => { %>
+        
+    <div class="row noticia_">
+            <div class="col-4">
+                <figure class="figure figure-img ">
+                    <img src="/images/newsImages/<%= element.Imagen %> " class="rounded img_zoom img-fluid" alt="...">
+                </figure>
+            </div>
+            <div class="col-8">
+                <a href="/noticias/noticiasShow/<%= element.id_noticias %> "><h4 class="noticia_titulo"><%= element.titulo %> </h4></a>
+                <h5 class="noticia_subtitulo"><%= element.subTitulo %> </h5>
+            </div>
+    </div>
+   <% }); %> 
+    
+    
+
+</div>
+
+
+<%- include("./partials/footer") %> 

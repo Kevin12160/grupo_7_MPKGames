@@ -1,0 +1,15 @@
+.img_zoom{
+    transition: transform 0.7s;
+    max-width: 98%;
+}
+.img_zoom:hover{
+    transform: scale(1.1);
+}
+.noticia_titulo{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.noticia_{
+    padding: 10px;
+}

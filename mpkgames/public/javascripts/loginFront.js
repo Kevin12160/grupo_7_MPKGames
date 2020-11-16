@@ -1,5 +1,4 @@
 
-
 window.onload = function(){
     let loginForm = document.getElementById("loginForm")
     let inputEmailLogin = document.getElementById("emailLogin")
@@ -49,14 +48,10 @@ window.onload = function(){
     if(errores == true || errores == "undefined" ){
         console.log("No envio el form")
         event.preventDefault()
-        inputEmailLogin.classList.add("is-invalid")
-        smallEmailLogin.innerHTML = "no puede estar vacio"
-        inputContraseñaLogin.classList.add("is-invalid")
-        smallContraseñalLogin.innerHTML = "No puede estar vacio"
+        
     }else{
         console.log("se envio")
     }
 
 })
-
- }
+}

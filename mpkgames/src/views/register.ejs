@@ -48,19 +48,6 @@
                     </div>
 
 
-                    <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label form="usu_CodigoArea">Codigo de Area</label> 						
-                            <input type="number_format" id="usu_CodigoArea" class="form-control" name="usu_CodigoArea" placeholder="Ingrese su Codigo de Area ej: 011"/> 
-                        </div>   
-                        <br>
-                        <div class="form-group col-md-6">
-                            <label form="usu_Telefono">Telefono</label> 						
-                            <input type="text" id="usu_Telefono"  class="form-control" name="usu_Telefono" placeholder="Ingrese su telefono"/> 
-                            <small id="smallTelefono" class="text-danger"></small>
-                        </div>
-                    </div>    
-
                     <div class="form-group">            
                         <label form="usu_email">email:</label> 
                         <input type="email" id="email" name="email" class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="Ingrese su email" />

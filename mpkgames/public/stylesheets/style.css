@@ -7,7 +7,8 @@
 @import url('styleCargaDeProductos.css');
 @import url('registroUsuarios.css');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Tenali+Ramakrishna&family=Uncial+Antiqua&display=swap" rel="stylesheet"');
-
+@import url('noticias.css');
+@import url('noticiasShow.css');
 /*
 - VARIABLES
 */
@@ -83,10 +84,35 @@ header .avatar{
     object-fit: cover;
     object-position: top;
 }
+/*.dropdown button img{
+    margin-top: 9px;
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 40px;
+}*/
+.dropdown button{
+    background-color: var(--color-Turquesa);
+    border: none;
+}
+.dropdown button:focus{
+    outline: none;
+}
+.dropdown-menu.show {
+    display: block;
+    background-color: var(--color-grisClaro);
+    padding: 0px;
+}
 /*header .cuotas {
     margin: 5px 0;
     align-self: center;
 }*/
+.dropdown-item:hover {
+    color: #f8f9fa;
+    text-decoration: none;
+    background-color: var(--color-AzulOceano);
+    border-radius: .25rem;
+}
 .logo{
     padding: 0px 0px 0px 5px;
 }
@@ -213,6 +239,20 @@ h2{
     border-radius: 25px;
 }
 
+.badge-primary {
+    color: #fff;
+    background-color: var(--color-Turquesa);
+    position: relative;
+    left: -14px;
+    top: -8px;
+}
+.badge {
+    padding: 0px;
+    font-size: 55%;
+}
+.carritoCant{
+    font-size: 107%;
+}
 section .titulo h2 {
     text-align: center;
     font-size: 26;
@@ -396,7 +436,7 @@ FOOTER
 
     .contBuscadorMd {
         margin-left: 0px;
-        padding-top: 0px;
+        padding: 0px;
     }
     li {
         font-size: 134%;

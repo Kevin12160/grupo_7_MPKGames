@@ -1,5 +1,3 @@
-
-
 window.onload = function(){
     let registerForm = document.getElementById("registerForm")
     let inputNombre = document.getElementById("nombre")

@@ -1,0 +1,61 @@
+<%- include("./partials/head") %> 
+<%- include("./partials/header") %> 
+
+<script src="/javascripts/previeFile.js"></script>
+<div class="formulario container">
+
+    <div class=" col-12 titulo">
+        <h3 class="h3tituloAgreYMod">Agregar Noticia</h3>
+    </div>
+    <form Class="FormAdd" id="formAdd" action="" method="POST" enctype="multipart/form-data">
+
+        <div class="form-row">
+
+            <div class="form-group col-12 col-md-6 col-lg-12">
+                <label for="ArtNoti">Titulo del articulo de la noticia:</label> 
+                <input type="text" name="ArtNoti" id="ArtNoti" class="form-control <%= (typeof old != 'undefined' && old.ArtNoti && !errors.ArtNoti)?"is-valid":(typeof errors != 'undefined' && errors.ArtNoti)?"is-invalid": ""  %>" value="" placeholder="Ingrese el Titulo del articulo de la noticia"  >                   
+                <small class="text-danger" id="errorTitulo"><%= (typeof errors != 'undefined' && errors.ArtNoti)?errors.ArtNoti.msg: "" %> </small>                    
+            </div>  
+
+            <div class="form-group col-12 col-md-6 col-lg-12">
+                <label for="tituloNoti">Titulo de la noticia:</label> 
+                <input type="text" name="tituloNoti" id="tituloNoti" class="form-control <%= (typeof old != 'undefined' && old.tituloNoti && !errors.tituloNoti)?"is-valid":(typeof errors != 'undefined' && errors.tituloNoti)?"is-invalid": ""  %>" value="" placeholder="Ingrese el Titulo"  >                   
+                <small class="text-danger" id="errorTitulo"><%= (typeof errors != 'undefined' && errors.tituloNoti)?errors.tituloNoti.msg: "" %> </small>                    
+            </div>            
+
+            <div class="form-group col-12 col-md-6 col-lg-12">
+                <label clase="" for="subtitulo">Subtitulo de la noticia:</label>     
+                <input type="text" name="subtitulo" id="subtitulo" class="form-control <%= (typeof old != 'undefined' && old.subtitulo && !errors.subtitulo)?"is-valid":(typeof errors != 'undefined' && errors.subtitulo)?"is-invalid": ""  %>" value="" placeholder="Ingrese el SubTitulo"  >                                  
+                <small class="text-danger" id="errorsubtitulo"><%= (typeof errors != 'undefined' && errors.subtitulo)?errors.subtitulo.msg: "" %> </small>                    
+            </div>  
+            <div class="form-group col-12 col-md-6 col-lg-12">    
+                <label for="contNoticia">Contenido de la noticia</label>
+                <textarea class="form-control" name="contNoticia" id="contNoticia" rows="3"></textarea>
+                <small class="text-danger" id="contNoticia"><%= (typeof errors != 'undefined' && errors.contNoticia)?errors.contNoticia.msg: "" %> </small>
+            </div>
+        </div>
+        <div class="form-group col-12 col-md-6 col-lg-12">            
+            <label form="imagen">Imagen del juego:</label> 
+
+            <figure class="text-center">
+                <img id="imgPrevia"  src="/images/products/default-image.png" alt="Imagen del Producto" class="img-fluid">
+                <input type="file" onchange="previewFile()" id="imagen" name="imagen" accept="image/png, image/jpeg, image/jpg, image/gif" class="form-control" placeholder="Ingrese el url de la imagen" />
+                <small class="text-danger" id="errorFoto"></small>
+            </figure>
+        </div>
+
+        <article class="row col-12 botones">
+            <div class="col-6 agregar">
+                <input type="submit" value="Agregar " id="botonAgregarProductos" class="botonAgregarProducto"/>  
+            </div> 
+            <div class="col-6 cancelar">
+                    <input type="reset" value="Cancelar" class="botonCancelar"/> 
+            </div> 
+        </article>
+
+ 
+    </form>
+</div> 
+<%- include("./partials/footer") %> 
+
+

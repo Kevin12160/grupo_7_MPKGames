@@ -1,0 +1,21 @@
+
+.noticia_tituloShow{
+    font-weight: bold;
+    padding: 0px;
+}
+.alert-primary {
+    color: var(--color-grisClaro);
+    background-color: var(--color-azul);
+    border-color: var(--color-grisClaro);
+    margin-top: 50px;
+}
+.noticia_subtituloShow{
+    font-family: Quicksand, sans-serif;
+    text-align: left;
+    padding-bottom: 19px;
+    margin: 0px;
+}
+.parrafoNoticia{
+    margin-top: 5px;
+    margin-bottom: 3rem;
+}

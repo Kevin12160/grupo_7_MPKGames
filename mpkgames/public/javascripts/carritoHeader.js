@@ -13,7 +13,7 @@ window.onload = function(){
                  console.log(information.TotalImporteCarrito);
 
                 //  CantidadTotal.innerHTML = information.CantidadTotal
-                 TotalesDelCarrito.innerHTML += "Cant:" + information.CantidadTotal +" ,Total $: "+ information.TotalImporteCarrito
+                 TotalesDelCarrito.innerHTML +=information.CantidadTotal;
                
                 
             })

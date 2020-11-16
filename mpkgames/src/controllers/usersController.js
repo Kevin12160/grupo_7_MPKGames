@@ -71,7 +71,7 @@ module.exports ={
             .then(user => {
                 req.session.user = { //asigno a la session un objeto literal con los datos del usuario
                     id: user.id,
-                    nick: user.nombre + " " + user.apellido,
+                    nick: "Hola "+user.nombre,
                     email: user.email,                    
                     avatar: user.avatar,
                     rol: user.rol,                    
