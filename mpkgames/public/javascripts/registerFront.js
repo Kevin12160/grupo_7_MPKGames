@@ -1,10 +1,10 @@
+
+
 window.onload = function(){
     let registerForm = document.getElementById("registerForm")
     let inputNombre = document.getElementById("nombre")
     let smallNombre = document.getElementById("smallNombre")
     let inputApellido = document.getElementById("apellido")
-    let smallApellido = document.getElementById("smallApellido")
-    let inputUsu_Telefono = document.getElementById("usu_Telefono")
     let smallTelefono = document.getElementById("smallTelefono")
     let inputEmail = document.getElementById("email")
     let smallEmail = document.getElementById("smallEmail")
@@ -14,19 +14,22 @@ window.onload = function(){
     let smallContraseña2 = document.getElementById("smallContraseña2")
     let regexEmail = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
    
-
+    var ExisteMail= false 
+// **** del mail VALIDA SI YA EXISTE EL MAIL COMO REGISTRADO****
     inputEmail.onblur = function(){
         fetch("//localhost:3000/apiuser/allUsers")
         .then(function(response){
                 return response.json()
             })
             .then(function(information) {
-                // console.log(information);
                 information.forEach(element => {
-                    // console.log(element.email)
                     if(inputEmail.value == element.email){
+                        ExisteMail = true
                         inputEmail.classList.add("is-invalid")
-                        smallEmail.innerText="El mail ya esta registrado"                            
+                        smallEmail.innerText="El mail ya esta registrado"   
+                        
+                    }else{
+                        ExisteMail = false
                     }
                 });
             })
@@ -41,146 +44,182 @@ window.onload = function(){
     }
 
 
-    let errores = 'undefined'
+    var erroresArray = [] 
+   
 
-    inputEmail.onkeyup = function(){
+    // **** estas validaciones se ejecutan cuando el usuario empieza a escribir en el campo ****
 
-        let errores = "undefined"
-
-        if(!regexEmail.test(inputEmail.value)){            
-            inputEmail.classList.add("is-invalid")
+    // **** del mail VALIDA SOL OSI ESTA BIEN ESCRITO****
+      inputEmail.addEventListener('change',function() {     
+        if(!regexEmail.exec(inputEmail.value)){    
+            inputEmail.classList.remove("is-valid")
+            inputEmail.classList.add('is-invalid')
             smallEmail.innerHTML = "Tiene que tener formato Email"
-       }else{
-           inputEmail.classList.remove("is-invalid")
-           inputEmail.classList.add("is-valid") 
-           smallEmail.innerHTML = ""
-       }
-       console.log(errores)
-      }
+            inputEmail.value = '';        
+        } else{            
+            
+            inputEmail.classList.remove("is-invalid")
+            inputEmail.classList.add("is-valid") 
+            smallEmail.innerHTML = ""           
+        }
+    })
 
 
-    inputNombre.onkeyup = function(){
-
-        let errores = "undefined"
-
-        if(inputNombre.value.length < 3 ){
-            inputNombre.classList.add("is-invalid")
-            smallNombre.innerHTML = "Tiene que tener minimo 3 letras"
-            errores = true
+       // **** del Nombre del usuario ****
+    inputNombre.addEventListener('keyup',function(){
+        if(inputNombre.value.length < 3 || inputNombre.value.length > 15){   
+            inputNombre.classList.add("is-invalid")                    
+            smallNombre.innerText = "El nombre debe tener entre 3 y 15 caracteres"                       
         }else{
             inputNombre.classList.remove("is-invalid")
             inputNombre.classList.add("is-valid")
-            smallNombre.innerHTML = ""
-            errores= false
-    }
-    if( typeof errores == 'undefined' || inputNombre.value == inputApellido.value){
-        inputNombre.classList.add("is-invalid")
-        smallNombre.innerHTML = "No pueden ser iguales"
-        errores = true
-        
-    }
-}
+            smallNombre.innerText = ""
+        }  
+        if( inputNombre.value == inputApellido.value){
+            inputNombre.classList.add("is-invalid")
+            smallNombre.innerHTML = "No pueden ser iguales"
+            errores = true            
+        }     
+    })  
 
-    inputApellido.onkeyup = function(){
-
-        let errores = "undefined"
-
-
-        if(inputApellido.value.length < 3 ){
+   // **** del Apellido del usuario ****
+    inputApellido.onkeyup = function(){     
+        if(inputApellido.value.length < 3 || inputApellido.value.length > 20 ){
             inputApellido.classList.add("is-invalid")
-            smallApellido.innerHTML = "Tiene que tener minimo 3 letras"
-            errores = true
+            smallApellido.innerHTML = "EL apellido debe tener entre 3 y 20 caracteres"            
         }else{
             inputApellido.classList.remove("is-invalid")
             inputApellido.classList.add("is-valid")
             smallApellido.innerHTML = ""
-            errores= false
         }
 
-        if( typeof errores == 'undefined' || inputNombre.value == inputApellido.value){
+        if(  inputNombre.value == inputApellido.value){
             inputApellido.classList.add("is-invalid")
             smallApellido.innerHTML = "No pueden ser iguales"
-            errores = true
-            console.log(errores)
         }
     }
-
-    inputUsu_Telefono.onkeyup = function(){
-
-        let errores = "undefined"
-
-        if(inputUsu_Telefono.value.length < 8 ){
-            inputUsu_Telefono.classList.add("is-invalid")
-            smallTelefono.innerHTML = "Tiene que tener minimo 8 numeros"
-            errores = true
-        }else{
-            inputUsu_Telefono.classList.remove("is-invalid")
-            inputUsu_Telefono.classList.add("is-valid")
-            smallTelefono.innerHTML = ""
-            errores= false
-        }
-    }
-
-
-
-  inputContraseña.onkeyup = function(){
-
-    let errores = "undefined"
-
+// **** de contraseña 1 del usuario ****
+  inputContraseña.onkeyup = function(){   
     if(inputContraseña.value.length < 6 ||  inputContraseña.value.length > 12 ){
         inputContraseña.classList.add("is-invalid")
-        smallContraseña.innerHTML = "Tiene que tener entre 6 y 12 caracteres"
-        errores = true
+        smallContraseña.innerHTML = "Tiene que tener entre 6 y 12 caracteres"       
     }else{
         inputContraseña.classList.remove("is-invalid")
         inputContraseña.classList.add("is-valid")
-        smallContraseña.innerHTML = ""
-        errores= false
+        smallContraseña.innerHTML = ""        
     }
 
   }
-
+// **** de contraseña 2 del usuario ****
   inputContraseña2.onkeyup = function(){
-
-    let errores = "undefined"
-
     if(inputContraseña2.value !==  inputContraseña.value  ){
         inputContraseña2.classList.add("is-invalid")
-        smallContraseña2.innerHTML = "Las dos contraseñas deben coincidir"
-        errores = true
+        smallContraseña2.innerHTML = "Las dos contraseñas deben coincidir"       
     }else{
         inputContraseña2.classList.remove("is-invalid")
         inputContraseña2.classList.add("is-valid")
-        smallContraseña2.innerHTML = ""
-        errores= false
+        smallContraseña2.innerHTML = ""       
     }
 
   }
 
-   registerForm.addEventListener("submit",function(event){
+    // *************************************** 
+//Aqui lo uso cuando hace click en agregar aunque el usuario no escribio nada o dejo algun campo con error
+// *************************************** 
+function mailExiste(){
+    console.log(ExisteMail)
+    if(ExisteMail){                       
+        return  true
+    }else{
+        return  false
+    }   
+}
+
+function nombre(){
+    if(inputNombre.value.length <3){                       
+        return  true
+    }else{
+        return  false
+    }   
+}
+function apellido(){
+    if(inputApellido.value.length <3){                       
+        return  true
+    }else{
+        return  false
+    }   
+}
+
+function contraseña(){
+    if(inputContraseña.value.length < 6 ||  inputContraseña.value.length > 12 ){                  
+        return true            
+    }else{
+        return false
+    }   
+}
+
+function contraseña2(){
+    if(inputContraseña2.value !==  inputContraseña.value  ){           
+        return true            
+    }else{
+        return false
+    }   
+}
+
+
+//AQUI JUNTO TODAS LAS FUNCIONES PARA VER SU RESULTADO
+function validaCampos(){
+    var esCorrecto = true;        
+    erroresArray=[]
        
-    if( errores == "undefined"){
-        console.log("No envio el form")
-        event.preventDefault()
-        inputNombre.classList.add("is-invalid")
-        smallNombre.innerHTML = "No puede estar vacio"
-        inputApellido.classList.add("is-invalid")
-        smallApellido.innerHTML = "No puede estar vacio"
-        inputUsu_Telefono.classList.add("is-invalid")
-        smallTelefono.innerHTML = "No puede estar vacio"
-        inputEmail.classList.add("is-invalid")
-        smallEmail.innerHTML = "No puede estar vacio"
-        inputContraseña.classList.add("is-invalid")
-        smallContraseña.innerHTML = "No puede estar vacio"
-        inputContraseña2.classList.add("is-invalid")
-        smallContraseña2.innerHTML = "No puede estar vacio"
-
+    if(mailExiste()){            
+        erroresArray.push("El Mail ya existe")
+        esCorrecto=false;
     }
-    if( errores == true){
-        console.log("No envio el form")
-        event.preventDefault()
+    if(nombre()){            
+        erroresArray.push("Nombre")
+        esCorrecto=false;
     }
 
+    if(apellido()){            
+        erroresArray.push("Apellido")
+        esCorrecto=false;
+    }
+    
+    if(contraseña()){            
+        erroresArray.push("Contraseña incorrecta")
+        esCorrecto=false;
+    }
+    if(contraseña2()){            
+        erroresArray.push("Segunda contraseña incorrecta ")
+        esCorrecto=false;
+    }
+    
+   
+    // si ahi algun dato con falso entonces , sino 
+    if (esCorrecto==false){
+       return false
+    }else{
+        return true
+    }
+}
+
+
+
+
+   registerForm.addEventListener("submit",(e)=>{        
+    var msjErr = "Corrija los Errores marcados: \n";
+    
+    if(!validaCampos()){
+        erroresArray.forEach( mensajeError => {
+            msjErr += mensajeError  + " \n"
+        })
+
+        e.preventDefault()
+        alert(msjErr)            
+   }else{                   
+         form.submit()
+   }    
 })
 
 
