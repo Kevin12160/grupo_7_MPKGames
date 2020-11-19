@@ -29,29 +29,31 @@
                             <article class="classArtIndex">                                
                                 <input name="IdJuego" style="display: none" value="<%- producto.IdJuego %>">
                                 
-
+                                <div class="row">
                                 <!--precio-->
-                                <h2>$<%- producto.Precio %></h2>                                
-                                <h2>$
-                                     <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                                </h2>
-                                <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
+                                <h2 class="col-12 col-md-12 col-lg-12 tachado">$<%- producto.Precio %></h2>  
+                                <div class="row">                             
+                                    <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                    </h2>
+                                    <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
 
-                                <!--descuento-->
-                                <% if (producto.Descuento !=0) { %>
-                                    <span><%- producto.Descuento %> % OFF</span>
-                                <% } %>     
-                                                      
-                               <p> <%- producto.NombreDeProducto %></p>
+                                    <!--descuento-->
+                                    <% if (producto.Descuento !=0) { %>
+                                        <span class="col-4 col-md-4 col-lg-4 desc"><%- producto.Descuento %> %OFF</span>
+                                    <% } %>     
+                                </div>                    
+                               <p class="col-12 col-md-12 col-lg-12"> <%- producto.NombreDeProducto %></p>
+                            
                                <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
 
                                <!--icono de Consolas-->
                                    <i class="fab fa-xbox Xbox"></i>
                                    <i class="fab fa-playstation playStation"></i>                              
                                    
-                                    <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
-                        </form>
-                            </article>                         <!--finaliza contenido-->
+                                    <button   type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
+                                </div>
+                            </article>  
+                        </form>                       <!--finaliza contenido-->
                     </div>                    <!--finaliza caja de grilla de boostrap-->
                 </div> <!--finaliza el div.row-->
                 <% }) %>
@@ -83,29 +85,32 @@
                             <article class="classArtIndex">                                
                                 <input name="IdJuego" style="display: none" value="<%- producto.IdJuego %>">
                                 <input name="codigo" style="display: none" value="<%- producto.Codigo %>">
-
                                 <!--precio-->
-                                <h2>$<%- producto.Precio %></h2>                                
-                                <h2>$
-                                     <%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                                </h2>
-                                <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
+                                <div class="row">
+                                    <h2 class="col-12 col-md-12 col-lg-12 tachado">$<%- producto.Precio %></h2>                                
+                                    <div class="row">
+                                        <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%-(producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                        </h2>
+                                        <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
 
                                 <!--descuento-->
-                                <% if (producto.Descuento !=0) { %>
-                                    <span><%- producto.Descuento %> % OFF</span>
-                                <% } %>     
-                                                      
-                               <p> <%- producto.NombreDeProducto %></p>
-                               <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
+                                        <% if (producto.Descuento !=0) { %>
+                                        <span class="col-4 col-md-4 col-lg-4 desc"><%- producto.Descuento %> %OFF</span>
+                                        <% } %>     
+                                    </div>                     
+                                    <p class="nomPro col-12 col-md-12 col-lg-12"> <%- producto.NombreDeProducto %></p>
+                            
+                                        <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
 
                                <!--icono de Consolas-->
                                    <i class="fab fa-xbox Xbox"></i>
                                    <i class="fab fa-playstation playStation"></i>                              
                                    
                                     <button type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
-                        </form>
-                            </article> 
+                        
+                                </div> 
+                            </article>
+                        </form> 
                         <!--finaliza contenido-->
                     </div>
                     <!--finaliza caja de grilla de boostrap-->

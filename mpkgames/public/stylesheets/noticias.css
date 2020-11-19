@@ -13,3 +13,42 @@
 .noticia_{
     padding: 10px;
 }
+
+.aHover:hover {
+    color: var(--color-Turquesa);
+}
+
+
+@media(min-width:370px){
+    .noticia_titulo{
+        font-size: 18px;
+    }
+    .noticia_subtitulo{
+        padding: 0px;
+        font-size: 17px;
+    }
+}
+
+@media(min-width:768px){
+    .noticia_titulo{
+        font-size: 19px;
+    }
+    .noticia_subtitulo{
+        padding: 0px;
+        font-size: 16px;
+    }
+}
+
+@media(min-width:1024px){
+    .noticia_titulo{
+        font-size: 26px;
+    }
+    .noticia_subtitulo{
+
+        font-size: 23px;
+    }
+    a:hover {
+        color: var(--color-Turquesa);
+    }
+    
+}
