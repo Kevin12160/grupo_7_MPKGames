@@ -5,13 +5,15 @@ const controller = require('../controllers/carritoController') //requiero el con
 
 const sessionUserCheck = require('../middleware/sessionUserCheck'); 
 
-const path = require('path');
+const path = require('path');  
 
 
 router.get('/enCarritoCompras/',sessionUserCheck,controller.enCarrito);
 router.post('/agregarAlCarrito/:id',sessionUserCheck,controller.agregarAlCarrito);
 router.delete('/eliminarDelCarrito/:id',sessionUserCheck,controller.eliminarDelCarrito);
 
-
+router.get("/miEntrega",sessionUserCheck,controller.Mientrega )
+router.get("/miPago",sessionUserCheck,controller.MiPago )
+router.get("/miResumen",sessionUserCheck,controller.MiResumen )
 
 module.exports = router //exporto router
