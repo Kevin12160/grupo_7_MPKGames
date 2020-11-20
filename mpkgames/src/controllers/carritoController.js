@@ -72,8 +72,15 @@ module.exports = {
                     usuario_id: idUsuario,
                     // usuario_id: req.cookies.idUsuario
             }
-            });   
-            res.redirect('/')                                               
+            })   
+            .then(result=>{
+                // console.log(result)                
+                res.redirect('/')  
+            })
+            .catch(errores=>{
+                console.log(errores)
+            })        
+                                                         
     },
 
     actualizarCantidadAComprar:function(req,res){

@@ -80,14 +80,16 @@
         <!--caja que contiene el boton de siguiente-->
         <article class="col-12">
              <div class=" botonSiguiente2">
-              <!-- <form action="/carritos/FinalizarCompra/<%= 46 %>?_method=DELETE" method="POST"> -->
-                <div class="col-12">
-                  <a href="/"><button type="button" class="btn btn-primary siguiente"> ir al home</button></a>             
-              <!-- </div> -->
-            </form>
-            
+                <form action="/carritos/FinalizarCompra/<%= user.id %>?_method=DELETE" method="POST" >
+                  <div class="col-12">
+                    <!-- <a href="/"><button type="button" class="btn btn-primary siguiente"> ir al home</button></a>  -->
+                    <button type="submit" class="btn btn-primary siguiente"> Finalizar Compra</button>
+                </div>
+              </form>            
             </div>
         </article>
+        
+
      </div>
         </section>
         
