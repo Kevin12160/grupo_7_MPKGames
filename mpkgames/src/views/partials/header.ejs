@@ -1,5 +1,6 @@
 
 <script src="/javascripts/carritoHeader.js"></script>
+<script src="/javascripts/guardarAvatar.js"></script>
 
 <header class="container-fluid"> <!--caja contenedora de boostrap-->
   
@@ -29,7 +30,7 @@
                     <div class="dropdown"  width="50px" height="50px">
                       <button class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     
-                    <a href=""><img src="/images/Avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>                                               
+                    <a href=""><img id="AvatarImg" src="/images/Avatares/<%= user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>                                               
                   </button>
                   <div class="dropdown-menu" aria-labelledby="">
                         <a class="dropdown-item" href="/users/show/<%= user.id %>">Mi perfil</a>

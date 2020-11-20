@@ -12,5 +12,26 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
     },
 
-    
+    UserIDAvatar: function(req, res) {       
+        let avatar = "-";
+        
+        db.User.findAll({
+            where: {id: req.cookies.idUsuario}                      
+            
+        }).then(resultados=>{
+                                  res.send(resultados)
+                     resultados.forEach(element => {
+                        avatar = element.avatar
+                        // avatar = resultados.avatar
+                     });
+        res.json({             
+            avatar:avatar,                  
+        })    
+         
+    })
+    .catch(error => {
+        res.send(error)
+    })
+    }
+
 }

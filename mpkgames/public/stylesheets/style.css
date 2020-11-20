@@ -233,7 +233,10 @@ header .cuotas {
 h2{
     font-family: 'Uncial Antiqua', cursive;
 }
-
+.btnBajaDeUsuario{
+    margin: 10px  auto;  
+    border-radius: 25px;
+}
 .btnAgregarCarrito{
     margin: -10px  auto;  
     border-radius: 25px;

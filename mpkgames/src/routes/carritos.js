@@ -12,6 +12,8 @@ router.get('/enCarritoCompras/',sessionUserCheck,controller.enCarrito);
 router.post('/agregarAlCarrito/:id',sessionUserCheck,controller.agregarAlCarrito);
 router.delete('/eliminarDelCarrito/:id',sessionUserCheck,controller.eliminarDelCarrito);
 
+router.delete('/finalizarCompra/:id',sessionUserCheck,controller.FinalizarCompra);
+
 router.get("/miEntrega",sessionUserCheck,controller.Mientrega )
 router.get("/miPago",sessionUserCheck,controller.MiPago )
 router.get("/miResumen",sessionUserCheck,controller.MiResumen )

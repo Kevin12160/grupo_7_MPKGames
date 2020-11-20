@@ -6,7 +6,8 @@ let storage = multer.diskStorage({
         callback(null,'public/images/Avatares')
     },
     filename:(req,file,callback)=>{
-        callback(null,file.fieldname + Date.now() + path.extname(file.originalname))
+        callback(null,req.body.email + path.extname(file.originalname))
+        // callback(null,file.fieldname + Date.now() + path.extname(file.originalname))
     }
 });
 

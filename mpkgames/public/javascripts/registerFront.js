@@ -13,7 +13,10 @@ window.onload = function(){
     let inputContraseña2 = document.getElementById("contraseña2")
     let smallContraseña2 = document.getElementById("smallContraseña2")
     let regexEmail = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
-   
+    let inputImagen = document.getElementById('avatar')   
+    let errorFoto = document.getElementById('errorFoto')       
+    let regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+
     var ExisteMail= false 
 // **** del mail VALIDA SI YA EXISTE EL MAIL COMO REGISTRADO****
     inputEmail.onblur = function(){
@@ -63,6 +66,23 @@ window.onload = function(){
             smallEmail.innerHTML = ""           
         }
     })
+
+    inputImagen.addEventListener('change',function() {      
+        
+        if(!regExExtensions.exec(inputImagen.value)){    
+            errorFoto.innerText = "Solo imagenes con extension jpg, jpeg, png, o gif"
+            inputImagen.classList.remove("is-valid")
+            inputImagen.classList.add('is-invalid')
+            inputImagen.value = '';        
+        } else{            
+            errorFoto.innerText =""
+            inputImagen.classList.remove("is-invalid")
+            inputImagen.classList.add("is-valid")
+            
+        }
+    })
+
+
 
 
        // **** del Nombre del usuario ****

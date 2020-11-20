@@ -10,7 +10,7 @@ const controllerApi = require('../controllers/usersApiController')
 // ======> VALIDACIONES <======= //
 let registerValidator = require("../validator/registerValidator")
 let loginValidator = require('../validator/loginValidator');
-
+let perfilUserUpdateValidator = require('../validator/perfilUserUpdate');
 // ======> MIDDLEWARES <======= //
 const multerAvatar = require("../middleware/multerAvatar")
 const sessionUserCheck = require('../middleware/sessionUserCheck'); 
@@ -53,7 +53,7 @@ router.post("/login",loginValidator, controller.processLogin);
 
 //modificacion de usuario
 router.get('/show/:id/',sessionUserCheck,controller.show);
-router.put('/edit/:id',upload.any(),sessionUserCheck,controller.actualizar);
+router.put('/edit/:id',multerAvatar.any(),sessionUserCheck,controller.actualizar);
 router.delete('/delete/:id',sessionUserCheck,controller.eliminar);
 
 

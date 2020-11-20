@@ -3,6 +3,7 @@
 <%- include("./partials/head") %> 
 <%- include("./partials/header") %> 
 
+
 <main>
     <div class="container">
         <div class="formularioRegistro"> 
@@ -64,10 +65,17 @@
                         <small id="smallContraseña2" class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña2)?errors.contraseña2.msg: "" %> </small>
                     </div>
 
-                    <div class="form-group">
-                        <label for="Avatar">Ingrar un Avatar</label>
-                        <input type="file" name="avatar" id="avatar" class="form-control" >
-                    </div>
+                 
+
+                <div class="form-group col-md-12">            
+                    <label form="imagen">Imagen Avatar del Usuario:</label> 
+
+                    <figure class="text-center">
+                        <img id="imgPrevia" for="Avatar" src="/images/Avatares/default.png" alt="Imagen del Producto" class="img-fluid">
+                        <input type="file" onchange="previewFile()" id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg, image/gif" class="form-control" placeholder="Ingrese el url de la imagen" />
+                        <small class="text-danger" id="errorFoto"></small>
+                    </figure>
+                </div>
 
                     <div class="form-group">
                         <div class="form-check">
@@ -96,4 +104,5 @@
 <%- include("./partials/footer") %> 
 
 <script src="/javascripts/registerFront.js"></script>
+<script src="/javascripts/previeFile.js"></script>
 

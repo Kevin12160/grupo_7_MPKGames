@@ -62,7 +62,19 @@ module.exports = {
             res.redirect('/carritos/enCarritoCompras/')                                               
     },
        
-
+       
+    FinalizarCompra:function(req,res){
+        let idUsuario =  req.params.id;         
+        console.log(idUsuario)
+        
+        db.Carrito.destroy({
+                where: {
+                    usuario_id: idUsuario,
+                    // usuario_id: req.cookies.idUsuario
+            }
+            });   
+            res.redirect('/')                                               
+    },
 
     actualizarCantidadAComprar:function(req,res){
             let idproducto = req.params.id;

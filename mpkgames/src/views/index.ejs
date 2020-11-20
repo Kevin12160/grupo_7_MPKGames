@@ -35,7 +35,7 @@
                                 <div class="row">                             
                                     <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                     </h2>
-                                    <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
+                                    <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100) %>">
 
                                     <!--descuento-->
                                     <% if (producto.Descuento !=0) { %>
@@ -91,7 +91,7 @@
                                     <div class="row">
                                         <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%-(producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                         </h2>
-                                        <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>">
+                                        <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100) %>">
 
                                 <!--descuento-->
                                         <% if (producto.Descuento !=0) { %>
