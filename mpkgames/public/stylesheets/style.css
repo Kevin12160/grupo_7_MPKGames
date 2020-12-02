@@ -493,14 +493,14 @@ FOOTER
     }
 
 }
-.anterior{
+.flecha-anterior{
     position: absolute;
     right: 0%;
     color: var(--color-Turquesa); 
     font-size: 51px;
     top: 52%;  
 }
-.siguiente{
+.flecha-siguiente{
     z-index: 1;
     position: absolute;
     left: 0%;

@@ -12,48 +12,44 @@
     </div>
 
     <div id="carousel" class="container-fluid center my-4" style="text-align:center;">
-      <% OfertasUtimosJuegos.forEach(producto=>{%>
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="carrucel-product" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
-                
-                    
-                    <figure >
-                        <a href="/productos/detalle/<%= producto.IdJuego %> ">
-                            <img class="img-fluid" src="/images/products/<%- producto.Imagen %>  " alt=" ">
-                        </a>
-                    </figure>
-                        <div class="row">
-                            <!--precio-->
-                            <h2 class="col-12 col-md-12 col-lg-12 tachado">$<%- producto.Precio %></h2>  
-                            <div class="row">                             
-                                <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                                </h2>
-                                <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100) %>">
-
-                                <!--descuento-->
-                                <% if (producto.Descuento !=0) { %>
-                                    <span class="col-4 col-md-4 col-lg-5 desc-carrucel"><%- producto.Descuento %> %OFF</span>
-                                <% } %>     
-                            </div>                    
-                           <p class="nombreproduccarru col-12 col-md-12 col-lg-12"> <%- producto.NombreDeProducto %></p>
-                        
-                           <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
-
-                           <!--icono de Consolas-->
-                           
-                               <i class="fab fa-xbox Xbox xbox_carrucel"></i>
-                               <i class="fab fa-playstation playStation playStation_carrucel"></i>                              
-                               
-                                <button   type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
-                            </div>
-            
-             
-            </div>
-            </div>
-        </div>
-      <% }) %>
-    </div>
+        <% OfertasUtimosJuegos.forEach(producto=>{%>
+          <div class="row justify-content-center">
+              <div class="col">
+                  <div class="carrucel-product" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
+                      <figure>
+                          <a href="/productos/detalle/<%= producto.IdJuego %> ">
+                              <img class="img-fluid" src="/images/products/<%- producto.Imagen %>  " alt=" ">
+                          </a>
+                      </figure>
+                      <form action="/carritos/agregarAlCarrito/<%= producto.IdJuego %>" method="POST">
+                          <div class="row">
+                              <input name="IdJuego" style="display: none" value="<%- producto.IdJuego %>">
+                              <input name="codigo" style="display: none" value="<%- producto.Codigo %>">
+                              <!--precio-->
+                              <h2 class="col-12 col-md-12 col-lg-12 tachado">$<%- producto.Precio %></h2>  
+                              <div class="row">                             
+                                  <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></h2>
+                                  <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100) %>">
+                                  <!--descuento-->
+                                  <% if (producto.Descuento !=0) { %>
+                                      <span class="col-4 col-md-4 col-lg-5 desc-carrucel"><%- producto.Descuento %> %OFF</span>
+                                  <% } %>     
+                              </div>                    
+                              <p class="nombreproduccarru col-12 col-md-12 col-lg-12"> <%- producto.NombreDeProducto %></p>
+                          
+                              <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
+                              <!--icono de Consolas-->
+                              <i class="fab fa-xbox Xbox xbox_carrucel"></i>
+                              <i class="fab fa-playstation playStation playStation_carrucel"></i>                              
+                                 
+                              <button   type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                   
+                          </div>
+                      </form>     
+                  </div>
+              </div>
+          </div>
+        <% }) %>
+      </div>
 
 
     <div class="titulo col-12"> <!--caja que contiene el titulo de la sección-->
@@ -64,47 +60,41 @@
 
     <div id="carousel" class="container-fluid center my-4" style="text-align:center;">
         <% OfertasDeLaSemana.forEach(producto=>{%>
-          <div class="row justify-content-center">
-              <div class="col">
-                  <div class="carrucel-product" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
-                  
-                      
-                      <figure >
-                          <a href="/productos/detalle/<%= producto.IdJuego %> ">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="carrucel-product" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
+                        <figure >
+                            <a href="/productos/detalle/<%= producto.IdJuego %> ">
                               <img class="img-fluid" src="/images/products/<%- producto.Imagen %>  " alt=" ">
-                          </a>
-                      </figure>
-                          <div class="row">
-                              <!--precio-->
-                              <h2 class="col-12 col-md-12 col-lg-12 tachado">$<%- producto.Precio %></h2>  
-                              <div class="row">                             
-                                  <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                                  </h2>
-                                  <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100) %>">
-  
+                            </a>
+                        </figure>
+                        <form action="/carritos/agregarAlCarrito/<%= producto.IdJuego %>" method="POST">
+                            <div class="row">
+                                <input name="IdJuego" style="display: none" value="<%- producto.IdJuego %>">
+                                <input name="codigo" style="display: none" value="<%- producto.Codigo %>">
+                                <!--precio-->
+                                <h2 class="col-12 col-md-12 col-lg-12 tachado">$<%- producto.Precio %></h2>  
+                                <div class="row">                             
+                                    <h2 class="col-7 col-md-7 col-lg-7 precio_index">$<%- (producto.Precio -producto.Precio * producto.Descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></h2>
+                                    <input name="precioDescuento" style="display: none" value="<%- (producto.Precio -producto.Precio * producto.Descuento /100) %>">
                                   <!--descuento-->
-                                  <% if (producto.Descuento !=0) { %>
-                                      <span class="col-4 col-md-4 col-lg-5 desc-carrucel"><%- producto.Descuento %> %OFF</span>
-                                  <% } %>     
-                              </div>                    
-                             <p class="nombre-carru col-12 col-md-12 col-lg-12"> <%- producto.NombreDeProducto %></p>
-                          
-                             <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
-  
-                             <!--icono de Consolas-->
-                             
-                                 <!-- <i class="fab fa-xbox xbox_carrucel"></i>
-                                 <i class="fab fa-playstation playStation_carrucel"></i>                               -->
-                                 
-                                  <button   type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
-                              </div>
-              
-               
-              </div>
-              </div>
-          </div>
+                                    <% if (producto.Descuento !=0) { %>
+                                        <span class="col-4 col-md-4 col-lg-5 desc-carrucel"><%- producto.Descuento %> %OFF</span>
+                                    <% } %>     
+                                </div>                    
+                                <p class="nombre-carru col-12 col-md-12 col-lg-12"> <%- producto.NombreDeProducto %></p>
+                                <input name="NombreDeproducto" style="display: none" value="<%- producto.NombreDeProducto %>">
+                                <!--icono de Consolas-->
+                                <!-- <i class="fab fa-xbox xbox_carrucel"></i>
+                                <i class="fab fa-playstation playStation_carrucel"></i>                               -->
+                                <button   type="submit" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al Carrito</button>                                                                        
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         <% }) %>
-      </div>
+    </div>
 
 </div>
 
